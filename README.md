@@ -1,4 +1,4 @@
-# Planificador Semanal INBLOQUET 📅
+# Planificador Semanal INBLOQUET® 📅
 
 Esta es una aplicación web desarrollada con **Streamlit** para la planificación semanal de actividades en INBLOQUET. Permite a los usuarios registrar, editar, eliminar y exportar actividades relacionadas con escuelas, grupos, temas, participantes y notas adicionales.
 
@@ -73,3 +73,28 @@ El proyecto utiliza las siguientes librerías de Python:
    ```bash
    git clone https://github.com/tu-usuario/nombre-del-repositorio.git
    cd nombre-del-repositorio
+   
+---   
+2. **Instala dependencias**:
+```bash
+pip install pandas streamlit openpyxl
+```
+---   
+3. **Ejecuta la app**:
+```bash
+streamlit run planificador_final.py
+```
+---   
+4. **Accede a la aplicación**: Abre tu navegador y visita http://localhost:8501.
+---   
+## 📝 Ejemplo de Uso
+
+   1. Configura la semana y el año en la barra lateral.
+   2. Agrega actividades utilizando el formulario principal.
+   3. Visualiza las actividades en la vista semanal o en el detalle completo.
+   4. Edita o elimina actividades según sea necesario.
+   5. Exporta los datos a Excel o CSV para su uso externo.
+---  
+## 📄 Licencia
+
+Este proyecto está bajo la licencia de Inbloquet®. Para más detalles, consulta el archivo LICENSE.
