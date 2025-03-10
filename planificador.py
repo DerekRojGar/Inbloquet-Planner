@@ -5,6 +5,7 @@ import base64
 import os
 from openpyxl import Workbook
 from openpyxl.styles import Alignment, Border, Font, PatternFill, Side
+from openpyxl.worksheet.table import Table, TableStyleInfo
 
 # ==================================================
 # CONFIGURACIÓN INICIAL
@@ -82,6 +83,7 @@ def cargar_datos():
                 fecha = row['Fecha']
                 actividad = {
                     "Escuelas": row['Escuelas'],
+                    "Horario": row ['Horario'],
                     "Grupos": row['Grupos'],
                     "Tema": row['Tema'],
                     "Participantes": row['Participantes'],
@@ -182,8 +184,14 @@ with st.form(key='form_actividad'):
         
         grupos = st.multiselect(
             "Selecciona grupos:",
-            ["RINOS", "PRESCO", "PA", "PB", "LOBOS", "PANDAS/BUFALOS", "PUMAS/DELFINES"],
+            ["RINOS", "PRESCO", "PA", "PB", "LOBOS", "PANDAS/BUFALOS", "PUMAS/DELFINES", "S DUPLO", "S NORMAL", "M", "L"],
             key='grupos'
+        )
+        
+        # Campo para Horario
+        horario = st.text_input(
+            "Horario de la actividad:",
+            placeholder="Ej: 8:00 a.m. - 2:00 p.m."
         )
     
     with cols[1]:
@@ -208,6 +216,7 @@ with st.form(key='form_actividad'):
         if escuelas:
             nueva_actividad = {
                 "Escuelas": ", ".join(escuelas),
+                "Horario": horario if horario else "-",
                 "Grupos": ", ".join(grupos) if grupos else "-",
                 "Tema": tema if tema else "-",
                 "Participantes": alumnos if alumnos else "-",
@@ -250,60 +259,56 @@ for i, col in enumerate(cols_calendario):
         st.caption(dia_str)
         
         if actividades:
-            for act in actividades:
-                with st.expander("Ver detalles", expanded=False):
+            for idx, act in enumerate(actividades):
+                with st.expander(act['Escuelas'], expanded=False):
                     st.markdown(f"""
-                    - **Escuelas:** {act['Escuelas']}
+                    - **Horario:** {act['Horario']}
                     - **Grupos:** {act['Grupos']}
                     - **Tema:** {act['Tema']}
                     - **Participantes:** {act['Participantes']}
                     - **Notas:** {act['Notas']}
                     """)
+                    if st.button(f"Detalles", key=f"btn_expand_{dia_str}_{idx}"):
+                        st.session_state.selected_activity = {
+                            "semana_key": semana_key,
+                            "dia_str": dia_str,
+                            "index": idx,
+                            "datos": act
+                        }
+                        st.rerun()
         else:
             st.info("Sin actividades")
 
 # ==================================================
-# VISTA DETALLADA CON EDICIÓN
+# DETALLE DE ACTIVIDAD (DESPLAZAMIENTO AUTOMÁTICO)
 # ==================================================
-st.markdown("---")
-st.subheader("📋 Detalle Completo")
-
-for i, dia_str in enumerate(st.session_state.actividades[semana_key]["fechas"]):
-    actividades = st.session_state.actividades[semana_key]["actividades"][dia_str]
-    st.markdown(f"### {DIAS_ESPAÑOL[i]} - {dia_str}")
+if "selected_activity" in st.session_state:
+    selected = st.session_state.selected_activity
+    act = selected["datos"]
     
-    if actividades:
-        for j, act in enumerate(actividades, 1):
-            cols = st.columns([4, 1, 1])
-            with cols[0]:
-                st.markdown(f"""
-                <div class="actividad-card">
-                    <b>Actividad {j}</b><br>
-                    ▸ Escuelas: {act['Escuelas']}<br>
-                    ▸ Grupos: {act['Grupos']}<br>
-                    ▸ Tema: {act['Tema']}<br>
-                    ▸ Participantes: {act['Participantes']}<br>
-                    ▸ Notas: {act['Notas']}
-                </div>
-                """, unsafe_allow_html=True)
-            
-            with cols[1]:
-                if st.button(f"✏️ Editar", key=f"editar_{dia_str}_{j}"):
-                    st.session_state.editando = {
-                        "semana_key": semana_key,
-                        "dia_str": dia_str,
-                        "index": j-1,
-                        "datos": act
-                    }
-            
-            with cols[2]:
-                if st.button(f"🗑️ Eliminar", key=f"eliminar_{dia_str}_{j}"):
-                    del st.session_state.actividades[semana_key]["actividades"][dia_str][j-1]
-                    guardar_datos(st.session_state.actividades)
-                    st.success("✅ Actividad eliminada!")
-                    st.rerun()
-    else:
-        st.info("No hay actividades registradas")
+    st.subheader("📋 Detalle de Actividad")
+    st.markdown(f"""
+    - **Escuelas:** {act['Escuelas']}
+    - **Horario** {act['Horario']}
+    - **Grupos:** {act['Grupos']}
+    - **Tema:** {act['Tema']}
+    - **Participantes:** {act['Participantes']}
+    - **Notas:** {act['Notas']}
+    """)
+    
+    col1, col2, col3, col4, col5, col6, col7 = st.columns([1, 1, 1, 1, 1, 1, 1])
+    
+    with col1:
+        if st.button("✏️ Editar"):
+            st.session_state.editando = selected
+            st.rerun()
+    
+    with col2:
+        if st.button("🗑️ Eliminar"):
+            del st.session_state.actividades[selected["semana_key"]]["actividades"][selected["dia_str"]][selected["index"]]
+            st.success("✅ Actividad eliminada!")
+            del st.session_state.selected_activity
+            st.rerun()
 
 # ==================================================
 # MÓDULO DE EDICIÓN
@@ -324,7 +329,7 @@ if 'editando' in st.session_state:
             )
             grupos_edit = st.multiselect(
                 "Grupos",
-                ["RINOS", "PRESCO", "PA", "PB", "LOBOS", "PANDAS/BUFALOS", "PUMAS/DELFINES"],
+                ["RINOS", "PRESCO", "PA", "PB", "LOBOS", "PANDAS/BUFALOS", "PUMAS/DELFINES", "S DUPLO", "S NORMAL", "M", "L"],
                 default=edit["datos"]["Grupos"].split(", ") if edit["datos"]["Grupos"] != "-" else []
             )
         
@@ -343,6 +348,10 @@ if 'editando' in st.session_state:
                 "Notas",
                 value=edit["datos"]["Notas"] if edit["datos"]["Notas"] != "-" else ""
             )
+            horario_edit = st.text_input(
+                "Horario",
+                value=edit["datos"]["Horario"] if edit["datos"]["Horario"] != "-" else ""
+            )
         
         col1, col2 = st.columns([1, 5])
         with col1:
@@ -350,6 +359,7 @@ if 'editando' in st.session_state:
                 if escuelas_edit:
                     nueva_actividad = {
                         "Escuelas": ", ".join(escuelas_edit),
+                        "Horario": horario_edit.strip() if horario_edit else "-",
                         "Grupos": ", ".join(grupos_edit) if grupos_edit else "-",
                         "Tema": tema_edit.strip(),
                         "Participantes": alumnos_edit.strip(),
@@ -375,48 +385,47 @@ def crear_excel_con_diseño(df, filename):
     wb = Workbook()
     ws = wb.active
     ws.title = f"Semana {semana}"
-    
-    # Estilos
-    header_fill = PatternFill(start_color="003366", end_color="003366", fill_type="solid")
-    header_font = Font(color="FFFFFF", bold=True)
-    border = Border(left=Side(style='thin'), 
-                  right=Side(style='thin'), 
-                  top=Side(style='thin'), 
-                  bottom=Side(style='thin'))
-    
-    # Encabezados
-    columns = ["Semana", "Año", "Fecha", "Escuelas", "Grupos", "Tema", "Participantes", "Notas"]
-    for col_num, column_title in enumerate(columns, 1):
-        cell = ws.cell(row=1, column=col_num, value=column_title)
-        cell.fill = header_fill
-        cell.font = header_font
-        cell.border = border
-    
-    # Datos
-    for row_num, item in enumerate(df.to_dict('records'), 2):
-        ws.cell(row=row_num, column=1, value=item["Semana"]).border = border
-        ws.cell(row=row_num, column=2, value=item["Año"]).border = border
-        ws.cell(row=row_num, column=3, value=item["Fecha"]).border = border
-        ws.cell(row=row_num, column=4, value=item["Escuelas"]).border = border
-        ws.cell(row=row_num, column=5, value=item["Grupos"]).border = border
-        ws.cell(row=row_num, column=6, value=item["Tema"]).alignment = Alignment(wrap_text=True)
-        ws.cell(row=row_num, column=6).border = border
-        ws.cell(row=row_num, column=7, value=item["Participantes"]).border = border
-        ws.cell(row=row_num, column=8, value=item["Notas"]).border = border
-    
-    # Ajustar columnas
-    for col in ws.columns:
-        max_length = 0
-        column = col[0].column_letter
-        for cell in col:
-            try:
-                if len(str(cell.value)) > max_length:
-                    max_length = len(str(cell.value))
-            except:
-                pass
-        adjusted_width = (max_length + 2) * 1.2
-        ws.column_dimensions[column].width = adjusted_width
-    
+
+    # Insertar encabezados
+    columns = ["Semana", "Año", "Fecha", "Escuelas", "Grupos", "Horario", "Tema", "Participantes", "Notas"]
+    ws.append(columns)
+
+    # Insertar datos
+    for item in df.to_dict('records'):
+        ws.append([
+            item["Semana"], item["Año"], item["Fecha"], item["Escuelas"], item["Horario"], 
+            item["Grupos"], item["Tema"], item["Participantes"], item["Notas"]
+        ])
+
+    # Definir el rango de la tabla (desde A1 hasta la última celda con datos)
+    # tabla_ref = f"A1:H{ws.max_row}"
+    tabla_ref = f"A1:I{ws.max_row}"
+
+    # Crear tabla de Excel con diseño automático
+    tabla = Table(displayName="TablaActividades", ref=tabla_ref)
+
+    # Estilo de la tabla (Puedes elegir entre estilos integrados en Excel)
+    estilo_tabla = TableStyleInfo(
+        name="TableStyleMedium9",  # Puedes cambiar a otro estilo integrado
+        showFirstColumn=False,
+        showLastColumn=False,
+        showRowStripes=True,   # Líneas intercaladas
+        showColumnStripes=False
+    )
+    tabla.tableStyleInfo = estilo_tabla
+
+    # Agregar tabla a la hoja
+    ws.add_table(tabla)
+
+    # Ajuste automático del ancho de columnas según contenido
+    for columna in ws.columns:
+        max_length = max(len(str(celda.value)) for celda in columna) + 2
+        ws.column_dimensions[columna[0].column_letter].width = max_length
+
+    # Ajustar texto en la columna "Tema" para que se vea mejor
+    for celda in ws["F"]:
+        celda.alignment = Alignment(wrap_text=True)
+
     wb.save(filename)
 
 st.markdown("---")
