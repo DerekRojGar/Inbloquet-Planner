@@ -203,7 +203,7 @@ with st.form(key='form_actividad'):
         
         alumnos = st.text_input(
             "Nombres de asistentes:",
-            placeholder="Ej: María, Carlos, Luisa"
+            placeholder="Ej: Dereck, Alberto, Emma"
         )
         
         notas = st.text_input(
@@ -296,7 +296,7 @@ if "selected_activity" in st.session_state:
     - **Notas:** {act['Notas']}
     """)
     
-    col1, col2, col3, col4, col5, col6, col7 = st.columns([1, 1, 1, 1, 1, 1, 1])
+    col1, col2 = st.columns([1, 6])
     
     with col1:
         if st.button("✏️ Editar"):
