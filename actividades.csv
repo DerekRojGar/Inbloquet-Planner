@@ -1,24 +1,24 @@
-﻿Semana,Año,Fecha,Escuelas,Horario,Grupos,Tema,Participantes,Notas
-9,2025,24/02,AEC,-,-,Salud mental,-,-
-9,2025,24/02,INBLOQUET,-,-,-,"Remy, Dario, Emy",-
-9,2025,25/02,AB,-,PB,Oruga,-,Se necesita una estrategia de actividad con Max...
-9,2025,25/02,INBLOQUET,-,RINOS,Secuencia de pasos,-,-
-9,2025,26/02,RW,-,"PANDAS/BUFALOS, PUMAS/DELFINES",Secuencia de pasos,-,-
-10,2025,03/03,AEC,-,-,Super Kahoot,-,-
-10,2025,03/03,INBLOQUET,-,-,Programación con Bloques de palabras,"Emy, Regi",-
-10,2025,03/03,INBLOQUET,-,-,Sumo,Dario,-
-10,2025,04/03,RW,-,RINOS,Programacion con base lunar,-,Armar circuito
-10,2025,04/03,AB,-,PRESCO,Reciclaje de basura (ACTIVIDAD STEAM),,Coding Express
-10,2025,04/03,AB,-,PB,Estacion de policias (Actividad STEAM),-,"Coche, Alarma, Puerta Automaticas, Radar: SPYKE PRIME"
-10,2025,05/03,AB,-,PA,Motor de Aire (Actividad STEAM),,"FALTA: Estructura del motor de aire. MATERIALES: EV3 y/o MSM, Botellas, Mangueras, Jeringas"
-10,2025,05/03,RW,-,"PANDAS/BUFALOS, PUMAS/DELFINES",Programación Base Lunar,-,"Tambien para 1ro y 2do, y su actividad de conexión."
-10,2025,05/03,INBLOQUET,-,-,Reciclaje,Daniel,-
-10,2025,05/03,INBLOQUET,-,-,"Introducción al 1D, 2D y 3D",Romi,"Plumas 3D, Hojas, Magnetic"
-10,2025,06/03,RW,-,LOBOS,Programación,-,-
-10,2025,06/03,"INBLOQUET, RW",-,S DUPLO,Reciclaje... (por definir),,
-10,2025,06/03,"INBLOQUET, RW",-,S NORMAL,Vehiculos. Tren (por definir),,
-10,2025,06/03,"INBLOQUET, RW",-,M,PLUMAS 3D,,
-10,2025,06/03,"INBLOQUET, RW",8:00 a.m. - 9:00 a.m.,L,Introducción a Python,nan,
-10,2025,07/03,INBLOQUET,-,-,BASICO 1,Hermanos,-
-10,2025,07/03,INBLOQUET,-,-,"Variables, Condicionales",Dario,-
-10,2025,08/03,INBLOQUET,-,-,Nanotrones,Iker,-
+﻿Semana,Año,Fecha,Escuelas,Horario,Grupos,Tema,Maestro,Alumnos,Notas
+9,2025,24/02,AEC,-,-,Salud mental,-,-,-
+9,2025,24/02,INBLOQUET,-,-,-,-,"Remy, Dario, Emy",-
+9,2025,25/02,AB,-,PB,Oruga,-,-,Se necesita una estrategia de actividad con Max...
+9,2025,25/02,INBLOQUET,-,RINOS,Secuencia de pasos,-,-,-
+9,2025,26/02,RW,-,"PANDAS/BUFALOS, PUMAS/DELFINES",Secuencia de pasos,-,-,-
+10,2025,03/03,AEC,-,-,Super Kahoot,-,-,-
+10,2025,03/03,INBLOQUET,-,-,Programación con Bloques de palabras,-,"Emy, Regi",-
+10,2025,03/03,INBLOQUET,-,-,Sumo,-,Dario,-
+10,2025,04/03,RW,-,RINOS,Programacion con base lunar,-,-,Armar circuito
+10,2025,04/03,AB,-,PRESCO,Reciclaje de basura (ACTIVIDAD STEAM),-,-,Coding Express
+10,2025,04/03,AB,-,PB,Estacion de policias (Actividad STEAM),-,-,"Coche, Alarma, Puerta Automaticas, Radar: SPYKE PRIME"
+10,2025,05/03,AB,-,PA,Motor de Aire (Actividad STEAM),-,-,"FALTA: Estructura del motor de aire. MATERIALES: EV3 y/o MSM, Botellas, Mangueras, Jeringas"
+10,2025,05/03,RW,-,"PANDAS/BUFALOS, PUMAS/DELFINES",Programación Base Lunar,-,-,"Tambien para 1ro y 2do, y su actividad de conexión."
+10,2025,05/03,INBLOQUET,-,-,Reciclaje,-,Daniel,-
+10,2025,05/03,INBLOQUET,-,-,"Introducción al 1D, 2D y 3D",-,Romi,"Plumas 3D, Hojas, Magnetic"
+10,2025,06/03,RW,-,LOBOS,Programación,-,-,-
+10,2025,06/03,"INBLOQUET, RW",-,S DUPLO,Reciclaje... (por definir),-,-,-
+10,2025,06/03,"INBLOQUET, RW",-,S NORMAL,Vehiculos. Tren (por definir),-,-,-
+10,2025,06/03,"INBLOQUET, RW",-,M,PLUMAS 3D,-,-,-
+10,2025,06/03,"INBLOQUET, RW",8:00 a.m. - 9:00 a.m.,L,Introducción a Python,-,-,-
+10,2025,07/03,INBLOQUET,-,-,BASICO 1,-,Hermanos,-
+10,2025,07/03,INBLOQUET,-,-,"Variables, Condicionales",-,Dario,-
+10,2025,08/03,INBLOQUET,-,-,Nanotrones,-,Iker,-

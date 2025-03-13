@@ -6,6 +6,9 @@ import os
 from openpyxl import Workbook
 from openpyxl.styles import Alignment, Border, Font, PatternFill, Side
 from openpyxl.worksheet.table import Table, TableStyleInfo
+from openpyxl.drawing.image import Image
+from openpyxl.utils import get_column_letter
+from openpyxl.cell.cell import MergedCell
 
 # ==================================================
 # CONFIGURACIÓN INICIAL
@@ -86,7 +89,8 @@ def cargar_datos():
                     "Horario": row ['Horario'],
                     "Grupos": row['Grupos'],
                     "Tema": row['Tema'],
-                    "Participantes": row['Participantes'],
+                    "Maestro": row ['Maestro'],
+                    "Alumnos": row['Alumnos'],
                     "Notas": row['Notas']
                 }
                 if semana_key not in actividades:
@@ -171,11 +175,10 @@ if 'frase_global' in st.session_state and st.session_state.frase_global:
 with st.form(key='form_actividad'):
     st.subheader("📝 Nueva Actividad")
     
-    # Selección de día
-    dia_seleccionado = st.selectbox("Selecciona el día:", DIAS_ESPAÑOL)
-    
     cols = st.columns(2)
     with cols[0]:
+        dia_seleccionado = st.selectbox("Selecciona el día:", DIAS_ESPAÑOL)
+        
         escuelas = st.multiselect(
             "Selecciona escuelas:",
             ["INBLOQUET", "AEC", "RW", "AB"],
@@ -201,8 +204,13 @@ with st.form(key='form_actividad'):
             height=100
         )
         
+        maestro = st.text_input(
+            "Maestro",
+            placeholder="Ej: Caleb, Angie, Emma"
+        )
+        
         alumnos = st.text_input(
-            "Nombres de asistentes:",
+            "Alumnos:",
             placeholder="Ej: Dereck, Alberto, Emma"
         )
         
@@ -219,7 +227,8 @@ with st.form(key='form_actividad'):
                 "Horario": horario if horario else "-",
                 "Grupos": ", ".join(grupos) if grupos else "-",
                 "Tema": tema if tema else "-",
-                "Participantes": alumnos if alumnos else "-",
+                "Maestro": maestro if maestro else "-",
+                "Alumnos": alumnos if alumnos else "-",
                 "Notas": notas if notas else "-"
             }
             semana_key = f"{año}-S{semana}"
@@ -265,7 +274,8 @@ for i, col in enumerate(cols_calendario):
                     - **Horario:** {act['Horario']}
                     - **Grupos:** {act['Grupos']}
                     - **Tema:** {act['Tema']}
-                    - **Participantes:** {act['Participantes']}
+                    - **Maestro** {act['Maestro']}
+                    - **Alumnos:** {act['Alumnos']}
                     - **Notas:** {act['Notas']}
                     """)
                     if st.button(f"Detalles", key=f"btn_expand_{dia_str}_{idx}"):
@@ -292,7 +302,8 @@ if "selected_activity" in st.session_state:
     - **Horario** {act['Horario']}
     - **Grupos:** {act['Grupos']}
     - **Tema:** {act['Tema']}
-    - **Participantes:** {act['Participantes']}
+    - **Maestro** {act['Maestro']}
+    - **Alumnos:** {act['Alumnos']}
     - **Notas:** {act['Notas']}
     """)
     
@@ -332,6 +343,11 @@ if 'editando' in st.session_state:
                 ["RINOS", "PRESCO", "PA", "PB", "LOBOS", "PANDAS/BUFALOS", "PUMAS/DELFINES", "S DUPLO", "S NORMAL", "M", "L"],
                 default=edit["datos"]["Grupos"].split(", ") if edit["datos"]["Grupos"] != "-" else []
             )
+            
+            maestro_edit = st.text_input(
+                "Maestro",
+                value=edit["datos"]["Maestro"] if edit["datos"]["Maestro"] != "-" else ""
+            )
         
         with cols[1]:
             tema_edit = st.text_area(
@@ -341,8 +357,8 @@ if 'editando' in st.session_state:
         
         with cols[2]:
             alumnos_edit = st.text_input(
-                "Participantes",
-                value=edit["datos"]["Participantes"] if edit["datos"]["Participantes"] != "-" else ""
+                "Alumnos",
+                value=edit["datos"]["Alumnos"] if edit["datos"]["Alumnos"] != "-" else ""
             )
             notas_edit = st.text_input(
                 "Notas",
@@ -362,7 +378,8 @@ if 'editando' in st.session_state:
                         "Horario": horario_edit.strip() if horario_edit else "-",
                         "Grupos": ", ".join(grupos_edit) if grupos_edit else "-",
                         "Tema": tema_edit.strip(),
-                        "Participantes": alumnos_edit.strip(),
+                        "Maestro" : maestro_edit.strip() if horario_edit else "-",
+                        "Alumnos": alumnos_edit.strip(),
                         "Notas": notas_edit.strip()
                     }
                     st.session_state.actividades[edit["semana_key"]]["actividades"][edit["dia_str"]][edit["index"]] = nueva_actividad
@@ -381,52 +398,119 @@ if 'editando' in st.session_state:
 # ==================================================
 # EXPORTACIÓN DE DATOS
 # ==================================================
-def crear_excel_con_diseño(df, filename):
+
+def crear_excel_con_diseño(df, filename, semana, año, img_width=120, img_height=120):
     wb = Workbook()
     ws = wb.active
     ws.title = f"Semana {semana}"
+    
+    ws.insert_rows(1, 3)  # Insertamos 3 filas para el encabezado
 
-    # Insertar encabezados
-    columns = ["Semana", "Año", "Fecha", "Escuelas", "Grupos", "Horario", "Tema", "Participantes", "Notas"]
+    # === 1) COMBINAR CELDAS ===
+    ws.merge_cells("A1:C2")  # Logo de la empresa
+    ws.merge_cells("D1:I1")  # Información de la semana
+    ws.merge_cells("D2:I2")
+    ws.merge_cells("D3:I3")
+    ws.merge_cells("K1:K3")
+    ws.merge_cells("A3:C3")
+    ws.merge_cells("A4:K4")
+
+    # === 2) INSERTAR LOGO Y AJUSTAR TAMAÑO ===
+    try:
+        img = Image("logo.png")  # Cargar imagen del archivo
+        img.width = 266  # Tamaño personalizado
+        img.height = 165
+
+        # Ajustar tamaño de las celdas al tamaño de la imagen
+        ws.row_dimensions[1].height = img.height / 3  
+        ws.row_dimensions[2].height = img.height / 3  
+
+        col_width = img.width / 7  # Ajuste proporcional
+        for col in range(1, 4):  # Columnas A-C (1 a 3)
+            ws.column_dimensions[get_column_letter(col)].width = col_width
+
+        # Insertar la imagen en la celda combinada
+        ws.add_image(img, "A1")
+    except FileNotFoundError:
+        ws["A1"] = "LOGO NO ENCONTRADO"
+        ws["A1"].font = Font(bold=True, size=14)
+        ws["A1"].alignment = Alignment(horizontal="center", vertical="center")
+    
+    try:
+        img = Image("juguete.png")  # Cargar imagen del archivo
+        img.width = 578  # Tamaño personalizado
+        img.height = 165
+
+        # Ajustar tamaño de las celdas al tamaño de la imagen
+        ws.row_dimensions[1].height = img.height / 3  
+        ws.row_dimensions[2].height = img.height / 3  
+
+        col_width = img.width / 7  # Ajuste proporcional
+        for col in range(1, 4):  # 
+            ws.column_dimensions[get_column_letter(col)].width = col_width
+
+        # Insertar la imagen en la celda combinada
+        ws.add_image(img, "J1")
+    except FileNotFoundError:
+        ws["K1"] = "IMAGEN NO ENCONTRADA"
+        ws["K1"].font = Font(bold=True, size=14)
+        ws["K1"].alignment = Alignment(horizontal="center", vertical="center")
+    
+    ws["D1"] = "Programación de Actividades Semanal"
+    ws["D1"].font = Font(bold=True, size=20)
+    ws["D1"].alignment = Alignment(horizontal="center", vertical="center")
+
+    # === 3) INSERTAR TEXTO DE SEMANA Y AÑO ===
+    ws["D2"] = f"SEMANA {semana} - AÑO {año}"
+    ws["D2"].font = Font(bold=True, size=16)
+    ws["D2"].alignment = Alignment(horizontal="center", vertical="center")
+    
+    ws["D3"] = "¡Intenta, Explora y Conquista!"
+    ws["D3"].font = Font(bold=True, size=14)
+    ws["D3"].alignment = Alignment(horizontal="center", vertical="center")
+
+    # === 4) INSERTAR ENCABEZADOS ===
+    columns = ["Semana", "Año", "Fecha", "Día", "Escuelas", "Horario", "Grupos", "Tema", "Maestro", "Alumnos", "Notas"]
     ws.append(columns)
 
-    # Insertar datos
+    # === 5) INSERTAR DATOS ===
     for item in df.to_dict('records'):
         ws.append([
-            item["Semana"], item["Año"], item["Fecha"], item["Escuelas"], item["Horario"], 
-            item["Grupos"], item["Tema"], item["Participantes"], item["Notas"]
+            item["Semana"], item["Año"], item["Fecha"], item["Día"], 
+            item["Escuelas"], item["Horario"], item["Grupos"], 
+            item["Tema"], item["Maestro"], item["Alumnos"], item["Notas"]
         ])
 
-    # Definir el rango de la tabla (desde A1 hasta la última celda con datos)
-    # tabla_ref = f"A1:H{ws.max_row}"
-    tabla_ref = f"A1:I{ws.max_row}"
-
-    # Crear tabla de Excel con diseño automático
+    # === 6) FORMATEAR TABLA ===
+    tabla_ref = f"A5:K{ws.max_row}"  # Tabla desde la fila 5 hasta la última con datos
     tabla = Table(displayName="TablaActividades", ref=tabla_ref)
 
-    # Estilo de la tabla (Puedes elegir entre estilos integrados en Excel)
     estilo_tabla = TableStyleInfo(
-        name="TableStyleMedium9",  # Puedes cambiar a otro estilo integrado
+        name="TableStyleMedium9",
         showFirstColumn=False,
         showLastColumn=False,
-        showRowStripes=True,   # Líneas intercaladas
+        showRowStripes=True,  
         showColumnStripes=False
     )
     tabla.tableStyleInfo = estilo_tabla
-
-    # Agregar tabla a la hoja
     ws.add_table(tabla)
 
-    # Ajuste automático del ancho de columnas según contenido
-    for columna in ws.columns:
-        max_length = max(len(str(celda.value)) for celda in columna) + 2
-        ws.column_dimensions[columna[0].column_letter].width = max_length
+    # === 7) AJUSTE AUTOMÁTICO DE COLUMNAS (EVITANDO CELDAS COMBINADAS) ===
+    for col in ws.iter_cols(min_row=5, max_row=ws.max_row, min_col=1, max_col=ws.max_column):
+        col_letter = col[0].column_letter  # Obtener la letra de la columna
+        max_length = max((len(str(celda.value)) if celda.value else 0) for celda in col if not isinstance(celda, MergedCell)) + 2
+        ws.column_dimensions[col_letter].width = max_length
 
-    # Ajustar texto en la columna "Tema" para que se vea mejor
-    for celda in ws["F"]:
+    # === 8) AJUSTAR TEXTO EN LA COLUMNA "TEMA" ===
+    for celda in ws["H"]:  # Columna "Tema"
         celda.alignment = Alignment(wrap_text=True)
 
+    # === 9) GUARDAR ARCHIVO EXCEL ===
     wb.save(filename)
+
+# ==============================
+# SECCIÓN DE EXPORTACIÓN
+# ==============================
 
 st.markdown("---")
 if st.button("📤 Exportar a Excel y CSV"):
@@ -434,11 +518,13 @@ if st.button("📤 Exportar a Excel y CSV"):
     semana_data = st.session_state.actividades[semana_key]
     
     for fecha in semana_data["fechas"]:
+        dia_nombre = DIAS_ESPAÑOL[semana_data["fechas"].index(fecha)]
         for act in semana_data["actividades"][fecha]:
             registro = {
                 "Semana": semana,
                 "Año": año,
                 "Fecha": fecha,
+                "Día": dia_nombre,
                 **act
             }
             all_data.append(registro)
@@ -450,7 +536,7 @@ if st.button("📤 Exportar a Excel y CSV"):
     csv_file = f"Planificacion_S{semana}_{año}.csv"
     
     # Guardar
-    crear_excel_con_diseño(df, excel_file)
+    crear_excel_con_diseño(df, excel_file, semana, año, img_width=100, img_height=100)  # Aquí puedes cambiar el tamaño
     df.to_csv(csv_file, index=False, encoding='utf-8-sig')
     
     # Descargas
