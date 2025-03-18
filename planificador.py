@@ -72,6 +72,22 @@ def generar_semana(año, semana):
 
 DIAS_ESPAÑOL = ["Lunes", "Martes", "Miércoles", "Jueves", "Viernes", "Sábado"]
 
+ESCUELAS = ["INBLOQUET", "AEC", "RW Core", "RW Plus", "AB"]
+
+GRUPOS_POR_ESCUELA = {
+    "INBLOQUET": ["Dario", "Emi/Regi", "Roro Mine", "Santi", "Dani", "Romi", "Iker"],
+    "AEC": ["Taller 1", "Taller 2"],
+    "RW Core": ["LOBOS", "RINOS", "PANDAS/BUFALOS", "PUMAS/DELFINES"],
+    "RW Plus": ["S DUPLO", "S NORMAL", "M", "L"],
+    "AB": ["PRESCO", "PA", "PB"]
+}
+
+if "escuelas_seleccionadas" not in st.session_state:
+    st.session_state.escuelas_seleccionadas = []
+if "grupos_disponibles" not in st.session_state:
+    st.session_state.grupos_disponibles = []
+if "buscar_grupo" not in st.session_state:
+    st.session_state.buscar_grupos = False
 # ==================================================
 # CARGAR DATOS DESDE CSV
 # ==================================================
@@ -200,29 +216,43 @@ for i, col in enumerate(cols_calendario):
     with col:
         dia_str = st.session_state.actividades[semana_key]["fechas"][i]
         actividades = st.session_state.actividades[semana_key]["actividades"][dia_str]
-        
+
         st.markdown(f"**{DIAS_ESPAÑOL[i]}**")
         st.caption(dia_str)
-        
+
         if actividades:
             for idx, act in enumerate(actividades):
-                with st.expander(act['Escuelas'], expanded=st.session_state.expanded_state):
-                    st.markdown(f"""
-                    - **Horario:** {act['Horario']}
-                    - **Alumnos:** {act['Alumnos']}
-                    - **Grupos:** {act['Grupos']}
-                    - **Maestro:** {act['Maestro']}
-                    - **Tema:** {act['Tema']}
-                    - **Encargado:** {act['Encargado']}
-                    """)
-                    if st.button(f"Detalles", key=f"btn_expand_{dia_str}_{idx}"):
-                        st.session_state.selected_activity = {
-                            "semana_key": semana_key,
-                            "dia_str": dia_str,
-                            "index": idx,
-                            "datos": act
-                        }
-                        st.rerun()
+                # Separar escuelas y grupos
+                escuelas_lista = act["Escuelas"].split(", ")
+                grupos_lista = act["Grupos"].split(", ") if act["Grupos"] != "-" else ["Sin grupo"]
+
+                for escuela, grupo in zip(escuelas_lista, grupos_lista):
+                    # Formatear con colores para que solo aparezca en la parte superior
+                    escuela_grupo_html = f"""
+                    <span style="font-weight:bold; color:#003366;">{escuela}</span>: 
+                    <span style="color:#FF5733; font-weight:bold;">{grupo}</span>
+                    """
+
+                    # Mostrar solo en el título del expander
+                    with st.expander(label=f"{escuela}: {grupo}", expanded=st.session_state.expanded_state):
+                        st.markdown(f"""
+                        - **Horario:** {act['Horario']}
+                        - **Alumnos:** {act['Alumnos']}
+                        - **Grupos:** {act['Grupos']} 
+                        - **Maestro:** {act['Maestro']}
+                        - **Tema:** {act['Tema']}
+                        - **Encargado:** {act['Encargado']}
+                        """)
+
+                        # Evitar claves duplicadas agregando escuela y grupo
+                        if st.button(f"Detalles", key=f"btn_expand_{dia_str}_{idx}_{escuela}_{grupo}"):
+                            st.session_state.selected_activity = {
+                                "semana_key": semana_key,
+                                "dia_str": dia_str,
+                                "index": idx,
+                                "datos": act
+                            }
+                            st.rerun()
         else:
             st.info("Sin actividades")
 
@@ -262,9 +292,24 @@ if "selected_activity" in st.session_state:
     
     with col2:
         if st.button("🗑️ Eliminar"):
-            del st.session_state.actividades[selected["semana_key"]]["actividades"][selected["dia_str"]][selected["index"]]
-            st.success("✅ Actividad eliminada!")
-            del st.session_state.selected_activity
+            semana_key = selected["semana_key"]
+            dia_str = selected["dia_str"]
+            index = selected["index"]
+
+            # Eliminar la actividad de la estructura de datos
+            del st.session_state.actividades[semana_key]["actividades"][dia_str][index]
+
+            # ⚠️ Aquí aseguramos que el día NO SE ELIMINE aunque quede vacío
+            # Simplemente dejamos la lista vacía para que se muestre el día sin actividades
+            if not st.session_state.actividades[semana_key]["actividades"][dia_str]:
+                st.session_state.actividades[semana_key]["actividades"][dia_str] = []
+
+            # Guardar cambios en el archivo CSV eliminando la actividad
+            guardar_datos(st.session_state.actividades)
+
+            # Mensaje de éxito y recarga de la página
+            st.success("✅ Actividad eliminada correctamente.")
+            st.session_state.pop("selected_activity", None)  # Evitar acceso a actividad eliminada
             st.rerun()
 
 # ==================================================
@@ -273,13 +318,13 @@ if "selected_activity" in st.session_state:
 if 'editando' in st.session_state:
     st.markdown("---")
     st.subheader("✏️ Editor de Actividad")
-    
+
     edit = st.session_state.editando
+
     with st.form(key='form_edicion'):
-        cols = st.columns([2, 3, 2])
-        
+        cols = st.columns(2)
+
         with cols[0]:
-            
             horario_edit = st.text_input(
                 "Horario",
                 value=edit["datos"]["Horario"] if edit["datos"]["Horario"] != "-" else ""
@@ -289,21 +334,47 @@ if 'editando' in st.session_state:
                 "Alumnos",
                 value=edit["datos"]["Alumnos"] if edit["datos"]["Alumnos"] != "-" else ""
             )
-            
+
+            # MultiSelect de Escuelas con validación de opciones
+            escuelas_disponibles = set(ESCUELAS)
+            escuelas_existentes = [e for e in edit["datos"]["Escuelas"].split(", ") if e in escuelas_disponibles]
+
             escuelas_edit = st.multiselect(
                 "Escuelas",
-                ["INBLOQUET", "AEC", "RW", "AB"],
-                default=edit["datos"]["Escuelas"].split(", ")
+                list(ESCUELAS),
+                default=escuelas_existentes
             )
+
+            # Botón "Buscar Grupos" dentro del formulario
+            if st.form_submit_button("🔍 Buscar grupos"):
+                if escuelas_edit != st.session_state.get("escuelas_editando", []):
+                    st.session_state.grupos_edit_disponibles = []
+                    st.session_state.escuelas_editando = escuelas_edit
+
+                # Filtra los grupos según las escuelas seleccionadas
+                grupos_disponibles = set()
+                for escuela in escuelas_edit:
+                    grupos_disponibles.update(GRUPOS_POR_ESCUELA.get(escuela, []))
+
+                # Guarda los grupos en session_state para persistencia
+                st.session_state.grupos_edit_disponibles = sorted(grupos_disponibles)
+
+                # Si no hay grupos, mostrar advertencia
+                if not st.session_state.grupos_edit_disponibles:
+                    st.warning("⚠️ No hay grupos disponibles para las escuelas seleccionadas.")
+
+                st.rerun()  # Recarga para actualizar la lista de grupos
+
+            # MultiSelect de Grupos basado en los datos guardados
+            grupos_existentes = [g for g in edit["datos"]["Grupos"].split(", ") if g in st.session_state.get("grupos_edit_disponibles", [])]
 
             grupos_edit = st.multiselect(
                 "Grupos",
-                ["RINOS", "PRESCO", "PA", "PB", "LOBOS", "PANDAS/BUFALOS", "PUMAS/DELFINES", "S DUPLO", "S NORMAL", "M", "L"],
-                default=edit["datos"]["Grupos"].split(", ") if edit["datos"]["Grupos"] != "-" else []
+                st.session_state.get("grupos_edit_disponibles", []),
+                default=grupos_existentes
             )
 
         with cols[1]:
-
             maestro_edit = st.text_input(
                 "Maestro",
                 value=edit["datos"]["Maestro"] if edit["datos"]["Maestro"] != "-" else ""
@@ -313,19 +384,18 @@ if 'editando' in st.session_state:
                 "Tema",
                 value=edit["datos"]["Tema"] if edit["datos"]["Tema"] != "-" else ""
             )
-        
-        with cols[2]:
-            
+
             encargado_edit = st.text_input(
                 "Encargado",
                 value=edit["datos"]["Encargado"] if edit["datos"]["Encargado"] != "-" else ""
             )
-            
+
             notas_edit = st.text_area(
                 "Notas",
                 value=edit["datos"]["Notas"] if edit["datos"]["Notas"] != "-" else ""
             )
-        
+
+        # Botones dentro del formulario
         col1, col2 = st.columns([1, 5])
         with col1:
             if st.form_submit_button("💾 Guardar Cambios"):
@@ -335,7 +405,7 @@ if 'editando' in st.session_state:
                         "Alumnos": alumnos_edit.strip(),
                         "Escuelas": ", ".join(escuelas_edit),
                         "Grupos": ", ".join(grupos_edit) if grupos_edit else "-",
-                        "Maestro" : maestro_edit.strip() if maestro_edit else "-",
+                        "Maestro": maestro_edit.strip() if maestro_edit else "-",
                         "Tema": tema_edit.strip(),
                         "Encargado": encargado_edit.strip() if encargado_edit else "-",
                         "Notas": notas_edit.strip()
@@ -347,20 +417,21 @@ if 'editando' in st.session_state:
                     st.rerun()
                 else:
                     st.error("❌ Debes seleccionar al menos una escuela")
-        
+
         with col2:
             if st.form_submit_button("❌ Cancelar Edición"):
                 del st.session_state.editando
                 st.rerun()
 
 # ==================================================
-# FORMULARIO DE ACTIVIDADES
+# FORMULARIO DE NUEVA ACTIVIDAD
 # ==================================================
 st.markdown("---")
-with st.form(key='form_actividad'):
-    st.subheader("📝 Nueva Actividad")
-    
+st.subheader("📝 Nueva Actividad")
+
+with st.form(key='form_nueva_actividad'):
     cols = st.columns(2)
+
     with cols[0]:
         dia_seleccionado = st.selectbox("Selecciona el día:", DIAS_ESPAÑOL)
 
@@ -374,20 +445,41 @@ with st.form(key='form_actividad'):
             placeholder="Ej: Dereck, Alberto, Emma"
         )
 
+        # MultiSelect de Escuelas con búsqueda dinámica
         escuelas = st.multiselect(
             "Selecciona escuelas:",
-            ["INBLOQUET", "AEC", "RW", "AB"],
+            list(ESCUELAS),
             key='escuelas'
         )
-        
+
+        # Botón para buscar grupos según la selección de escuelas
+        if st.form_submit_button("🔍 Buscar grupos"):
+            if escuelas != st.session_state.get("escuelas_seleccionadas", []):
+                st.session_state.grupos_disponibles = []
+                st.session_state.escuelas_seleccionadas = escuelas
+
+            # Filtra los grupos según las escuelas seleccionadas
+            grupos_disponibles = set()
+            for escuela in escuelas:
+                grupos_disponibles.update(GRUPOS_POR_ESCUELA.get(escuela, []))
+
+            # Guarda los grupos en session_state para persistencia
+            st.session_state.grupos_disponibles = sorted(grupos_disponibles)
+
+            # Si no hay grupos, mostrar advertencia
+            if not st.session_state.grupos_disponibles:
+                st.warning("⚠️ No hay grupos disponibles para las escuelas seleccionadas.")
+
+            st.rerun()  # Recarga para actualizar la lista de grupos
+
+        # MultiSelect de Grupos basado en la búsqueda
         grupos = st.multiselect(
             "Selecciona grupos:",
-            ["RINOS", "PRESCO", "PA", "PB", "LOBOS", "PANDAS/BUFALOS", "PUMAS/DELFINES", "S DUPLO", "S NORMAL", "M", "L"],
+            st.session_state.get("grupos_disponibles", []),
             key='grupos'
         )
-    
-    with cols[1]:
 
+    with cols[1]:
         encargado = st.text_input(
             "Encargado",
             placeholder="Ej: Ivan, Gus, Caleb"
@@ -398,18 +490,18 @@ with st.form(key='form_actividad'):
             placeholder="Ej: Taller de programación con robots",
             height=100
         )
-        
+
         maestro = st.text_input(
             "Maestro",
             placeholder="Ej: Joss, Angie, Kevin"
         )
-        
+
         notas = st.text_area(
             "Información adicional:",
             placeholder="Ej: Materiales especiales requeridos"
         )
-    
-    # Botón de guardado
+
+    # Botón de envío dentro del formulario
     if st.form_submit_button("💾 Guardar Actividad"):
         if escuelas:
             nueva_actividad = {
@@ -584,7 +676,7 @@ if st.button("📤 Exportar a Excel y CSV"):
     df.to_csv(csv_file, index=False, encoding='utf-8-sig')
     
     # Descargas
-    st.markdown("### 📥 Descargas")
+    st.markdown("### 📥 Descargas") 
     st.markdown(f'<a href="data:application/vnd.openxmlformats-officedocument.spreadsheetml.sheet;base64,{base64.b64encode(open(excel_file, "rb").read()).decode()}" download="{excel_file}">Descargar Excel</a>', unsafe_allow_html=True)
     st.markdown(f'<a href="data:text/csv;base64,{base64.b64encode(open(csv_file, "rb").read()).decode()}" download="{csv_file}">Descargar CSV</a>', unsafe_allow_html=True)
     st.success("✅ Exportación completada")
@@ -595,4 +687,4 @@ if st.button("📤 Exportar a Excel y CSV"):
 
 
 # Ejecutar con:
-# streamlit run planificador.py
+# python -m streamlit run planificador.py
