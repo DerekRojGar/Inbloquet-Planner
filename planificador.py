@@ -75,7 +75,7 @@ DIAS_ESPAÑOL = ["Lunes", "Martes", "Miércoles", "Jueves", "Viernes", "Sábado"
 ESCUELAS = ["INBLOQUET", "AEC", "RW Core", "RW Plus", "AB"]
 
 GRUPOS_POR_ESCUELA = {
-    "INBLOQUET": ["Dario", "Emi/Regi", "Roro Mine", "Santi", "Dani", "Romi", "Iker"],
+    "INBLOQUET": ["Dario", "Emi/Regi", "Roro Mine", "Santi", "Dani", "Romi", "Iker", "Hermanos"],
     "AEC": ["Taller 1", "Taller 2"],
     "RW Core": ["LOBOS", "RINOS", "PANDAS/BUFALOS", "PUMAS/DELFINES"],
     "RW Plus": ["S DUPLO", "S NORMAL", "M", "L"],
