@@ -1,19 +1,19 @@
-﻿Semana,Año,Fecha,Día,Escuelas,Horario,Grupos,Tema,Encargado,Maestro,Alumnos,Notas
-14,2025,Lunes 31 de Marzo del 2025,Lunes,AEC,9:00,"Taller 1, Taller 2",,Ivan,Ivan,,
-14,2025,Lunes 31 de Marzo del 2025,Lunes,INBLOQUET,3:00 p.m.,Emi/Regi,Programación con python,Caleb,Caleb,,
-14,2025,Lunes 31 de Marzo del 2025,Lunes,INBLOQUET,3:30 p.m.,Dario,Pluma 3D,Gustavo,Gustavo,,
-14,2025,Martes 1 de Abril del 2025,Martes,RW Core,1:30 - 2:25 p.m.,RINOS,,Todos,Todos,,
-14,2025,Martes 1 de Abril del 2025,Martes,AB,1:30 p.m.,PRESCO,"Temática: Animales, Tema: Cadena alimenticia",Caleb,Caleb,,
-14,2025,Martes 1 de Abril del 2025,Martes,AB,2:30 p.m.,PB,Prototipo con SET WEDO,Caleb,Caleb,,
-14,2025,Miércoles 2 de Abril del 2025,Miércoles,AB,2:30 p.m.,PA,Prototipo con SET SPIKE,Caleb,Caleb,,
-14,2025,Miércoles 2 de Abril del 2025,Miércoles,RW Core,12:10 - 1:05 p.m.,PANDAS/BUFALOS,,Todos,Todos,,
-14,2025,Miércoles 2 de Abril del 2025,Miércoles,RW Core,1:30 - 2:25 p.m.,PUMAS/DELFINES,,Todos,Todos,,
-14,2025,Miércoles 2 de Abril del 2025,Miércoles,INBLOQUET,3:00 p.m,Dani,"Temática: Animales, Tema: Cadena alimenticia",Caleb,Caleb,,
-14,2025,Miércoles 2 de Abril del 2025,Miércoles,INBLOQUET,4:30 p.m.,Romi,Piraña con SPIKE,Gustavo,Gustavo,,
-14,2025,Jueves 3 de Abril del 2025,Jueves,RW Core,10:00 - 10:53 a.m.,LOBOS,,Todos,Todos,,
-14,2025,Jueves 3 de Abril del 2025,Jueves,RW Plus,2:30 p.m.,S DUPLO,Pendiente,Caleb,Caleb,,
-14,2025,Jueves 3 de Abril del 2025,Jueves,RW Plus,2:30 p.m.,S NORMAL,Barredora,Caleb,Caleb,,
-14,2025,Jueves 3 de Abril del 2025,Jueves,RW Plus,2:30 p.m.,M,,Ivan,Ivan,,
-14,2025,Jueves 3 de Abril del 2025,Jueves,RW Plus,2:30 p.m.,L,Bola demoledora con EV3,Gustavo,Gustavo,,
-14,2025,Viernes 4 de Abril del 2025,Viernes,INBLOQUET,3:30 p.m.,Dario,Plumas 3D,Gustavo,Gustavo,-,-
-14,2025,Viernes 4 de Abril del 2025,Viernes,INBLOQUET,12:10 p.m.,Hermanos,-,Ivan,Ivan,-,-
+﻿Semana,Año,Fecha,Día,Horario,Alumnos,Escuelas,Grupos,Maestro,Tema,Encargado,Notas
+14,2025,Lunes 31 de Marzo del 2025,Lunes,9:00,,AEC,"Taller 1, Taller 2",Ivan,,Ivan,
+14,2025,Lunes 31 de Marzo del 2025,Lunes,3:00 p.m.,,INBLOQUET,Emi/Regi,Caleb,Programación con python,Caleb,
+14,2025,Lunes 31 de Marzo del 2025,Lunes,3:30 p.m.,,INBLOQUET,Dario,Gustavo,Pluma 3D,Gustavo,
+14,2025,Martes 1 de Abril del 2025,Martes,1:30 - 2:25 p.m.,,RW Core,RINOS,Todos,,Todos,
+14,2025,Martes 1 de Abril del 2025,Martes,1:30 p.m.,,AB,PRESCO,Caleb,"Temática: Animales, Tema: Cadena alimenticia",Caleb,
+14,2025,Martes 1 de Abril del 2025,Martes,2:30 p.m.,,AB,PB,Caleb,Prototipo con SET WEDO,Caleb,
+14,2025,Miércoles 2 de Abril del 2025,Miércoles,2:30 p.m.,,AB,PA,Caleb,Prototipo con SET SPIKE,Caleb,
+14,2025,Miércoles 2 de Abril del 2025,Miércoles,12:10 - 1:05 p.m.,,RW Core,PANDAS/BUFALOS,Todos,,Todos,
+14,2025,Miércoles 2 de Abril del 2025,Miércoles,1:30 - 2:25 p.m.,,RW Core,PUMAS/DELFINES,Todos,,Todos,
+14,2025,Miércoles 2 de Abril del 2025,Miércoles,3:00 p.m,,INBLOQUET,Dani,Caleb,"Temática: Animales, Tema: Cadena alimenticia",Caleb,
+14,2025,Miércoles 2 de Abril del 2025,Miércoles,4:30 p.m.,,INBLOQUET,Romi,Gustavo,Piraña con SPIKE,Gustavo,
+14,2025,Jueves 3 de Abril del 2025,Jueves,10:00 - 10:53 a.m.,,RW Core,LOBOS,Todos,,Todos,
+14,2025,Jueves 3 de Abril del 2025,Jueves,2:30 p.m.,,RW Plus,S DUPLO,Caleb,Pendiente,Caleb,
+14,2025,Jueves 3 de Abril del 2025,Jueves,2:30 p.m.,,RW Plus,S NORMAL,Caleb,Barredora,Caleb,
+14,2025,Jueves 3 de Abril del 2025,Jueves,2:30 p.m.,,RW Plus,M,Ivan,,Ivan,
+14,2025,Jueves 3 de Abril del 2025,Jueves,2:30 p.m.,,RW Plus,L,Gustavo,Bola demoledora con EV3,Gustavo,
+14,2025,Viernes 4 de Abril del 2025,Viernes,3:30 p.m.,-,INBLOQUET,Dario,Gustavo,Plumas 3D,Gustavo,-
+14,2025,Viernes 4 de Abril del 2025,Viernes,12:10 p.m.,-,INBLOQUET,Hermanos,Ivan,-,Ivan,-
