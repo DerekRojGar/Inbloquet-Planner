@@ -4,27 +4,19 @@ from models.actividades_model import DIAS_ESPAÑOL
 def render_calendar(semana_key):
     actividades = st.session_state.actividades[semana_key]
     st.subheader("🗓️ Vista Semanal")
-    col1, col2, col3 = st.columns([6, 1, 1])
-    with col1:
-        st.markdown("****")
-    with col2:
-        if st.button("📂 Expandir Todo"):
-            st.session_state.expanded_state = True
-            st.rerun()
-    with col3:
-        if st.button("📂 Contraer Todo"):
-            st.session_state.expanded_state = False
-            st.rerun()
 
-    # Crear columnas con contenedores para cada día
+    # En esta versión, quitamos los botones de expandir/contraer que estaban aquí.
+    # Creamos 6 columnas para los días (lunes a sábado).
     cols = st.columns(6)
     for i, col in enumerate(cols):
         with col:
             with st.container():
+                # Etiqueta del día
                 st.markdown(f"<div class='calendar-column'><strong>{DIAS_ESPAÑOL[i]}</strong><br><small>{actividades['fechas'][i]}</small></div>", unsafe_allow_html=True)
                 day_acts = actividades["actividades"][actividades["fechas"][i]]
                 if day_acts:
                     for idx, act in enumerate(day_acts):
+                        # Expander con la info de la actividad
                         with st.expander(label=f"{act['Escuelas']}: {act['Grupos']}", expanded=st.session_state.get("expanded_state", False)):
                             st.markdown(f"""
                             - **Horario:** {act['Horario']}

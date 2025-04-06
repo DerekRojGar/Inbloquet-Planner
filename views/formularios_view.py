@@ -90,12 +90,12 @@ def render_edit_activity_form():
             # 2. Horario y alumnos
             horario = st.text_input(
                 "Horario:", 
-                value=actividad.get("Horario", "-").replace("-", "").strip(),
+                value=str(actividad.get("Horario", "-")).replace("-", "").strip(),
                 key="edit_horario"
             )
             
             # 3. Escuelas y grupos
-            escuelas_actuales = [e.strip() for e in actividad.get("Escuelas", "").split(",") if e.strip() in ESCUELAS]
+            escuelas_actuales = [e.strip() for e in str(actividad.get("Escuelas", "")).split(",") if e.strip() in ESCUELAS]
             escuelas_edit = st.multiselect(
                 "Escuelas:", 
                 ESCUELAS, 
@@ -113,7 +113,7 @@ def render_edit_activity_form():
             
             # Selección de grupos
             grupos_disponibles = st.session_state.get("grupos_edit_disponibles", [])
-            grupos_actuales = [g.strip() for g in actividad.get("Grupos", "").split(",") if g.strip() in grupos_disponibles]
+            grupos_actuales = [g.strip() for g in str(actividad.get("Grupos", "")).split(",") if g.strip() in grupos_disponibles]
             grupos_edit = st.multiselect(
                 "Grupos:", 
                 grupos_disponibles,
@@ -124,7 +124,7 @@ def render_edit_activity_form():
             # 4. Alumnos
             alumnos_edit = st.text_input(
                 "Alumnos:", 
-                value=actividad.get("Alumnos", "-").replace("-", "").strip(),
+                value=str(actividad.get("Alumnos", "-")).replace("-", "").strip(),
                 key="edit_alumnos"
             )
 
@@ -133,19 +133,19 @@ def render_edit_activity_form():
             # 5. Responsables
             encargado_edit = st.text_input(
                 "Encargado:", 
-                value=actividad.get("Encargado", "-").replace("-", "").strip(),
+                value=str(actividad.get("Encargado", "-")).replace("-", "").strip(),
                 key="edit_encargado"
             )
             maestro_edit = st.text_input(
                 "Maestro:", 
-                value=actividad.get("Maestro", "-").replace("-", "").strip(),
+                value=str(actividad.get("Maestro", "-")).replace("-", "").strip(),
                 key="edit_maestro"
             )
             
             # 6. Detalles de contenido
             tema_edit = st.text_area(
                 "Tema:", 
-                value=actividad.get("Tema", "-").replace("-", "").strip(),
+                value=str(actividad.get("Tema", "-")).replace("-", "").strip(),
                 height=100,
                 key="edit_tema"
             )
@@ -153,7 +153,7 @@ def render_edit_activity_form():
             # 7. Notas adicionales
             notas_edit = st.text_area(
                 "Notas:", 
-                value=actividad.get("Notas", "-").replace("-", "").strip(),
+                value=str(actividad.get("Notas", "-")).replace("-", "").strip(),
                 height=100,
                 key="edit_notas"
             )
@@ -165,7 +165,6 @@ def render_edit_activity_form():
         with submit_cols[1]:
             cancelar = st.form_submit_button("❌ Cancelar")
 
-    # Manejar guardado
     if submit:
         if escuelas_edit:
             nueva_actividad = {
@@ -195,7 +194,6 @@ def render_edit_activity_form():
         else:
             st.error("❌ Debes seleccionar al menos una escuela")
 
-    # Manejar cancelación
     if cancelar:
         del st.session_state.editando
         st.rerun()
@@ -208,7 +206,7 @@ def render_export_view(semana_key, semana, año):
     from datetime import datetime
 
     st.markdown("---")
-    if st.button("📤 Exportar a Excel y CSV"):
+    if st.button("📤 Exportar a Excel y CSV", key="export_excel_csv"):
         all_data = []
         semana_data = st.session_state.actividades[semana_key]
         for fecha in semana_data["fechas"]:
@@ -233,7 +231,7 @@ def render_export_view(semana_key, semana, año):
         st.markdown(f'<a href="data:application/vnd.openxmlformats-officedocument.spreadsheetml.sheet;base64,{excel_base64}" download="{excel_file}">Descargar Excel</a>', unsafe_allow_html=True)
         st.markdown(f'<a href="data:text/csv;base64,{csv_base64}" download="{csv_file}">Descargar CSV</a>', unsafe_allow_html=True)
         st.success("✅ Exportación completada")
-    if st.button("📤 Exportar Semanas Totales"):
+    if st.button("📤 Exportar Semanas Totales", key="export_all_weeks"):
         from openpyxl import Workbook
         wb = Workbook()
         if "Sheet" in wb.sheetnames:
@@ -329,5 +327,3 @@ def render_export_view(semana_key, semana, año):
         st.markdown("### 📥 Descargas")
         st.markdown(f'<a href="data:application/vnd.openxmlformats-officedocument.spreadsheetml.sheet;base64,{excel_base64}" download="{excel_file}">Descargar Excel</a>', unsafe_allow_html=True)
         st.success("✅ Exportación completada")
-
-
