@@ -278,8 +278,12 @@ def render_export_view(semana_key, semana, año):
     from models.export_model import crear_excel_con_diseño
     import pandas as pd
     from datetime import datetime
+    from openpyxl.styles import Font, Alignment, PatternFill
+    from openpyxl.drawing.image import Image
+    from openpyxl import Workbook
 
     st.markdown("---")
+    # Exportación de la semana actual (con diseño original)
     if st.button("📤 Exportar a Excel y CSV", key="export_excel_csv"):
         all_data = []
         semana_data = st.session_state.actividades[semana_key]
@@ -297,6 +301,7 @@ def render_export_view(semana_key, semana, año):
         df = pd.DataFrame(all_data)
         excel_file = f"Planificacion_S{semana}_{año}.xlsx"
         csv_file = f"Planificacion_S{semana}_{año}.csv"
+        # Usamos la función de exportación con diseño para una semana
         crear_excel_con_diseño(df, excel_file, semana, año)
         df.to_csv(csv_file, index=False, encoding='utf-8-sig')
         excel_base64 = base64.b64encode(open(excel_file, "rb").read()).decode()
@@ -306,9 +311,10 @@ def render_export_view(semana_key, semana, año):
         st.markdown(f'<a href="data:text/csv;base64,{csv_base64}" download="{csv_file}">Descargar CSV</a>', unsafe_allow_html=True)
         st.success("✅ Exportación completada")
     
+    # Exportación de todas las semanas con el mismo diseño (sin Rocket)
     if st.button("📤 Exportar Semanas Totales", key="export_all_weeks"):
-        from openpyxl import Workbook
         wb = Workbook()
+        # Eliminar hoja por defecto
         if "Sheet" in wb.sheetnames:
             wb.remove(wb["Sheet"])
         semanas_ordenadas = sorted(
@@ -317,6 +323,8 @@ def render_export_view(semana_key, semana, año):
         )
         total_semanas = len(semanas_ordenadas)
         progreso = st.progress(0)
+        
+        # Recorremos cada semana y agregamos una hoja estilizada
         for idx, s_key in enumerate(semanas_ordenadas):
             año_str, semana_str = s_key.split("-S")
             anio_int = int(año_str)
@@ -334,68 +342,99 @@ def render_export_view(semana_key, semana, año):
                         **act
                     }
                     all_data.append(registro)
+            # Si hay datos para la semana, procesarlos
             if all_data:
                 df = pd.DataFrame(all_data)
-                sheet_name = f"S{semana_int}_{anio_int}"
-                ws = wb.create_sheet(title=sheet_name)
+                # Creamos una nueva hoja para la semana en el Workbook
+                ws = wb.create_sheet(title=f"S{semana_int}_{anio_int}")
                 ws.insert_rows(1, 3)
                 ws.merge_cells("A1:B3")
                 ws.merge_cells("D1:I1")
                 ws.merge_cells("D2:I2")
                 ws.merge_cells("D3:I3")
-                ws.merge_cells("J1:J3")
                 ws.merge_cells("A4:K4")
+                
+                # Insertar logo INBLOQUET (pero NO Rocket)
                 try:
-                    from openpyxl.drawing.image import Image
-                    img1 = Image("InbloquetD.png")
-                    img1.width = 150
-                    img1.height = 140
-                    ws.add_image(img1, "A1")
+                    img = Image("InbloquetD.png")
+                    img.width = 150
+                    img.height = 140
+                    ws.add_image(img, "A1")
+                    row_height = img.height / 4
                 except FileNotFoundError:
                     ws["A1"] = "LOGO NO ENCONTRADO"
-                    ws["A1"].font = Font(bold=True, size=14)
+                    ws["A1"].font = Font(bold=True, size=14, color="003891")
                     ws["A1"].alignment = Alignment(horizontal="center", vertical="center")
-                try:
-                    img2 = Image("rocket.png")
-                    img2.width = 90
-                    img2.height = 140
-                    ws.add_image(img2, "J1")
-                except FileNotFoundError:
-                    ws["K1"] = "IMAGEN NO ENCONTRADA"
-                    ws["K1"].font = Font(bold=True, size=14)
-                    ws["K1"].alignment = Alignment(horizontal="center", vertical="center")
+                    row_height = 20
+
+                ws.row_dimensions[1].height = row_height
+                ws.row_dimensions[2].height = row_height
+                ws.row_dimensions[3].height = row_height
+
+                # Encabezado con estilos (idéntico al de una semana)
                 ws["D1"] = "Programación de Actividades Semanal"
-                ws["D1"].font = Font(bold=True, size=20)
+                ws["D1"].font = Font(bold=True, size=20, color="003891", name="Gotham")
                 ws["D1"].alignment = Alignment(horizontal="center", vertical="center")
+
                 ws["D2"] = f"SEMANA {semana_int} - AÑO {anio_int}"
-                ws["D2"].font = Font(bold=True, size=16)
+                ws["D2"].font = Font(bold=True, size=16, color="4bb1e0", name="Gotham")
                 ws["D2"].alignment = Alignment(horizontal="center", vertical="center")
+
                 ws["D3"] = "¡Intenta, Explora y Conquista!"
-                ws["D3"].font = Font(bold=True, size=14)
+                ws["D3"].font = Font(bold=True, size=14, color="f6c500", name="Gotham")
                 ws["D3"].alignment = Alignment(horizontal="center", vertical="center")
-                df["Fecha"] = df.apply(lambda row: f"{row['Día']} {int(row['Fecha'][:2])} de {datetime.strptime(row['Fecha'], '%d/%m').strftime('%B')} del {row['Año']}", axis=1)
-                df["Fecha"] = df["Fecha"].apply(lambda x: x.replace(x.split()[3], x.split()[3].capitalize()))
+
+                # Formatear datos
+                df["Fecha"] = df.apply(lambda row: f"{row['Día']} {int(row['Fecha'][:2])} de {datetime.strptime(row['Fecha'], '%d/%m').strftime('%B').capitalize()} del {row['Año']}", axis=1)
                 df = df.drop(columns=["Día", "Año"])
                 column_order = ["Semana", "Fecha", "Horario", "Alumnos", "Escuelas", "Grupos", "Maestro", "Tema", "Encargado", "Notas"]
                 df = df[column_order]
                 ws.append(df.columns.tolist())
-                for item in df.to_dict('records'):
-                    ws.append(list(item.values()))
+                
+                # Aplicar color a encabezados
+                header_fill = PatternFill(start_color="003891", end_color="003891", fill_type="solid")
+                for cell in ws[5]:
+                    cell.fill = header_fill
+                    cell.font = Font(name="Gotham", bold=True, color="FFFFFF")
+                    cell.alignment = Alignment(horizontal="center", vertical="center")
+                
+                # Añadir datos
+                for row in df.to_dict('records'):
+                    ws.append(list(row.values()))
+                
+                # Crear tabla con estilo
                 from openpyxl.worksheet.table import Table, TableStyleInfo
                 last_row = ws.max_row
-                tabla_ref = f"A5:J{last_row}"
-                tabla = Table(displayName=f"TablaActividades_{sheet_name}", ref=tabla_ref)
-                estilo_tabla = TableStyleInfo(name="TableStyleMedium9", showFirstColumn=False, showLastColumn=False, showRowStripes=True, showColumnStripes=False)
-                tabla.tableStyleInfo = estilo_tabla
+                tabla = Table(
+                    displayName=f"TablaActividades_S{semana_int}_{anio_int}",
+                    ref=f"A5:J{last_row}",
+                    tableStyleInfo=TableStyleInfo(
+                        name="TableStyleMedium9",
+                        showFirstColumn=False,
+                        showLastColumn=False,
+                        showRowStripes=True,
+                        showColumnStripes=False
+                    )
+                )
                 ws.add_table(tabla)
-                for col in ws.iter_cols(min_row=5, max_row=ws.max_row, min_col=1, max_col=ws.max_column):
-                    col_letter = col[0].column_letter
-                    max_length = max((len(str(celda.value)) if celda.value else 0) for celda in col) + 2
-                    ws.column_dimensions[col_letter].width = max_length
+                
+                # Aplicar color a filas alternas
+                for row_idx in range(6, ws.max_row + 1):
+                    if row_idx % 2 == 0:
+                        for cell in ws[row_idx]:
+                            cell.fill = PatternFill(start_color="f6c500", end_color="f6c500", fill_type="solid")
+                
+                # Ajustar ancho de columnas
+                for col in ws.iter_cols(min_row=5, max_row=ws.max_row):
+                    if col[0].column_letter:
+                        max_length = max(len(str(cell.value)) if cell.value else 0 for cell in col)
+                        ws.column_dimensions[col[0].column_letter].width = max_length + 2
+
             progreso.progress((idx + 1) / total_semanas)
+        
+        progreso.empty()
         excel_file = "Planificacion General de Semanas.xlsx"
         wb.save(excel_file)
-        progreso.empty()
         with open(excel_file, "rb") as f:
             excel_bytes = f.read()
         excel_base64 = base64.b64encode(excel_bytes).decode()

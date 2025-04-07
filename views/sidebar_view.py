@@ -1,56 +1,84 @@
 import streamlit as st
 from datetime import datetime
+import base64
 
-def render_css():
-    """
-    Puedes dejar esta función si la usas en otro lado;
-    de lo contrario, podrías eliminarla si no la llamas.
-    """
-    st.markdown("""
-    <style>
-    .logo-sidebar {
-        max-width: 200px;
-        max-height: 100px;
-        margin: 20px;
-        padding: 10px;
-    }
-    .frase-dia {
-        background: #f8f9fa;
-        padding: 20px;
-        border-radius: 10px;
-        border-left: 5px solid #003366;
-        margin: 20px 0;
-        color: #333;
-    }
-    </style>
-    """, unsafe_allow_html=True)
-
-# Obtener la semana y año actual a partir de la fecha del sistema
-current_week = datetime.today().isocalendar()[1]
-current_year = datetime.today().year
+def get_base64_image(image_path):
+    try:
+        with open(image_path, "rb") as image_file:
+            return base64.b64encode(image_file.read()).decode()
+    except Exception as e:
+        st.error(f"Error al cargar la imagen: {e}")
+        return ""
 
 def render_sidebar(frase_actual):
+    # Convertir imagen a base64
+    rocket_base64 = get_base64_image("rocket-face.png")
+    
     with st.sidebar:
-        # Imagen rocket (foto de perfil) - si quieres usar la clase .rocket-logo, utiliza la API de st.markdown
-        st.image("rocket.png", width=80)
+        # Logo más grande (120px) con borde circular
+        st.markdown(
+            f"""
+            <div style="
+                display: flex;
+                justify-content: center;
+                margin-bottom: 30px;
+                padding: 15px;
+            ">
+                <img src="data:image/png;base64,{rocket_base64}" 
+                     width="120" 
+                     style="border-radius: 50%; 
+                            border: 3px solid #4BB1E0;
+                            box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+            </div>
+            """, 
+            unsafe_allow_html=True
+        )
+        
+        # Configuración principal
         st.header("⚙️ Configuración")
         
-        # Inputs para seleccionar semana y año
-        semana = st.number_input("Número de Semana", min_value=1, max_value=53, value=current_week, key="num_semana")
-        año = st.number_input("Año", min_value=current_year-1, max_value=current_year+5, value=current_year, key="num_año")
+        # Selectores en 2 columnas
+        col1, col2 = st.columns(2)
+        with col1:
+            semana = st.number_input(
+                "Número de Semana", 
+                min_value=1, 
+                max_value=53, 
+                value=datetime.today().isocalendar()[1]
+            )
+        with col2:
+            año = st.number_input(
+                "Año", 
+                min_value=2023, 
+                max_value=2030, 
+                value=datetime.today().year
+            )
+        
         st.markdown("---")
         
-        # Frase inspiradora
-        nueva_frase = st.text_area("✍️ Frase inspiradora del día:", value=frase_actual)
-        if st.button("💾 Guardar Frase"):
+        # Frase inspiradora (diseño original)
+        nueva_frase = st.text_area(
+            "✍️ Frase inspiradora del día:", 
+            value=frase_actual,
+            height=100
+        )
+        
+        # Botones en disposición vertical original
+        if st.button("💾 Guardar Frase", key="guardar_frase"):
             st.session_state.frase_global = nueva_frase
             st.rerun()
+            
+        st.markdown("---")
         
-        # Botones para Expandir y Contraer Todo, ubicados debajo de "Guardar Frase"
-        if st.button("📂 Expandir Todo", key="expandir_todo"):
-            st.session_state.expanded_state = True
-            st.rerun()
-        if st.button("📂 Contraer Todo", key="contraer_todo"):
-            st.session_state.expanded_state = False
-            st.rerun()
+        # Botones de expansión en línea horizontal
+        exp_col1, exp_col2 = st.columns(2)
+        with exp_col1:
+            if st.button("📂 Expandir Todo", key="expandir_todo"):
+                st.session_state.expanded_state = True
+                st.rerun()
+        with exp_col2:
+            if st.button("📂 Contraer Todo", key="contraer_todo"):
+                st.session_state.expanded_state = False
+                st.rerun()
+                
     return semana, año
