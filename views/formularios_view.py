@@ -1,100 +1,177 @@
 import streamlit as st
 from models.actividades_model import ESCUELAS, GRUPOS_POR_ESCUELA, DIAS_ESPAÑOL
 from datetime import datetime
-from openpyxl.styles import Font, Alignment  # <--- Corrección de errores Pylance
+from openpyxl.styles import Font, Alignment
 from openpyxl.drawing.image import Image
 
 def render_new_activity_form():
     st.markdown("---")
     st.subheader("📝 Nueva Actividad")
     new_activity = None
+
+    # 1. Inicializar estados esenciales
+    if 'grupos_disponibles' not in st.session_state:
+        st.session_state.grupos_disponibles = []
+    if 'form_data' not in st.session_state:
+        st.session_state.form_data = {
+            'horario': '',
+            'alumnos': '',
+            'escuelas': [],
+            'grupos': [],
+            'encargado': '',
+            'tema': '',
+            'maestro': '',
+            'notas': ''
+        }
+
+    # 2. Formulario con estado persistente
     with st.form(key='form_nueva_actividad'):
         cols = st.columns(2)
         with cols[0]:
-            dia_seleccionado = st.selectbox("Selecciona el día:", DIAS_ESPAÑOL)
-            # Guardamos el índice del día seleccionado para ubicar la actividad
+            dia_seleccionado = st.selectbox("Día:", DIAS_ESPAÑOL)
             dia_index = DIAS_ESPAÑOL.index(dia_seleccionado)
-            horario = st.text_input("Horario de la actividad:", placeholder="Ej: 8:00 a.m. - 2:00 p.m.")
-            alumnos = st.text_input("Alumnos:", placeholder="Ej: Dereck, Alberto, Emma")
-            escuelas_seleccionadas = st.multiselect("Selecciona escuelas:", ESCUELAS, key='nuevas_escuelas')
+            
+            # Campos con valores desde session_state
+            horario = st.text_input("Horario:", 
+                                   value=st.session_state.form_data['horario'],
+                                   placeholder="Ej: 8:00 a.m. - 2:00 p.m.")
+            
+            alumnos = st.text_input("Alumnos:", 
+                                   value=st.session_state.form_data['alumnos'],
+                                   placeholder="Ej: Dereck, Alberto, Emma")
+            
+            escuelas_seleccionadas = st.multiselect(
+                "Escuelas:", 
+                ESCUELAS,
+                default=st.session_state.form_data['escuelas']
+            )
+
+            # Botón de búsqueda
             if st.form_submit_button("🔍 Buscar grupos"):
                 grupos_disponibles = set()
                 for escuela in escuelas_seleccionadas:
                     grupos_disponibles.update(GRUPOS_POR_ESCUELA.get(escuela, []))
+                
                 st.session_state.grupos_disponibles = sorted(grupos_disponibles)
-                if not st.session_state.grupos_disponibles:
-                    st.warning("⚠️ No hay grupos disponibles para las escuelas seleccionadas.")
+                st.session_state.form_data.update({
+                    'horario': horario,
+                    'alumnos': alumnos,
+                    'escuelas': escuelas_seleccionadas
+                })
                 st.rerun()
-            grupos_seleccionados = st.multiselect("Selecciona grupos:", st.session_state.get("grupos_disponibles", []), key='nuevos_grupos')
+
+            grupos_seleccionados = st.multiselect(
+                "Grupos:", 
+                st.session_state.grupos_disponibles,
+                default=st.session_state.form_data['grupos']
+            )
+
         with cols[1]:
-            encargado = st.text_input("Encargado", placeholder="Ej: Ivan, Gus, Caleb")
-            tema = st.text_area("Descripción detallada:", placeholder="Ej: Taller de programación con robots", height=100)
-            maestro = st.text_input("Maestro", placeholder="Ej: Joss, Angie, Kevin")
-            notas = st.text_area("Información adicional:", placeholder="Ej: Materiales especiales requeridos")
+            encargado = st.text_input("Encargado:", 
+                                     value=st.session_state.form_data['encargado'],
+                                     placeholder="Ej: Ivan, Gus, Caleb")
+            
+            tema = st.text_area("Descripción:", 
+                              value=st.session_state.form_data['tema'],
+                              placeholder="Ej: Taller de programación con robots", 
+                              height=100)
+            
+            maestro = st.text_input("Maestro:", 
+                                  value=st.session_state.form_data['maestro'],
+                                  placeholder="Ej: Joss, Angie, Kevin")
+            
+            notas = st.text_area("Notas:", 
+                               value=st.session_state.form_data['notas'],
+                               placeholder="Ej: Materiales especiales requeridos")
+
+        # 3. Botón de guardar con persistencia de datos
         if st.form_submit_button("💾 Guardar Actividad"):
             if escuelas_seleccionadas:
                 new_activity = {
-                    "Horario": horario if horario else "-",
-                    "Alumnos": alumnos if alumnos else "-",
+                    "Horario": horario or "-",
+                    "Alumnos": alumnos or "-",
                     "Escuelas": ", ".join(escuelas_seleccionadas),
                     "Grupos": ", ".join(grupos_seleccionados) if grupos_seleccionados else "-",
-                    "Maestro": maestro if maestro else "-",
-                    "Tema": tema if tema else "-",
-                    "Encargado": encargado if encargado else "-",
-                    "Notas": notas if notas else "-",
+                    "Maestro": maestro or "-",
+                    "Tema": tema or "-",
+                    "Encargado": encargado or "-",
+                    "Notas": notas or "-",
                     "dia_index": dia_index
                 }
+                
+                # Guardar en la estructura principal
+                semana_key = f"{st.session_state.num_año}-S{st.session_state.num_semana}"
+                fecha_key = st.session_state.actividades[semana_key]["fechas"][dia_index]
+                st.session_state.actividades[semana_key]["actividades"][fecha_key].append(new_activity)
+                
+                # Persistir en CSV
+                from models.actividades_model import guardar_datos
+                guardar_datos(st.session_state.actividades)
+                
+                # Limpiar formulario
+                st.session_state.form_data = {
+                    'horario': '',
+                    'alumnos': '',
+                    'escuelas': [],
+                    'grupos': [],
+                    'encargado': '',
+                    'tema': '',
+                    'maestro': '',
+                    'notas': ''
+                }
+                st.session_state.grupos_disponibles = []
+                st.rerun()
             else:
                 st.error("❌ Debes seleccionar al menos una escuela")
+
     return new_activity
 
-from models.actividades_model import (
-    ESCUELAS,
-    GRUPOS_POR_ESCUELA,
-    DIAS_ESPAÑOL,
-    guardar_datos  # Import agregado
-)
-
-# =============================================
-# FORMULARIO DE EDICIÓN (VERSIÓN COMPLETA)
-# =============================================
 def render_edit_activity_form():
-    from models.actividades_model import guardar_datos  # Import local para evitar errores
+    from models.actividades_model import guardar_datos
     
     st.markdown("---")
     st.subheader("✏️ Editor de Actividad")
     
-    # Validar si hay una actividad seleccionada
     if "editando" not in st.session_state:
         st.error("⚠️ No hay actividad seleccionada para editar")
         return
     
     edit = st.session_state.editando
     actividad = edit["datos"]
+    semana_key = edit["semana_key"]
+    fecha_original = edit["dia_str"]
+    index_original = edit["index"]
+
+    # 1. Obtener el índice del día original
+    try:
+        fecha_index = st.session_state.actividades[semana_key]["fechas"].index(fecha_original)
+        dia_original = DIAS_ESPAÑOL[fecha_index]
+    except ValueError:
+        dia_original = DIAS_ESPAÑOL[0]
+        fecha_index = 0
 
     with st.form(key='form_edicion_actividad'):
         cols = st.columns(2)
         
-        # Columna Izquierda
         with cols[0]:
-            # 1. Selección de día
-            dia_actual = actividad.get("Día", DIAS_ESPAÑOL[0])
-            dia_index = DIAS_ESPAÑOL.index(dia_actual) if dia_actual in DIAS_ESPAÑOL else 0
+            # 2. Selectbox con día actual correcto
             dia_seleccionado = st.selectbox(
                 "Día:", 
                 DIAS_ESPAÑOL, 
-                index=dia_index,
+                index=fecha_index,
                 key="edit_dia"
             )
             
-            # 2. Horario y alumnos
+            # 3. Obtener el nuevo índice del día seleccionado
+            nuevo_fecha_index = DIAS_ESPAÑOL.index(dia_seleccionado)
+            nueva_fecha = st.session_state.actividades[semana_key]["fechas"][nuevo_fecha_index]
+            
             horario = st.text_input(
                 "Horario:", 
                 value=str(actividad.get("Horario", "-")).replace("-", "").strip(),
                 key="edit_horario"
             )
             
-            # 3. Escuelas y grupos
             escuelas_actuales = [e.strip() for e in str(actividad.get("Escuelas", "")).split(",") if e.strip() in ESCUELAS]
             escuelas_edit = st.multiselect(
                 "Escuelas:", 
@@ -103,7 +180,6 @@ def render_edit_activity_form():
                 key="edit_escuelas"
             )
             
-            # Actualizar grupos disponibles
             if st.form_submit_button("🔄 Actualizar grupos"):
                 grupos_disponibles = set()
                 for escuela in escuelas_edit:
@@ -111,7 +187,6 @@ def render_edit_activity_form():
                 st.session_state.grupos_edit_disponibles = sorted(grupos_disponibles)
                 st.rerun()
             
-            # Selección de grupos
             grupos_disponibles = st.session_state.get("grupos_edit_disponibles", [])
             grupos_actuales = [g.strip() for g in str(actividad.get("Grupos", "")).split(",") if g.strip() in grupos_disponibles]
             grupos_edit = st.multiselect(
@@ -121,16 +196,13 @@ def render_edit_activity_form():
                 key="edit_grupos"
             )
             
-            # 4. Alumnos
             alumnos_edit = st.text_input(
                 "Alumnos:", 
                 value=str(actividad.get("Alumnos", "-")).replace("-", "").strip(),
                 key="edit_alumnos"
             )
 
-        # Columna Derecha
         with cols[1]:
-            # 5. Responsables
             encargado_edit = st.text_input(
                 "Encargado:", 
                 value=str(actividad.get("Encargado", "-")).replace("-", "").strip(),
@@ -142,7 +214,6 @@ def render_edit_activity_form():
                 key="edit_maestro"
             )
             
-            # 6. Detalles de contenido
             tema_edit = st.text_area(
                 "Tema:", 
                 value=str(actividad.get("Tema", "-")).replace("-", "").strip(),
@@ -150,7 +221,6 @@ def render_edit_activity_form():
                 key="edit_tema"
             )
             
-            # 7. Notas adicionales
             notas_edit = st.text_area(
                 "Notas:", 
                 value=str(actividad.get("Notas", "-")).replace("-", "").strip(),
@@ -158,45 +228,49 @@ def render_edit_activity_form():
                 key="edit_notas"
             )
 
-        # Botones de acción
         submit_cols = st.columns([1, 1, 3])
         with submit_cols[0]:
             submit = st.form_submit_button("💾 Guardar Cambios")
         with submit_cols[1]:
             cancelar = st.form_submit_button("❌ Cancelar")
 
-    if submit:
-        if escuelas_edit:
-            nueva_actividad = {
-                "Día": dia_seleccionado,
-                "Horario": horario.strip() or "-",
-                "Escuelas": ", ".join(escuelas_edit),
-                "Grupos": ", ".join(grupos_edit) if grupos_edit else "-",
-                "Alumnos": alumnos_edit.strip() or "-",
-                "Encargado": encargado_edit.strip() or "-",
-                "Maestro": maestro_edit.strip() or "-",
-                "Tema": tema_edit.strip() or "-",
-                "Notas": notas_edit.strip() or "-"
-            }
-            
-            # Actualizar datos
-            st.session_state.actividades[edit["semana_key"]]["actividades"][edit["dia_str"]][edit["index"]] = nueva_actividad
-            
-            # Guardar cambios persistentes
-            guardar_datos(st.session_state.actividades)
-            
-            # Cerrar todos los modales
-            for key in ['editando', 'selected_activity']:
-                if key in st.session_state:
-                    del st.session_state[key]
-            
-            st.rerun()  # Recarga completa
-        else:
-            st.error("❌ Debes seleccionar al menos una escuela")
+        if submit:
+            if escuelas_edit:
+                nueva_actividad = {
+                    "Día": dia_seleccionado,
+                    "Horario": horario.strip() or "-",
+                    "Escuelas": ", ".join(escuelas_edit),
+                    "Grupos": ", ".join(grupos_edit) if grupos_edit else "-",
+                    "Alumnos": alumnos_edit.strip() or "-",
+                    "Encargado": encargado_edit.strip() or "-",
+                    "Maestro": maestro_edit.strip() or "-",
+                    "Tema": tema_edit.strip() or "-",
+                    "Notas": notas_edit.strip() or "-"
+                }
+                
+                # 4. Manejar cambio de día
+                if nueva_fecha != fecha_original:
+                    # Mover actividad a nueva fecha
+                    actividad_eliminada = st.session_state.actividades[semana_key]["actividades"][fecha_original].pop(index_original)
+                    st.session_state.actividades[semana_key]["actividades"][nueva_fecha].append(nueva_actividad)
+                else:
+                    # Actualizar en mismo día
+                    st.session_state.actividades[semana_key]["actividades"][fecha_original][index_original] = nueva_actividad
+                
+                guardar_datos(st.session_state.actividades)
+                
+                # Limpiar estados
+                for key in ['editando', 'selected_activity']:
+                    if key in st.session_state:
+                        del st.session_state[key]
+                
+                st.rerun()
+            else:
+                st.error("❌ Debes seleccionar al menos una escuela")
 
-    if cancelar:
-        del st.session_state.editando
-        st.rerun()
+        if cancelar:
+            del st.session_state.editando
+            st.rerun()
 
 def render_export_view(semana_key, semana, año):
     import base64
@@ -231,6 +305,7 @@ def render_export_view(semana_key, semana, año):
         st.markdown(f'<a href="data:application/vnd.openxmlformats-officedocument.spreadsheetml.sheet;base64,{excel_base64}" download="{excel_file}">Descargar Excel</a>', unsafe_allow_html=True)
         st.markdown(f'<a href="data:text/csv;base64,{csv_base64}" download="{csv_file}">Descargar CSV</a>', unsafe_allow_html=True)
         st.success("✅ Exportación completada")
+    
     if st.button("📤 Exportar Semanas Totales", key="export_all_weeks"):
         from openpyxl import Workbook
         wb = Workbook()
