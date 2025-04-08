@@ -204,5 +204,29 @@ def render_css():
         background-color: #4bb1e0;
         border-radius: 4px;
     }
+                /* Detalle de alumno */
+.detalle-alumno {
+    background: #222222;
+    border: 2px solid #4BB1E0;
+    border-radius: 10px;
+    padding: 1.5rem;
+    margin: 1rem 0;
+}
+
+.detalle-alumno h3 {
+    color: #4BB1E0;
+    border-bottom: 2px solid;
+    padding-bottom: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+/* Campos requeridos */
+[class*="stTextInput"] label span::after {
+    content: "*";
+    color: #FF4B4B;
+    margin-left: 0.2rem;
+}
+                
+                
     </style>
     """, unsafe_allow_html=True)

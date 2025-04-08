@@ -13,6 +13,27 @@ def run_app():
     from views.global_styles import render_css
     render_css()
     
+    # Navegación principal
+    with st.sidebar:
+        opcion = st.radio(
+            "Módulos INBLOQUET",
+            ["📅 Planificación", "👥 Gestión de Alumnos"],
+            key="nav_principal"
+        )
+    
+    # Cargar módulo de alumnos si está seleccionado
+    if opcion == "👥 Gestión de Alumnos":
+        from controllers.alumnos_controller import inicializar_estado_alumnos
+        from views.alumnos_view import render_alumnos_view
+        
+        inicializar_estado_alumnos()
+        render_alumnos_view()
+        return  # Salir temprano para evitar cargar lógica de planificación
+
+    # ==============================================
+    # LÓGICA ORIGINAL DE PLANIFICACIÓN (solo si no estamos en alumnos)
+    # ==============================================
+    
     from controllers.actividades_controller import initialize_state
     initialize_state()
     
@@ -25,10 +46,8 @@ def run_app():
         fechas = [dia.strftime("%d/%m") for dia in generar_semana(año, semana)]
         st.session_state.actividades[semana_key] = {"fechas": fechas, "actividades": {fecha: [] for fecha in fechas}}
     
-    # Convertir el logo de Inbloquet a base64
+    # Cabecera principal
     logo_base64 = get_base64_image("Inbloquet.png")
-    
-    # CABECERA: Título seguido del logo, en línea
     st.markdown(f"""
     <div class="header-container">
         <h1 class="main-title">Planificación Semanal</h1>
