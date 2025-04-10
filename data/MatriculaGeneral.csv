@@ -1,4 +1,4 @@
-matricula,nombre,sexo,fecha_inscripcion,id_grado,id_nivel_educativo,estado_matricula,curso,paquete,metodo_pago,fecha_nacimiento,fecha_pago,monto_pago,saldo_pendiente
+﻿matricula,nombre,sexo,fecha_inscripcion,id_grado,id_nivel_educativo,estado_matricula,curso,paquete,metodo_pago,fecha_nacimiento,fecha_pago,monto_pago,saldo_pendiente
 1,santiago arguello garita,h,16/07/2019,Primaria,elemental,inactivo,Verano,paquete sencillo,Efectivo,,,,
 2,leonardo guevara yanez,h,15/07/2019,Primaria,elemental,inactivo,Verano,paquete sencillo,Efectivo,,,,
 3,patricio tsakiris parra urban,h,16/07/2019,Primaria,elemental,inactivo,Verano,paquete sencillo,Efectivo,,,,
@@ -101,3 +101,4 @@ matricula,nombre,sexo,fecha_inscripcion,id_grado,id_nivel_educativo,estado_matri
 100,sara lerma tejero,m,07/05/2024,Preescolar,elemental,inactivo,Clases,paquete completo,Efectivo,,,,
 101,elisa lerma tejero,m,07/05/2024,Preescolar,elemental,inactivo,Clases,paquete completo,Efectivo,,,,
 102,daniel ceballos,h,01/01/1980,Preescolar,preescolar,inactivo,Clases,paquete sencillo,Efectivo,,,,
+103,prueba 01,h,07/04/2025,Preescolar,elemental,activo,Clases,paquete completo,Efectivo,07/04/2015,07/04/2015,500.0,0.0

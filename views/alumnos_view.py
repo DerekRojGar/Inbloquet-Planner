@@ -1,13 +1,13 @@
 import streamlit as st
 from datetime import datetime
 import pandas as pd
+from models.alumnos_model import guardar_alumnos, obtener_proxima_matricula
 
-CAMPOS_ALUMNO = [
-    'matricula', 'nombre', 'sexo', 'fecha_inscripcion', 
-    'id_grado', 'id_nivel_educativo', 'estado_matricula', 
-    'curso', 'paquete', 'metodo_pago', 'fecha_nacimiento',
-    'fecha_pago', 'monto_pago', 'saldo_pendiente'
-]
+OPCIONES_GRADO = ['Preescolar', 'Primaria']
+OPCIONES_NIVEL = ['preescolar', 'elemental']
+OPCIONES_CURSO = ['Clases', 'Verano']
+OPCIONES_PAQUETE = ['paquete sencillo', 'paquete completo']
+METODOS_PAGO = ['Efectivo', 'Transferencia', 'Depósito']
 
 def render_alumnos_view():
     st.subheader("👥 Gestión de Alumnos")
@@ -26,11 +26,11 @@ def render_alumnos_view():
     # Filtrado
     alumnos_filtrados = [
         a for a in st.session_state.alumnos 
-        if busqueda.lower() in str(a['nombre']).lower() or 
-           busqueda in str(a['matricula'])
+        if busqueda.lower() in str(a.get('nombre', '')).lower() or 
+           busqueda in str(a.get('matricula', ''))
     ]
     
-    # Tabla de alumnos mejorada
+    # Tabla de alumnos
     with st.expander("📋 Listado de Alumnos", expanded=True):
         for alumno in alumnos_filtrados:
             cols = st.columns([1, 3, 2, 2, 2, 2])
@@ -78,51 +78,110 @@ def render_detalle_alumno(alumno):
         cols_fin[2].markdown(f"**Saldo Pendiente:** ${alumno.get('saldo_pendiente', '')}")
 
 def render_formulario_alumno():
+    alumno = st.session_state.alumno_editando if st.session_state.modo_edicion == 'editar' else {}
+    
     with st.form(key='form_alumno'):
-        alumno = st.session_state.alumno_editando if st.session_state.modo_edicion == 'editar' else {}
+        # Generar matrícula automática
+        if st.session_state.modo_edicion == 'crear':
+            matricula = obtener_proxima_matricula()
+        else:
+            matricula = alumno.get('matricula', '')
         
         # Campos en 2 columnas
         col1, col2 = st.columns(2)
         
         with col1:
-            matricula = st.text_input("Matrícula*", value=alumno.get('matricula', ''))
+            st.text_input("Matrícula*", value=matricula, disabled=True)
             nombre = st.text_input("Nombre completo*", value=alumno.get('nombre', ''))
-            sexo = st.selectbox("Sexo", ['', 'h', 'm'], index=['', 'h', 'm'].index(alumno.get('sexo', '')))
-            id_grado = st.text_input("ID Grado", value=alumno.get('id_grado', ''))
-            id_nivel = st.text_input("ID Nivel Educativo", value=alumno.get('id_nivel_educativo', ''))
-        
+            sexo = st.selectbox(
+                "Sexo*", 
+                ['h', 'm'], 
+                index=0 if alumno.get('sexo', 'h') == 'h' else 1
+            )
+            
+            id_grado = st.selectbox(
+                "Grado*", 
+                OPCIONES_GRADO, 
+                index=OPCIONES_GRADO.index(alumno.get('id_grado', OPCIONES_GRADO[0]))
+            )
+            
+            id_nivel = st.selectbox(
+                "Nivel Educativo*", 
+                OPCIONES_NIVEL, 
+                index=OPCIONES_NIVEL.index(alumno.get('id_nivel_educativo', OPCIONES_NIVEL[0]))
+            )
+
+                
+
         with col2:
-            estado = st.selectbox("Estado*", ['activo', 'inactivo'], index=0 if alumno.get('estado_matricula') == 'activo' else 1)
-            curso = st.text_input("Curso", value=alumno.get('curso', ''))
-            paquete = st.text_input("Paquete", value=alumno.get('paquete', ''))
-            metodo_pago = st.selectbox("Método Pago", ['', 'Efectivo', 'Transferencia', 'Depósito'], 
-                                      index=['', 'Efectivo', 'Transferencia', 'Depósito'].index(alumno.get('metodo_pago', '')))
-        
-        # Campos adicionales
-        fecha_inscripcion = st.date_input("Fecha Inscripción", 
-                                        value=pd.to_datetime(alumno.get('fecha_inscripcion')) if alumno.get('fecha_inscripcion') else None)
-        fecha_nacimiento = st.date_input("Fecha Nacimiento", 
-                                       value=pd.to_datetime(alumno.get('fecha_nacimiento')) if alumno.get('fecha_nacimiento') else None)
-        fecha_pago = st.date_input("Última Fecha Pago", 
-                                 value=pd.to_datetime(alumno.get('fecha_pago')) if alumno.get('fecha_pago') else None)
-        
-        # Campos numéricos corregidos
+            estado = st.selectbox(
+                "Estado*", 
+                ['activo', 'inactivo'], 
+                index=0 if alumno.get('estado_matricula', 'activo') == 'activo' else 1
+            )
+            
+            curso = st.selectbox(
+                "Curso*", 
+                OPCIONES_CURSO, 
+                index=OPCIONES_CURSO.index(alumno.get('curso', OPCIONES_CURSO[0])))
+            
+            paquete = st.selectbox(
+                "Paquete*", 
+                OPCIONES_PAQUETE, 
+                index=OPCIONES_PAQUETE.index(alumno.get('paquete', OPCIONES_PAQUETE[0])))
+            
+            metodo_pago = st.selectbox(
+                "Método Pago", 
+                [''] + METODOS_PAGO, 
+                index=([''] + METODOS_PAGO).index(alumno.get('metodo_pago', '')))
+
+        # Campos de fechas
+        col_fechas = st.columns(3)
+        with col_fechas[0]:
+            fecha_inscripcion = st.date_input(
+                "Fecha Inscripción",
+                value=pd.to_datetime(alumno.get('fecha_inscripcion')) if alumno.get('fecha_inscripcion') else datetime.today()
+            )
+        with col_fechas[1]:
+            fecha_nacimiento = st.date_input(
+                "Fecha Nacimiento",
+                value=pd.to_datetime(alumno.get('fecha_nacimiento')) if alumno.get('fecha_nacimiento') else None
+            )
+        with col_fechas[2]:
+            fecha_pago = st.date_input(
+                "Última Fecha Pago",
+                value=pd.to_datetime(alumno.get('fecha_pago')) if alumno.get('fecha_pago') else None
+            )
+
+        # Campos numéricos
         monto_pago = st.number_input(
-            "Monto Último Pago",
-            value=float(alumno.get('monto_pago', 0)) if alumno.get('monto_pago') else 0.0
+            "Monto Último Pago (MXN)",
+            value=float(alumno.get('monto_pago', 0)) if alumno.get('monto_pago') else 0.0,
+            min_value=0.0
         )
         
         saldo_pendiente = st.number_input(
-            "Saldo Pendiente",
-            value=float(alumno.get('saldo_pendiente', 0)) if alumno.get('saldo_pendiente') else 0.0
+            "Saldo Pendiente (MXN)",
+            value=float(alumno.get('saldo_pendiente', 0)) if alumno.get('saldo_pendiente') else 0.0,
+            min_value=0.0
         )
 
         # Validación y guardado
         if st.form_submit_button("💾 Guardar"):
-            if not matricula or not nombre:
-                st.error("Matrícula y Nombre son campos obligatorios")
-                return
+            campos_requeridos = {
+                'Nombre': nombre,
+                'Grado': id_grado,
+                'Nivel Educativo': id_nivel,
+                'Estado': estado,
+                'Curso': curso,
+                'Paquete': paquete
+            }
             
+            faltantes = [k for k, v in campos_requeridos.items() if not v]
+            if faltantes:
+                st.error(f"Campos obligatorios faltantes: {', '.join(faltantes)}")
+                return
+
             nuevo_alumno = {
                 'matricula': matricula,
                 'nombre': nombre,
@@ -132,14 +191,14 @@ def render_formulario_alumno():
                 'estado_matricula': estado,
                 'curso': curso,
                 'paquete': paquete,
-                'metodo_pago': metodo_pago,
+                'metodo_pago': metodo_pago if metodo_pago else '',
                 'fecha_inscripcion': fecha_inscripcion.strftime("%d/%m/%Y") if fecha_inscripcion else '',
                 'fecha_nacimiento': fecha_nacimiento.strftime("%d/%m/%Y") if fecha_nacimiento else '',
                 'fecha_pago': fecha_pago.strftime("%d/%m/%Y") if fecha_pago else '',
                 'monto_pago': monto_pago,
                 'saldo_pendiente': saldo_pendiente
             }
-            
+
             # Lógica de guardado
             if st.session_state.modo_edicion == 'crear':
                 st.session_state.alumnos.append(nuevo_alumno)

@@ -1,0 +1,103 @@
+﻿matricula,nombre,sexo,fecha_inscripcion,id_grado,id_nivel_educativo,estado_matricula,curso,paquete,metodo_pago,Inscripcion,fecha_nacimiento,fecha_pago,monto_pago,saldo_pendiente,Dirección de correo electrónico,Nombre Completo Alumno,Cumpleaños,Escuela de provinencia,Grado Escolar,Alergias,Observaciones,Nombre Completo del Familiar,Parentesco,Número de teléfono del familiar,Nombre completo de contacto de emergencia:,Número de teléfono de contacto de emergencia
+7,aldo,h,25/07/2019,Primaria,elemental,inactivo,Verano,paquete sencillo,Efectivo,Pagada,,,,,,,,,,,,,,,,
+48,alec lopezsainz arnal,h,08/09/2021,Preescolar,elemental,inactivo,Clases,paquete sencillo,Efectivo,Pagada,12/01/2013,,,,,,,,,,,,,,,
+86,alejandro barrios alcazar,h,26/08/2023,Preescolar,elemental,inactivo,Clases,paquete sencillo,Efectivo,Pagada,15/06/2014,,,,,,,,,,,,,,,
+43,alessio caltagirone valencia,h,27/07/2021,Preescolar,elemental,inactivo,Clases,paquete sencillo,Efectivo,Pagada,15/12/2015,,,,edith.valencia@live.com.mx,Alessio Caltagirone Valencia,15/12/2015,Centro Educativo Camino Real,1° Primaria,Ninguna,Ninguna,Alma Edith Valencia Hernández,Mamá,2221562730,Gianluca Caltagirone,2221622609
+39,alexa montanez fernandez,m,17/07/2021,Primaria,elemental,inactivo,Verano,paquete sencillo,Efectivo,Pagada,16/08/2013,,,,,,,,,,,,,,,
+46,alexander,h,01/01/1980,Primaria,elemental,inactivo,Verano,paquete sencillo,Efectivo,Pagada,,,,,,,,,,,,,,,,
+42,alexander parrilla reyes,h,20/07/2021,Primaria,elemental,inactivo,Verano,paquete sencillo,Efectivo,Pagada,22/10/2012,,,,arely.reyes@correo.buap.mx,Alexander Parrilla Reyes,22/10/2012,Colegio San Ángel campus Puebla,3° Primaria,No,"Diagnosticado con arritmia cardiaca, sin mayor complicación",Arely Reyes Núñez,Mamá,2221816510,Alexéi Parrilla Efiménkova,2223233944
+41,alexia parrilla reyes,m,20/07/2021,Primaria,elemental,inactivo,Verano,paquete sencillo,Efectivo,Pagada,10/01/2010,,,,arely.reyes@correo.buap.mx,Alexia Parrilla Reyes,10/01/2010,Colegio San Ángel campus Puebla,5° Primaria,Ninguna,No,Arely Reyes Núñez,Mamá,2221816510,Alexéi Parrilla Efiménkova,2223233944
+67,angel genchi toledo,h,23/09/2022,Preescolar,elemental,inactivo,Clases,paquete sencillo,Efectivo,Pagada,23/11/2011,,,,lilitoledoa@yahoo.com.mx,Angel Genchi Toledo ,23/11/2011,Hikma,6° Primaria,Ninguna ,-,Ana Lilia Toledo Aguilar,Madre,2226622999,Roberto Genchi Recinos,22221766041
+34,axel,h,01/01/1980,Preescolar,elemental,inactivo,Clases,paquete sencillo,Efectivo,Pagada,,,,,,,,,,,,,,,,
+51,bruno saldivar michel,h,01/01/1980,Preescolar,elemental,inactivo,Clases,paquete sencillo,Efectivo,Pagada,19/07/2016,,,,,,,,,,,,,,,
+40,christopher montanez fernandez,h,17/07/2021,Primaria,elemental,inactivo,Verano,paquete sencillo,Efectivo,Pagada,16/08/2013,,,,,,,,,,,,,,,
+102,daniel ceballos,h,01/01/1980,Preescolar,preescolar,inactivo,Clases,paquete sencillo,Efectivo,Pagada,,,,,,,,,,,,,,,,
+96,daniel forcelledo garcia,h,27/01/2024,Preescolar,elemental,inactivo,Clases,paquete sencillo,Efectivo,Pagada,15/09/2014,,,,,,,,,,,,,,,
+85,dante sebastian canseco porras,h,08/08/2023,Preescolar,elemental,inactivo,Clases,paquete sencillo,Efectivo,Pagada,22/09/2023,,,,luiscansecoart@gmail.com,Dante Sebastian Canseco Porras ,22/09/2023,Colegio intercanadiense ,1° Secundaria,"No, hasta el momento ",Es muy listo y creativo pero se distrae mucho ,Luis Canseco Soto ,Padre ,9515690487,Daniela Porras Pérez Guerrero ,9511501378
+28,derek matias zapata landa,h,19/11/2020,Preescolar,elemental,inactivo,Clases,paquete sencillo,Efectivo,Pagada,27/02/2013,,,,,,,,,,,,,,,
+61,diego garcia cabrera,h,05/07/2022,Preescolar,elemental,inactivo,Clases,paquete sencillo,Efectivo,Condonada,04/08/2015,,,,danska_garcia@hotmail.com,Diego Garcia Cabrera,04/08/2015,Concrete Primary ,1° Primaria,Ninguna,Ninguna,Daniel Garcia,Papá ,5.29E+11,Adelaida Perez ,2227074223
+12,diego hernandez llaca,h,31/10/2019,Preescolar,elemental,inactivo,Clases,paquete sencillo,Efectivo,Pagada,,,,,,,,,,,,,,,,
+44,diego michel verhaar carrasco,h,02/08/2021,Primaria,elemental,inactivo,Verano,paquete sencillo,Efectivo,Pagada,13/05/2008,,,,verhaarmm@yahoo.com,Diego Michel Verhaar Carrasco ,13/05/2008,Luminos,1° Primaria,No,No,Mark Michiel Verhaar ,Luz Carrasco Medrano ,2226614856,Luz Carrasco Medrano ,2228138453
+93,eiza sosa zarate,m,04/12/2023,Preescolar,elemental,inactivo,Clases,paquete sencillo,Efectivo,Condonada,25/02/2013,,,,sosaoliverluisalfredo@gmail.com,Eiza Sosa Zarate,25/02/2013,Centro de Eduación Integral Teocalli,5° Primaria,,,Luis Alfredo Sosa Oliver,Papá,2213081338,Alma Patricia Zarate Buentello,2215924768
+19,elias velazquez manning,h,13/02/2020,Preescolar,elemental,inactivo,Clases,paquete sencillo,Efectivo,Pagada,10/07/2012,,,,,,,,,,,,,,,
+101,elisa lerma tejero,m,07/05/2024,Preescolar,elemental,inactivo,Clases,paquete completo,Efectivo,Condonada,,,,,,,,,,,,,,,,
+25,emilia vargas salgado,m,09/03/2020,Preescolar,elemental,inactivo,Clases,paquete sencillo,Efectivo,Pagada,17/04/2013,,,,coordinaciondefiestas@hotmail.com,Emilia Vargas Salgado,17/04/2013,Montesori,1° Primaria,Ninguna,Ninguna,Alina Salgado Perez,Madre,4423328430,Ricardo Vargas,4422846795
+62,emiliano de la vega cona,h,13/07/2022,Preescolar,elemental,inactivo,Clases,paquete sencillo,Efectivo,Pagada,06/08/2014,,,,tcona@hotmail.com,Emiliano de la Vega cona ,06/08/2014,Luminos ,2° Primaria,No,Ninguna ,Tiziana cona morales,Madre ,2222581033,Víctor de la Vega Alonso ,2222387524
+5,emiliano gonzalez franco,h,22/07/2019,Primaria,elemental,inactivo,Verano,paquete sencillo,Efectivo,Pagada,,,,,,,,,,,,,,,,
+90,emiliano moreno tejeda,h,04/11/2023,Preescolar,preescolar,inactivo,Clases,paquete sencillo,Efectivo,Pagada,30/05/2019,,,,elidethtejeda@gmail.com,emiliano moreno tejeda ,30/05/2019,kukaramakara ,2° Kinder,no,no,Greise Moreno Tejeda ,mamá ,2227169253,Fernanda Cordero ,9671516891
+52,emilio castro bernardi,h,29/03/2022,Preescolar,elemental,inactivo,Clases,paquete sencillo,Efectivo,Pagada,31/08/2022,,,,rbernardir@gmail.com,Emilio Castro Bernardi,31/08/2022,Instituto Damicis,1° Primaria,Al polvo y ácaros ,Tiene Dermatitis atópica,Raquel Bernardi Reyes ,Mamá,5531733473,Victor Manuel Castro Morales,5531733331
+81,emilio cortes bustos,h,07/06/2023,Preescolar,elemental,inactivo,Clases,paquete sencillo,Efectivo,Pagada,13/05/2023,,,,,,,,,,,,,,,
+63,emilio nocedal diaz,h,18/07/2022,Preescolar,elemental,activo,Clases,paquete completo,Transferencia,Pagada,04/05/2016,,,,,,,,,,,,,,,
+36,emma gagnon,m,30/06/2021,Primaria,elemental,inactivo,Verano,paquete sencillo,Efectivo,Pagada,20/09/2010,,,,evelyn_s81@hotmail.com,Emma Gagnon,20/09/2010,Homeschool,4° Primaria,Ninguna ,Ninguna ,Evelyn Solorio ,Mama,2212372958,David Gagnon,2214056623
+4,emmanuel juarez martinez,h,22/07/2019,Primaria,elemental,inactivo,Verano,paquete sencillo,Efectivo,Pagada,,,,,,,,,,,,,,,,
+66,enrique emiliano nanez oliva,h,18/08/2022,Preescolar,preescolar,inactivo,Clases,paquete sencillo,Efectivo,Pagada,14/04/2018,,,,,,,,,,,,,,,
+16,esteban garcia ramirez,h,15/02/2020,Preescolar,elemental,inactivo,Clases,paquete sencillo,Efectivo,Pagada,07/07/2013,,,,,,,,,,,,,,,
+68,ethan rojas reyes,h,24/09/2022,Preescolar,elemental,inactivo,Clases,paquete completo,Efectivo,Pagada,12/02/2016,,,,carc63@hotmail.com,Ethan Rojas Reyes ,12/02/2016,Escuela primaria Federal Benito Juárez ,1° Primaria,Ninguna ,Estornuda si siente frio,Claudia Aurora Reyes Cordero ,Madre,2228640196,Alicia Cordero Valera ,2225768232
+15,evan,h,01/02/2020,Preescolar,elemental,inactivo,Clases,paquete sencillo,Efectivo,Pagada,,,,,,,,,,,,,,,,
+56,fahra saldivar michel,m,21/05/2022,Preescolar,elemental,inactivo,Clases,paquete sencillo,Efectivo,Condonada,,,,,,,,,,,,,,,,
+38,hector ezequiel jimenez arriaga,h,02/07/2021,Primaria,elemental,inactivo,Verano,paquete sencillo,Efectivo,Pagada,22/12/2012,,,,,,,,,,,,,,,
+6,hector manuel salazar melendez,h,25/07/2019,Primaria,elemental,inactivo,Verano,paquete sencillo,Efectivo,Pagada,,,,,,,,,,,,,,,,
+8,iam,h,25/07/2019,Primaria,elemental,inactivo,Verano,paquete sencillo,Efectivo,Pagada,,,,,,,,,,,,,,,,
+20,ian santiago lobato diaz,h,29/02/2020,Preescolar,elemental,inactivo,Clases,paquete sencillo,Efectivo,Pagada,13/08/2010,,,,arielgl85@hotmail.com,Ian Santiago Lobato Diaz,13/08/2010,Fundadores de Puebla,4° Primaria,Ninguna,Ninguna,Ariel Lobato Guerrero,Padre,2227273231,Andrea Ivonne Diaz Juarez,2227781945
+74,iker garces jimenez,h,15/04/2023,Preescolar,elemental,activo,Clases,paquete completo,Transferencia,Pagada,,,,,activacionfed@hotmail.com,Iker Garces Jimenez ,28/09/2015,Eduardo Arroyo Cruz,2° Primaria,Ninguna ,.,Joel Garcés Huerta ,Papá ,2227089613,Dulce Lucia Jiménez Fernández ,2221141506
+29,iker zapata landa,h,01/01/1980,Preescolar,preescolar,inactivo,Clases,paquete sencillo,Efectivo,Pagada,,,,,,,,,,,,,,,,
+69,israel briones cano,h,15/11/2022,Preescolar,preescolar,inactivo,Clases,paquete sencillo,Efectivo,Pagada,,,,,danielacano26@gmail.com,Israel Briones Cano,11/05/2022,Ho,3° Kinder,Ninguna,Ninguna,Daniela Cano,Madre,14233208494,Israel Briones,14244881690
+87,itzae,h,25/11/2023,Preescolar,elemental,inactivo,Clases,paquete sencillo,Transferencia,Condonada ,,,,,,,,,,,,,,,,
+58,ivan,h,08/06/2022,Preescolar,elemental,inactivo,Clases,paquete sencillo,Efectivo,Condonada,,,,,j.ivan.vc@hotmail.com,ivan,20/12/1985,Angeles,Otro,ninguna,nada,rafael,padre,22234994839,Rocio,2.22E+11
+70,ivannia marmolejo marina,m,24/01/2023,Preescolar,preescolar,inactivo,Clases,paquete sencillo,Efectivo,Pagada,,,,,karelia98@hotmail.com,Ivannia marmolejo marina,18/10/2018,colegio intercanadiense,2° Kinder,no,.,karelia marmolejo marina,mama,2211200384,marina marina trujillo,7351940652
+13,jean,h,18/11/2019,Preescolar,elemental,inactivo,Clases,paquete sencillo,Efectivo,Pagada,,,,,,,,,,,,,,,,
+11,joaquin rivera grados,h,12/08/2019,Preescolar,elemental,inactivo,Clases,paquete sencillo,Efectivo,Pagada,,,,,,,,,,,,,,,,
+23,jonathan,h,06/03/2020,Preescolar,elemental,inactivo,Clases,paquete sencillo,Efectivo,Pagada,,,,,,,,,,,,,,,,
+49,jose manuel leal dominguez,h,08/09/2021,Preescolar,preescolar,inactivo,Clases,paquete sencillo,Efectivo,Pagada,,,,,lealmierfernando@gmail.com,Jose Manuel Leal Dominguez,07/05/2021,Colegio Americano,3° Kinder,Papaya y soya ,Ninguna ,Fernando Leal Mier,Padre,2222380550,Janet Dominguez Lozano,2228647045
+77,josue santiago hernandez salgado,h,27/05/2023,Preescolar,elemental,inactivo,Clases,paquete sencillo,Efectivo,Pagada,,,,,,,,,,,,,,,,
+99,julian romero romero,h,29/02/2024,Preescolar,preescolar,activo,Clases,paquete sencillo,Transferencia,Condonada,,,,,,,,,,,,,,,,
+2,leonardo guevara yanez,h,15/07/2019,Primaria,elemental,inactivo,Verano,paquete sencillo,Efectivo,Pagada,,,,,,,,,,,,,,,,
+55,leone arek re garibay,h,29/03/2022,Preescolar,preescolar,inactivo,Clases,paquete sencillo,Efectivo,Pagada,,,,,titanpyc@gmail.com,Leone Arek Re Garibay,26/08/2016,Goleman,3° Kinder,Ninguna,Ninguna,Felice Re Bo,Papá,9381522691,Patricia Athenea Garibay de la Tejera,9381529939
+27,mateo andrade salomon,h,17/11/2020,Preescolar,elemental,inactivo,Clases,paquete sencillo,Efectivo,Pagada,,,,,,,,,,,,,,,,
+57,mateo corona justo,h,12/05/2022,Preescolar,elemental,inactivo,Clases,paquete sencillo,Efectivo,Condonada,,,,,vtepa96@icloud.com,Mateo Corona Justo ,15/09/2015,Colegio la Merced ,1° Primaria,Ninguna ,Ninguna ,Raquel Corona Justo,Madre ,2225500363,Porfirio Corona Justo ,2271093488
+50,mateo sanchez blanco,h,01/01/1980,Preescolar,preescolar,inactivo,Clases,paquete sencillo,Efectivo,Pagada,,,,,,,,,,,,,,,,
+14,matias,h,17/01/2020,Preescolar,elemental,inactivo,Clases,paquete sencillo,Efectivo,Pagada,,,,,,,,,,,,,,,,
+75,matias chiguil jimenez,h,24/04/2023,Preescolar,elemental,inactivo,Clases,paquete sencillo,Efectivo,Pagada,,,,,,,,,,,,,,,,
+72,matias emilio luqueno martinez,h,09/02/2023,Preescolar,elemental,inactivo,Clases,paquete sencillo,Efectivo,Pagada,,,,,,,,,,,,,,,,
+82,matthias woyke alonso,h,11/07/2023,Preescolar,elemental,inactivo,Clases,paquete sencillo,Efectivo,Pagada,,,,,tete26_@hotmail.com,Matthias Woyke Alonso ,09/09/2016,Instituto Oriente ,1° Primaria,Ninguna,Ninguna,María Esther Alonso Rivera ,Madre,2221154053,Norman Woyke ,2471044651
+35,maximiliano hernandez lopez,h,29/05/2021,Preescolar,elemental,inactivo,Clases,paquete sencillo,Efectivo,Pagada,,,,,,,,,,,,,,,,
+45,melisa,m,02/08/2021,Primaria,elemental,inactivo,Verano,paquete sencillo,Efectivo,Pagada,,,,,,,,,,,,,,,,
+94,minerva perez moran,m,09/01/2024,Preescolar,preescolar,activo,Clases,paquete sencillo,Efectivo,Condonada,,,,,,,,,,,,,,,,
+21,naomi america aguirre lopez,m,29/02/2020,Preescolar,elemental,inactivo,Clases,paquete sencillo,Efectivo,Pagada,,,,,blaifepily@icloud.com,Naomi America Aguirre Lopez,06/11/2013,Colegio Americano,1° Primaria,Ninguna,Ninguna,Blanca Pilar Lopez Hernandez,Madre,2223629230,Ariel Giovanni Aguirre Loaiza,2212184576
+30,nico,h,01/01/1980,Preescolar,elemental,inactivo,Clases,paquete sencillo,Efectivo,Pagada,,,,,,,,,,,,,,,,
+98,nina nueva,m,01/01/1980,Preescolar,preescolar,inactivo,Clases,paquete sencillo,Efectivo,Condonada,,,,,,,,,,,,,,,,
+60,nobu ryan kano cheng,h,29/06/2022,Preescolar,elemental,inactivo,Clases,paquete completo,Efectivo,Pagada,,,,,shuothegreat@gmail.com,Nobu Ryan Kano Cheng,20/08/2016,Inbloquet Camino Real,3° Kinder,Ninguna,Ninguna,Shuo Cheng,Madre,5.22E+11,Alejandro Kano Cheng,2221133214
+53,oscar dario martinez miranda campero,h,16/03/2022,Preescolar,elemental,activo,Clases,paquete completo,Transferencia,Pagada,,,,,,,,,,,,,,,,
+54,pablo,h,01/01/1980,Preescolar,elemental,inactivo,Clases,paquete sencillo,Efectivo,Pagada,,,,,,,,,,,,,,,,
+26,pablo andrade salomon,h,17/11/2020,Preescolar,elemental,inactivo,Clases,paquete sencillo,Efectivo,Pagada,,,,,,,,,,,,,,,,
+3,patricio tsakiris parra urban,h,16/07/2019,Primaria,elemental,inactivo,Verano,paquete sencillo,Efectivo,Pagada,,,,,,,,,,,,,,,,
+65,patrick lee osorio,h,25/07/2022,Preescolar,preescolar,inactivo,Clases,paquete sencillo,Efectivo,Pagada,,,,,vicky_osorio@hotmail.com,Patrick Lee Osorio,03/09/2017,AEC,3° Kinder,No,Ninguno ,Virginia Osorio,Madre,2222936362,Mauricio Osorio ,2221920540
+24,paula vargas salgado,m,09/03/2020,Preescolar,elemental,inactivo,Clases,paquete sencillo,Efectivo,Pagada,,,,,coordinaciondefiestas@hotmail.com,Paula Vargas Salgado,18/05/2011,Montesori,3° Primaria,Ninguna,Ninguna,Alina Salgado Perez,Madre,4423328430,Ricardo Vargas,4422846795
+89,paulet,m,04/12/2023,Preescolar,elemental,inactivo,Clases,paquete sencillo,Efectivo,Condonada,,,,,,,,,,,,,,,,
+91,paulo peredo,h,15/02/2024,Preescolar,preescolar,inactivo,Clases,paquete sencillo,Efectivo,Pagada,,,,,peredo.pa@gmail.com,Paulo Peredo,21/02/2019,Playland Academy ,2° Kinder,Medio ambiente ,Está en tratamiento de asma y bronquios ,Paula Peredo,Madre,2211615797,Alberto Robredo ,5637136484
+33,raul eduardo rojas ramirez,h,01/01/1980,Preescolar,elemental,inactivo,Clases,paquete sencillo,Efectivo,Pagada,,,,,,,,,,,,,,,,
+64,regina nocedal diaz,m,18/07/2022,Preescolar,elemental,activo,Clases,paquete completo,Transferencia,Pagada,,,,,,,,,,,,,,,,
+22,renata angeles miron,m,29/02/2020,Preescolar,elemental,inactivo,Clases,paquete sencillo,Efectivo,Pagada,,,,,,,,,,,,,,,,
+73,renata garcia,m,24/03/2023,Preescolar,elemental,inactivo,Clases,paquete sencillo,Efectivo,Pagada,,,,,,,,,,,,,,,,
+18,rodrigo velazquez manning,h,13/02/2020,Preescolar,elemental,inactivo,Clases,paquete sencillo,Efectivo,Pagada,,,,,soundfanatik@hotmail.com,Rodrigo Velazquez Manning,29/01/2014,Home,3° Kinder,Ninguna,Ninguna,Oscar Esteban Velazquez,Padre,5585476926,Anaí Manning,5534210522
+97,romina lemus lima,m,07/03/2024,Preescolar,elemental,activo,Clases,paquete completo,Transferencia,Condonada,,,,,romilemuslima.11@gmail.com,romina lemus lima,11/11/2014,montessori 5o sol,4° Primaria,no,no,jose roberto lemus nava,padre,2221170882,viridiana lima morales ,2226765428
+84,santiago aguero lopez,h,03/08/2023,Preescolar,elemental,inactivo,Clases,paquete sencillo,Efectivo,Pagada,,,,,,,,,,,,,,,,
+1,santiago arguello garita,h,16/07/2019,Primaria,elemental,inactivo,Verano,paquete sencillo,Efectivo,Pagada,,,,,,,,,,,,,,,,
+37,santiago gagnon,h,30/06/2021,Primaria,elemental,inactivo,Verano,paquete sencillo,Efectivo,Pagada,,,,,evelyn_s81@hotmail.com,Santiago Gagnon,04/12/2012,Homeschool,2° Primaria,Ninguna,Ninguna,Evelyn Solorio ,Mama,2212372958,David Gagnon,2214056623
+83,santiago morales castaneda,h,11/07/2023,Preescolar,elemental,activo,Clases,paquete completo,Transferencia,Condonada,,,,,,,,,,,,,,,,
+32,santiago ocampo zamora,h,01/01/1980,Preescolar,elemental,inactivo,Clases,paquete sencillo,Efectivo,Pagada,,,,,,,,,,,,,,,,
+92,santiago sosa zarate,h,04/12/2023,Preescolar,elemental,inactivo,Clases,paquete sencillo,Efectivo,Condonada,,,,,sosaoliverluisalfredo@gmail.com,Santiago Sosa Zarate,23/08/2011,Centro de Eduación Integral Teocalli,6° Primaria,Alergia a las sulfas,,Luis Alfredo Sosa Oliver,Papá,2213081338,Alma Patricia Zarate Buentello,2215924768
+100,sara lerma tejero,m,07/05/2024,Preescolar,elemental,inactivo,Clases,paquete completo,Efectivo,Condonada,,,,,,,,,,,,,,,,
+47,sebastian barredo peregrina,h,26/08/2021,Preescolar,elemental,activo,Clases,paquete completo,Deposito,Pagada,,,,,myriampc@gmail.com,Sebastian barredo peregrina,14/02/2015,Roots & wings,1° Primaria,Tomate verde,—,Myriam Peregrina Cabrera,Madre,2223516946,Santiago BARREDO barberena ,2227084766
+71,sebastian fernandez perez,h,25/01/2023,Preescolar,elemental,inactivo,Clases,paquete sencillo,Efectivo,Pagada,,,,,,,,,,,,,,,,
+95,sebastian montes de oca cruz y corro,h,27/01/2024,Preescolar,elemental,inactivo,Clases,paquete completo,Efectivo,Pagada,,,,,morrmex@gmail.com,Sebastian montes de oca cruz y corro,18/12/2014,Damicis,4° Primaria,Ninguna,"Gusto por la programacion , quisiera aprender ingenieria",Maria Guadalupe Cruz y Corro García ,Mama,2224818536,Raul montes de oca rojas,2228125254
+78,sebastian salinas martinez,h,27/05/2023,Preescolar,elemental,inactivo,Clases,paquete sencillo,Efectivo,Pagada,,,,,,,,,,,,,,,,
+79,sofia salinas martinez,m,27/05/2023,Preescolar,elemental,inactivo,Clases,paquete sencillo,Efectivo,Pagada,,,,,,,,,,,,,,,,
+59,stephan sproll arenaa,h,24/06/2022,Preescolar,preescolar,inactivo,Clases,paquete sencillo,Efectivo,Pagada,,,,,,,,,,,,,,,,
+88,tamara,m,25/11/2023,Preescolar,preescolar,inactivo,Clases,paquete sencillo,Transferencia,Condonada,,,,,,,,,,,,,,,,
+80,valentino diaz aldrete,h,01/06/2023,Preescolar,preescolar,inactivo,Clases,paquete sencillo,Efectivo,Pagada,,,,,,,,,,,,,,,,
+76,valeria loranca montiel,m,27/05/2023,Preescolar,elemental,inactivo,Clases,paquete sencillo,Efectivo,Pagada,,,,,Janfrey250507@gmail.com,Valeria Loranca Montiel ,25/10/2013,Margarita Masa de Juárez ,4° Primaria,Ninguna ,Ninguna ,Janet Montiel Hernández ,Mamá ,2221566144,Rafael Loranca Tepanecatl ,2221471659
+17,valeria vargas garcia,m,15/02/2020,Preescolar,elemental,inactivo,Clases,paquete sencillo,Efectivo,Pagada,,,,,,,,,,,,,,,,
+31,viktoria,m,01/01/1980,Preescolar,preescolar,inactivo,Clases,paquete sencillo,Efectivo,Pagada,,,,,,,,,,,,,,,,
+10,ximena gonzalez franco,m,05/08/2019,Primaria,elemental,inactivo,Verano,paquete sencillo,Efectivo,Pagada,,,,,,,,,,,,,,,,
+9,ximena moralez gonzalez,m,29/07/2019,Primaria,elemental,inactivo,Verano,paquete sencillo,Efectivo,Pagada,,,,,,,,,,,,,,,,

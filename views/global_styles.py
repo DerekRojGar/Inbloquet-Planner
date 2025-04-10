@@ -230,3 +230,31 @@ def render_css():
                 
     </style>
     """, unsafe_allow_html=True)
+
+
+# Añadir al CSS:
+st.markdown("""
+<style>
+    /* Estilos para estado de pago */
+    .estado-pago {
+        padding: 0.8rem;
+        border-radius: 8px;
+        margin: 1rem 0;
+    }
+    
+    .pagado {
+        background-color: #4BB1E022;
+        border-left: 5px solid #4BB1E0;
+    }
+    
+    .pendiente {
+        background-color: #FF4B4B22;
+        border-left: 5px solid #FF4B4B;
+    }
+    
+    /* Scroll automático al formulario */
+    [data-testid="stExpander"] {
+        scroll-margin-top: 80px;
+    }
+</style>
+""", unsafe_allow_html=True)
