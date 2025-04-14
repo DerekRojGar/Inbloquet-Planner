@@ -24,7 +24,8 @@ def run_app():
     # Cargar módulo de alumnos si está seleccionado
     if opcion == "👥 Gestión de Alumnos":
         from controllers.alumnos_controller import inicializar_estado_alumnos
-        from views.alumnos_view import render_alumnos_view
+        # Actualización del import:
+        from views.alumnos import render_alumnos_view
         
         inicializar_estado_alumnos()
         render_alumnos_view()

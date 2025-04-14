@@ -1,104 +1,106 @@
-﻿Matricula,Nombre,Dirección de correo electrónico,Escuela de provinencia,Alergias,Observaciones,Nombre Completo del Familiar,Parentesco,Número de teléfono del familiar,Nombre completo de contacto de emergencia,Número de teléfono de contacto de emergencia,Sexo,Fecha Inscripción,Grado,Nivel,Inscripción,Cumpleaños,Tipo de Curso,Vigente,Fecha Inicio Clases,monto_abonado
-1,Santiago Argüello Garita,,,,,,,,,,H,,Primaria,Elemental,Pagada,,Verano - 2019,No,,0.0
-2,Leonardo Guevara Yañez,,,,,,,,,,H,,Primaria,Elemental,Pagada,,Verano - 2019,No,,0.0
-3,Patricio Tsakiris Parra Urban,,,,,,,,,,H,,Primaria,Elemental,Pagada,,Verano - 2019,No,,0.0
-4,Emmanuel Juárez Martínez,,,,,,,,,,H,,Primaria,Elemental,Pagada,,Verano - 2019,No,,0.0
-5,Emiliano González Franco,,,,,,,,,,H,,Primaria,Elemental,Pagada,,Verano - 2019,No,,0.0
-6,Hector Manuel Salazar Meléndez,,,,,,,,,,H,,Primaria,Elemental,Pagada,,Verano - 2019,No,,0.0
-7,Aldo,,,,,,,,,,H,,Primaria,Elemental,Pagada,,Verano - 2019,No,,0.0
-8,Iam,,,,,,,,,,H,,Primaria,Elemental,Pagada,,Verano - 2019,No,,0.0
-9,Ximena Moralez González,,,,,,,,,,M,,Primaria,Elemental,Pagada,,Verano - 2019,No,,0.0
-10,Ximena González Franco,,,,,,,,,,M,,Primaria,Elemental,Pagada,,Verano - 2019,No,,0.0
-11,Joaquin Rivera Grados,,,,,,,,,,H,,Primaria,Elemental,Pagada,,Clase - 2019,No,,0.0
-12,Diego Hernandez Llaca,,,,,,,,,,H,,Primaria,Elemental,Pagada,,Clase - 2019,No,,0.0
-13,Jean,,,,,,,,,,H,,Primaria,Elemental,Pagada,,Clase - 2019,No,,0.0
-14,Matias,,,,,,,,,,H,,Primaria,Elemental,Pagada,,Clase - 2020,No,,0.0
-15,Evan,,,,,,,,,,H,,Primaria,Elemental,Pagada,,Clase - 2020,No,,0.0
-16,Esteban García Ramirez,dg@cetiamedia.com,Lúminos,Ninguna,Capacidad visual limitada,Esteban Garcia Varela,Padre,2281228952.0,Libna Ramirez Olvera,2214209336.0,H,,Primaria,Elemental,Pagada,,Clase - 2020,No,,0.0
-17,Valeria Vargas García ,alro0708@hotmail.com,Colegio carabez,Ninguna,Ninguna,Alma Rosa Vargas Garcia,Madre,2225647550.0,Joanna Rodríguez Mandujano,2212131641.0,M,,Primaria,Elemental,Pagada,,Clase - 2020,No,,0.0
-18,Rodrigo Velazquez Manning,soundfanatik@hotmail.com,Home,Ninguna,Ninguna,Oscar Esteban Velazquez,Padre,5585476926.0,Anaí Manning,5534210522.0,H,,Primaria,Elemental,Pagada,,Clase - 2020,No,,0.0
-19,Elías Velazquez Manning,soundfanatik@hotmail.com,Home,Ninguna,Ninguna,Oscar Esteban Velazquez,Padre,5585476926.0,Anaí Manning,5534210522.0,H,,Primaria,Elemental,Pagada,,Clase - 2020,No,,0.0
-20,Ian Santiago Lobato Diaz,arielgl85@hotmail.com,Fundadores de Puebla,Ninguna,Ninguna,Ariel Lobato Guerrero,Padre,2227273231.0,Andrea Ivonne Diaz Juarez,2227781945.0,H,,Preescolar,Elemental,Pagada,,Clase - 2020,No,,0.0
-21,Naomi America Aguirre Lopez,blaifepily@icloud.com,Colegio Americano,Ninguna,Ninguna,Blanca Pilar Lopez Hernandez,Madre,2223629230.0,Ariel Giovanni Aguirre Loaiza,2212184576.0,M,,Primaria,Elemental,Pagada,,Clase - 2020,No,,0.0
-22,Renata Angeles Mirón,leryam_mv@hotmail.com,Colegio José Vasconcelos,Trimetroprima sulfametazol,😂,Mayrel Mirón Villegas,Mamá,2221833830.0,Jovani Angeles Mirón,2224252329.0,M,,Primaria,Elemental,Pagada,,Clase - 2020,No,,0.0
-23,Jonathan,,,,,,,,,,H,,Primaria,Elemental,Pagada,,Clase - 2020,No,,0.0
-24,Paula Vargas Salgado,coordinaciondefiestas@hotmail.com,Montesori,Ninguna,Ninguna,Alina Salgado Perez,Madre,4423328430.0,Ricardo Vargas,4422846795.0,M,,Primaria,Elemental,Pagada,,Clase - 2020,No,,0.0
-25,Emilia Vargas Salgado,coordinaciondefiestas@hotmail.com,Montesori,Ninguna,Ninguna,Alina Salgado Perez,Madre,4423328430.0,Ricardo Vargas,4422846795.0,M,,Primaria,Elemental,Pagada,,Clase - 2020,No,,0.0
-26,Pablo Andrade Salomón,famandradsa@gmail.com,MATI TALENT INTITUTE,POLVO Y PELO DE GATO,ninguna,SAUL ANDRADE CAMACHO,PAPA,4421690498.0,SDAINE ZORAYA SALOMÓN FERNÁNDEZ,2228672500.0,H,,Primaria,Elemental,Pagada,,Clase - 2020,No,,0.0
-27,Mateo Andrade Salomón,famandradsa@gmail.com,MATI TALENT INSTITUTE,NINGUNA,NINGUNA,SAUL ANDRADE CAMACHO,PAPÁ,4421690498.0,SDAINE ZORAYA SALOMÓN FERNÁNDEZ,2228672500.0,H,,Primaria,Elemental,Pagada,,Clase - 2020,No,,0.0
-28,Derek Matías Zapata Landa ,iranzapata@hotmail.com,Colegio la salle de puebla ,Ninguna ,Ninguna ,Jhony Irán zapata Sosa ,Padre,2228120017.0,Nayeli landa aleman ,2821007245.0,H,,Primaria,Elemental,Pagada,,Clase - 2020,No,,0.0
-29,Iker Zapata Landa,,,,,,,,,,H,,Preescolar,Preescolar,Pagada,,Clase - 2021,No,,0.0
-30,Nico,,,,,,,,,,H,,Primaria,Elemental,Pagada,,Clase - 2021,No,,0.0
-31,Viktoria,,,,Autismo,,,,,,M,,Preescolar,Preescolar,Pagada,,Clase - 2021,No,,0.0
-32,Santiago Ocampo Zamora,,,,,,,,,,H,,Primaria,Elemental,Pagada,,Clase - 2021,No,,0.0
-33,Raul Eduardo Rojas Ramirez,,,,,,,,,,H,,Bachillerato,Elemental,Pagada,,Clase - 2021,No,,0.0
-34,Axel,,,,,,,,,,H,,Primaria,Elemental,Pagada,,Clase - 2021,No,,0.0
-35,Maximiliano Hernández López,xochitl_hc91@hotmail.com,Homeschooling,Ninguno,Ninguna,Alberto Hernández Castillo,Padre,2222804021.0,Xóchitl Hernández Castillo,2225791037.0,H,,Primaria,Elemental,Pagada,,Clase - 2021,No,,0.0
-36,Emma Gagnon,evelyn_s81@hotmail.com,Homeschool,Ninguna ,Ninguna ,Evelyn Solorio ,Mama,2212372958.0,David Gagnon,2214056623.0,M,,Primaria,Elemental,Pagada,,Verano - 2021,No,,0.0
-37,Santiago Gagnon,evelyn_s81@hotmail.com,Homeschool,Ninguna,Ninguna,Evelyn Solorio ,Mama,2212372958.0,David Gagnon,2214056623.0,H,,Primaria,Elemental,Pagada,,Verano -2021,No,,0.0
-38,Héctor Ezequiel Jiménez Arriaga,lil.arriaga@gmail.com,Lúminos,A la nuez y al pelo de conejo,Ninguna,Liliana Isaura Arriaga Gutiérrez,Mamá,2221132763.0,Héctor Alejandro Jiménez Ortega,2225225944.0,H,,Primaria,Elemental,Pagada,,Verano -2021,No,,0.0
-39,Alexa Montañez Fernández ,mccoy1416@gmail.com,Homeschool ,Ninguna,Ninguna ,Andrea Fernandez McCoy ,Mamá,2225052819.0,Patricia Ann McCoy ,2225689340.0,M,,Primaria,Elemental,Pagada,,Verano -2021,No,,0.0
-40,Christopher Montañez Fernández ,mccoy1416@gmail.com,Homeschool ,No,Ninguna ,Andrea Fernandez McCoy ,Mamá,2225052810.0,Patricia Ann McCoy ,2225689340.0,H,,Primaria,Elemental,Pagada,,Verano -2021,No,,0.0
-41,Alexia Parrilla Reyes,arely.reyes@correo.buap.mx,Colegio San Ángel campus Puebla,Ninguna,No,Arely Reyes Núñez,Mamá,2221816510.0,Alexéi Parrilla Efiménkova,2223233944.0,M,,Primaria,Elemental,Pagada,,Verano -2021,No,,0.0
-42,Alexander Parrilla Reyes,arely.reyes@correo.buap.mx,Colegio San Ángel campus Puebla,No,"Diagnosticado con arritmia cardiaca, sin mayor complicación",Arely Reyes Núñez,Mamá,2221816510.0,Alexéi Parrilla Efiménkova,2223233944.0,H,,Primaria,Elemental,Pagada,,Verano -2021,No,,0.0
-43,Alessio Caltagirone Valencia,edith.valencia@live.com.mx,Centro Educativo Camino Real,Ninguna,Ninguna,Alma Edith Valencia Hernández,Mamá,2221562730.0,Gianluca Caltagirone,2221622609.0,H,,Primaria,Elemental,Pagada,,Clase - 2021,No,,0.0
-44,Diego Michel Verhaar Carrasco ,verhaarmm@yahoo.com,Luminos,No,No,Mark Michiel Verhaar ,Luz Carrasco Medrano ,2226614856.0,Luz Carrasco Medrano ,2228138453.0,H,,Primaria,Elemental,Pagada,,Verano -2021,No,,0.0
-45,Melisa,,,,,,,,,,M,,Primaria,Elemental,Pagada,,Verano -2021,No,,0.0
-46,Alexander,,,,,,,,,,H,,Primaria,Elemental,Pagada,,Verano -2021,No,,0.0
-47,Sebastian Barredo Peregrina,myriampc@gmail.com,Roots & wings,Tomate verde,—,Myriam Peregrina Cabrera,Madre,2223516946.0,Santiago BARREDO barberena ,2227084766.0,H,,Primaria,Elemental,Pagada,,Clase - 2021,Si,,0.0
-48,Alec Lópezsainz Arnal ,deborah.arnal@gmail.com,Tribu,Ninguna ,Ninguna ,Deborah Arnal Luna ,Madre,2222608244.0,Rodrigo Lópezsainz Velasco ,2222382690.0,H,,Primaria,Elemental,Pagada,,Clase - 2021,No,,0.0
-49,Jose Manuel Leal Dominguez,lealmierfernando@gmail.com,Colegio Americano,Papaya y soya ,Ninguna ,Fernando Leal Mier,Padre,2222380550.0,Janet Dominguez Lozano,2228647045.0,H,,Preescolar,Preescolar,Pagada,,Clase - 2021,No,,0.0
-50,Mateo Sánchez Blanco,blancodurandiana@gmail.com,Aún no asiste a la escuela. ,A LOS LÁCTEOS,Ninguna,Diana Blanco Durán ,Mamá,2227822807.0,Emmanuel Sánchez Carreón  (papá),2224025408.0,H,,Preescolar,Preescolar,Pagada,,Clase - 2022,No,,0.0
-51,Bruno Saldívar Michel,globaloxs@gmail.com,Col. Humanista,No,Sin observaciones,Oswaldo Saldívar Pérez,Padre,2221730715.0,Paola Michel,2225508802.0,H,,Primaria,Elemental,Pagada,,Clase - 2022,No,,0.0
-52,Emilio Castro Bernardi,rbernardir@gmail.com,Instituto Damicis,Al polvo y ácaros ,Tiene Dermatitis atópica,Raquel Bernardi Reyes ,Mamá,5531733473.0,Victor Manuel Castro Morales,5531733331.0,H,,Primaria,Elemental,Pagada,,Clase - 2022,No,,0.0
-53,Oscar Darío Martínez Miranda Campero ,infocryamexico@gmail.com,Montessori Quetzalli ,Ninguna ,. ,Ana Paola Miranda ,Madre ,7471629913.0,Oscar Martinez Dolejal ,7471621440.0,H,,Primaria,Elemental,Pagada,,Clase - 2022,Si,,0.0
-54,Pablo,,,,,,,,,,H,,Primaria,Elemental,Pagada,,Clase - 2022,No,,0.0
-55,Leone Arek Re Garibay,titanpyc@gmail.com,Goleman,Ninguna,Ninguna,Felice Re Bo,Papá,9381522691.0,Patricia Athenea Garibay de la Tejera,9381529939.0,H,,Preescolar,Preescolar,Pagada,,Clase - 2022,No,,0.0
-56,Fahra Saldívar Michel,,,,,,,,,,M,,Preescolar,Elemental,Condonada,,Clase - 2022,No,,0.0
-57,Mateo Corona Justo ,vtepa96@icloud.com,Colegio la Merced ,Ninguna ,Ninguna ,Raquel Corona Justo,Madre ,2225500363.0,Porfirio Corona Justo ,2271093488.0,H,,Primaria,Elemental,Condonada,,Clase - 2022,No,,0.0
-58,Iván,,,,,,,,,,H,,-,Elemental,Condonada,,Clase - 2022,No,,0.0
-59,Stephan Sproll Arenaa,virginiaarenasp@gmail.com,Humboldt,Ninguna conocida ,Ninguna,Virginia Arenas Palau,Mamá ,2221231587.0,Stephan Sproll ,2225057285.0,H,,Preescolar,Preescolar,Pagada,,Clase - 2022,No,,0.0
-60,Nobu Ryan Kano Cheng,shuothegreat@gmail.com,Inbloquet Camino Real,Ninguna,Ninguna,Shuo Cheng,Madre,522227000000.0,Alejandro Kano Cheng,2221133214.0,H,,Primaria,Elemental,Pagada,,Clase - 2022,No,,0.0
-61,Diego Garcia Cabrera,danska_garcia@hotmail.com,Concrete Primary ,Ninguna,Ninguna,Daniel Garcia,Papá ,528642000000.0,Adelaida Perez ,2227074223.0,H,,Primaria,Elemental,Condonada,,Clase - 2022,No,,0.0
-62,Emiliano de la Vega cona ,tcona@hotmail.com,Luminos ,No,Ninguna ,Tiziana cona morales,Madre ,2222581033.0,Víctor de la Vega Alonso ,2222387524.0,H,,Primaria,Elemental,Pagada,,Clase - 2022,No,,0.0
-63,Emilio Nocedal Díaz ,giovanna.diazs@gmail.com,Luminos,No,A veces le da miedo entrar solo a clase ,Giovanna Díaz,Mamá ,2226800452.0,Alma Delia Sifuentes ,2228655743.0,H,,Primaria,Elemental,Pagada,,Clase - 2022,Si,,0.0
-64,Regina Nocedal Díaz ,giovanna.diazs@gmail.com,Luminos ,No,Le cuesta trabajo quedarse sola ,Giovanna Diaz Sifuentes,Mamá ,2226800452.0,Alma Delia Sifuentes ,2228655746.0,M,,Primaria,Elemental,Pagada,,Clase - 2022,Si,,0.0
-65,Patrick Lee Osorio,vicky_osorio@hotmail.com,AEC,No,Ninguno ,Virginia Osorio,Madre,2222936362.0,Mauricio Osorio ,2221920540.0,H,,Preescolar,Preescolar,Pagada,,Clase - 2022,No,,0.0
-66,Enrique Emiliano Nañez Oliva,psnenp@hotmail.com,AEC,Ninguna ,Ninguna,Noé Enrique Nañez Pon,Padre,2221570057.0,Anahí Oliva Ruiz,2224245423.0,H,,Preescolar,Preescolar,Pagada,,Clase - 2022,No,,0.0
-67,Angel Genchi Toledo ,lilitoledoa@yahoo.com.mx,Hikma,Ninguna ,-,Ana Lilia Toledo Aguilar,Madre,2226622999.0,Roberto Genchi Recinos,22221766041.0,H,,Primaria,Elemental,Pagada,,Clase - 2022,No,,0.0
-68,Ethan Rojas Reyes ,carc63@hotmail.com,Escuela primaria Federal Benito Juárez ,Ninguna ,Estornuda si siente frio,Claudia Aurora Reyes Cordero ,Madre,2228640196.0,Alicia Cordero Valera ,2225768232.0,H,,Primaria,Elemental,Pagada,,Clase - 2022,no,,0.0
-69,Israel Briones Cano,danielacano26@gmail.com,Ho,Ninguna,Ninguna,Daniela Cano,Madre,14233208494.0,Israel Briones,14244881690.0,H,,Preescolar,Preescolar,Pagada,,Clase - 2022,No,,0.0
-70,Ivannia marmolejo marina,karelia98@hotmail.com,colegio intercanadiense,no,.,karelia marmolejo marina,mama,2211200384.0,marina marina trujillo,7351940652.0,M,,Preescolar,Preescolar,Pagada,,Clase - 2023,No,,0.0
-71,Sebastián Fernández Pérez ,ferpt@hotmail.com,Montessori Cholloyan ,Polvo ,—-,Maria Fernanda Pérez trespalacios ,Mamá ,5554155903.0,Ivan Fernández fabris ,5543401965.0,H,,Primaria,Elemental,Pagada,,Clase - 2023,No,,0.0
-72,Matías Emilio Luqueño Martínez,gerardo.luqueno@gmail.com,Instituto Iñigo,A la humedad y el polvo,,Gerardo Luqueño Cortés,Padre,2225882818.0,Monserrat Martínez García,2212657409.0,H,,Primaria,Elemental,Pagada,,Clase - 2023,No,,0.0
-73,Renata García ,denis_sh@hotmail.com,Dam,Alergia estacional ,Es muy inteligente ,Denisse Sánchez ,Mamá ,5532684745.0,Sony Sánchez ,5544415689.0,M,,Preescolar,Elemental,Pagada,,Clase - 2023,No,,0.0
-74,Iker Garces Jimenez ,activacionfed@hotmail.com,Eduardo Arroyo Cruz,Ninguna ,.,Joel Garcés Huerta ,Papá ,2227089613.0,Dulce Lucia Jiménez Fernández ,2221141506.0,H,,Primaria,Elemental,Pagada,,Clase - 2023,Si,,0.0
-75,Matías Chiguil Jiménez ,marinera22@aoutkook.es,Le Bret,"Polvo, humedad, animales y ácaros.",Padece alergia renitis con frecuencia por lo regularmente lo verán agripado.,Alma Yanet Jiménez Córdova ,Mamá ,9381811519.0,Estela Rensol,7821963465.0,H,,Primaria,Elemental,Pagada,,Clase - 2023,No,,0.0
-76,Valeria Loranca Montiel ,Janfrey250507@gmail.com,Margarita Masa de Juárez ,Ninguna ,Ninguna ,Janet Montiel Hernández ,Mamá ,2221566144.0,Rafael Loranca Tepanecatl ,2221471659.0,M,,Primaria,Elemental,Pagada,,Clase - 2023,No,,0.0
-77,Josué Santiago Hernández Salgado ,jovs2201@gmail.com,Motolinia,Ninguna ,Ninguna ,Anay Salgado Lopez ,Madre,2211674746.0,Ana Lidia turrent,2222368103.0,H,,Primaria,Elemental,Pagada,,Clase - 2023,No,,0.0
-78,Sebastián Salinas Martínez ,macmc_88@hotmail.com,Celap,Ninguna ,Tiene problemas de lenguaje y se le complica la lecto escritura,Mary Carmen Martínez Cruz ,Mamá ,2212605702.0,Carmen Cruz ,2224600229.0,H,,Primaria,Elemental,Pagada,,Clase - 2023,No,,0.0
-79,Sofía Salinas Martínez ,macmc_88@hotmail.com,Celap,Ninguna ,Es un poco tímida y le da pena enseñar sus manos,Mary CarmenMartínez Cruz ,Mamá ,2212605702.0,Carmen Cruz ,2224600229.0,M,,Primaria,Elemental,Pagada,,Clase - 2023,No,,0.0
-80,Valentino Díaz Aldrete ,alednz10@yahoo.com,Montessori ,Ninguna ,Ninguna ,Alejandra Aldrete Mercado ,Madre,2224858365.0,Mariano Díaz Cadena,9621083681.0,H,,Preescolar,Preescolar,Pagada,,Clase - 2023,No,,0.0
-81,Emilio Cortés Bustos,lioscatpetshop@gmail.com,Home scholling,Ninguna ,Ninguna ,Magda Mirielle Cortés Bustos,Madre,2211462006.0,Manuel Alejandro Cortez Bustos,2211462008.0,H,,Preescolar,Elemental,Pagada,,Clase - 2023,No,,0.0
-82,Matthias Woyke Alonso ,tete26_@hotmail.com,Instituto Oriente ,Ninguna,Ninguna,María Esther Alonso Rivera ,Madre,2221154053.0,Norman Woyke ,2471044651.0,H,,Primaria,Elemental,Pagada,,Clase - 2023,No,,0.0
-83,Santiago Morales Castañeda,gabii-juarez@hotmail.com,Instituto Damicis,Leche,En caso de ronchitas hablar,Gabriela Castañeda juárez ,Madre,5534294404.0,Alfredo Morales Reyes,2215787062.0,H,,Primaria,Elemental,Condonada,,Clase - 2023,Si,,0.0
-84,Santiago Agüero López ,jocelynlopezg@yahoo.com,Montessori Xaltepec ,Al polvo ,Sati es alérgico al polvo y a al humo ,Jocelyn  López González ,Madre,9515482950.0,Javier Agüero Carranza ,9515080414.0,H,,Primaria,Elemental,Pagada,,Clase - 2023,No,,0.0
-85,Dante Sebastian Canseco Porras ,luiscansecoart@gmail.com,Colegio intercanadiense ,"No, hasta el momento ",Es muy listo y creativo pero se distrae mucho ,Luis Canseco Soto ,Padre ,9515690487.0,Daniela Porras Pérez Guerrero ,9511501378.0,H,,Secundaria,Elemental,Pagada,,Clase - 2023,No,,0.0
-86,Alejandro Barrios Alcázar,alejandro.ba@gmail.com,CEA Cuautlancingo,"Pelusa perro, gato, acaros, soya",TDAH,Alejandro Barrios Morfín,Padre,2211724255.0,Liliana Alcázar Gazca,2227695633.0,H,,Primaria ,Elemental,Pagada,,Clase - 2023,No,,0.0
-87,Itzae,,,,,,,,,,H,,,Elemental,Condonada ,,Clase - 2023,no,,0.0
-88,Tamara,,,,,,,,,,M,,Preescolar,Preescolar,Condonada,,Clase - 2023,no,,0.0
-89,Paulet,,,,,,,,,,M,,Primaria,Elemental,Condonada,,Clase - 2023,No,,0.0
-90,Emiliano moreno tejeda ,elidethtejeda@gmail.com,kukaramakara ,no,no,Greise Moreno Tejeda ,mamá ,2227169253.0,Fernanda Cordero ,9671516891.0,H,,Preescolar,Preescolar,Pagada,,Clase - 2023,No,,0.0
-91,Paulo Peredo,peredo.pa@gmail.com,Playland Academy ,Medio ambiente ,Está en tratamiento de asma y bronquios ,Paula Peredo,Madre,2211615797.0,Alberto Robredo ,5637136484.0,H,,Preescolar,Preescolar,Pagada,,Clase - 2023,No,,0.0
-92,Santiago Sosa Zarate,sosaoliverluisalfredo@gmail.com,Centro de Eduación Integral Teocalli,Alergia a las sulfas,,Luis Alfredo Sosa Oliver,Papá,2213081338.0,Alma Patricia Zarate Buentello,2215924768.0,H,,Primaria,Elemental,Condonada,,Clase - 2023,No,,0.0
-93,Eiza Sosa Zarate,sosaoliverluisalfredo@gmail.com,Centro de Eduación Integral Teocalli,,,Luis Alfredo Sosa Oliver,Papá,2213081338.0,Alma Patricia Zarate Buentello,2215924768.0,M,,Primaria,Elemental,Condonada,,Clase - 2023,No,,0.0
-94,Minerva Pérez Moran,Moran.monserrath@gmail.com,Instituto Damicis ,No tiene,Le encanta aprender cosas nuevas ,Monserrath Moran Pineda ,Mamá ,5525410403.0,Marco Antonio Pérez de la Rosa,5523141218.0,M,,Preescolar,Preescolar,Condonada,,Clase - 2024,Si,,0.0
-95,Sebastian montes de oca cruz y corro,morrmex@gmail.com,Damicis,Ninguna,"Gusto por la programacion , quisiera aprender ingenieria",Maria Guadalupe Cruz y Corro García ,Mama,2224818536.0,Raul montes de oca rojas,2228125254.0,H,,Primaria,Elemental,Pagada,,Clase -2024,no,,0.0
-96,Daniel Forcelledo García ,soonniiaa@hotmail.com,Colegio Americano ,Ninguna,Le encanta armar legos !,Sonia Garcia Sacre,Mamá ,2227646759.0,Daniel Forcelledo Salmeron ,2222605912.0,H,,Primaria,Elemental,Pagada,,Clase - 2024,No,,0.0
-97,Romina lemus lima,romilemuslima.11@gmail.com,montessori 5o sol,no,no,jose roberto lemus nava,padre,2221170882.0,viridiana lima morales ,2226765428.0,M,,Primaria,Elemental,Condonada,,Clase - 2024,Si,,0.0
-98,Niña Nueva,,,,,,,,,,M,,Preescolar,Preescolar,Condonada,,Clase - 2024,No,,0.0
-99,Julian Romero Romero,ariadnabinepue@gmail.com,Casa del Nonno ,Ninguna ,Ninguna ,Juan Manuel Romero Osorio ,Padre,2222934078.0,Ariadna Romero Ceballos ,2211739979.0,H,,Preescolar,Preescolar,Condonada,,Clase - 2024,Si,,0.0
-100,Sara Lerma Tejero,Auroritapedrero@hotmail.com,Humboldt,Ninguna,Necesitan orden y disciplina que yo no les doy :) poner atenciona lo que hacen,Aurora Tejero,Madre,2222173010.0,Lourdes Lerma,2223108937.0,M,,Preescolar,Elemental,Condonada,,Clase - 2024,No,,0.0
-101,Elisa Lerma Tejero,,,,,,,,,,M,,Preescolar,Elemental,Condonada,,Clase - 2024,No,,0.0
-102,Daniel Ceballos,,,,,,,,,,H,,Preescolar,Preescolar,Pagada,,Clase - 2024,Si,,0.0
-103,Prueba 01,Prueba01@gmail.com,Prueba 01,Ninguna,Ninguna,Prueba 01,Mama,123456789.0,1234567890,1234567890.0,H,04/10/2025,Primaria,Elemental,Pagada,01/05/2000,Clase - 2025,No,04/10/2025,240.0
+﻿Matricula,Nombre,Dirección de correo electrónico,Escuela de provinencia,Alergias,Observaciones,Nombre Completo del Familiar,Parentesco,Número de teléfono del familiar,Nombre completo de contacto de emergencia,Número de teléfono de contacto de emergencia,Sexo,Fecha Inscripción,Grado,Nivel,Inscripción,Cumpleaños,Tipo de Curso,Vigente,Fecha Inicio Clases,monto_abonado,pagos,clases
+1,Santiago Argüello Garita,,,,,,,,,,H,,Primaria,Elemental,Pagada,,Verano - 2019,No,,0.0,[],[]
+2,Leonardo Guevara Yañez,,,,,,,,,,H,,Primaria,Elemental,Pagada,,Verano - 2019,No,,0.0,[],[]
+3,Patricio Tsakiris Parra Urban,,,,,,,,,,H,,Primaria,Elemental,Pagada,,Verano - 2019,No,,0.0,[],[]
+4,Emmanuel Juárez Martínez,,,,,,,,,,H,,Primaria,Elemental,Pagada,,Verano - 2019,No,,0.0,[],[]
+5,Emiliano González Franco,,,,,,,,,,H,,Primaria,Elemental,Pagada,,Verano - 2019,No,,0.0,[],[]
+6,Hector Manuel Salazar Meléndez,,,,,,,,,,H,,Primaria,Elemental,Pagada,,Verano - 2019,No,,0.0,[],[]
+7,Aldo,,,,,,,,,,H,,Primaria,Elemental,Pagada,,Verano - 2019,No,,0.0,[],[]
+8,Iam,,,,,,,,,,H,,Primaria,Elemental,Pagada,,Verano - 2019,No,,0.0,[],[]
+9,Ximena Moralez González,,,,,,,,,,M,,Primaria,Elemental,Pagada,,Verano - 2019,No,,0.0,[],[]
+10,Ximena González Franco,,,,,,,,,,M,,Primaria,Elemental,Pagada,,Verano - 2019,No,,0.0,[],[]
+11,Joaquin Rivera Grados,,,,,,,,,,H,,Primaria,Elemental,Pagada,,Clase - 2019,No,,0.0,[],[]
+12,Diego Hernandez Llaca,,,,,,,,,,H,,Primaria,Elemental,Pagada,,Clase - 2019,No,,0.0,[],[]
+13,Jean,,,,,,,,,,H,,Primaria,Elemental,Pagada,,Clase - 2019,No,,0.0,[],[]
+14,Matias,,,,,,,,,,H,,Primaria,Elemental,Pagada,,Clase - 2020,No,,0.0,[],[]
+15,Evan,,,,,,,,,,H,,Primaria,Elemental,Pagada,,Clase - 2020,No,,0.0,[],[]
+16,Esteban García Ramirez,dg@cetiamedia.com,Lúminos,Ninguna,Capacidad visual limitada,Esteban Garcia Varela,Padre,2281228952.0,Libna Ramirez Olvera,2214209336.0,H,,Primaria,Elemental,Pagada,,Clase - 2020,No,,0.0,[],[]
+17,Valeria Vargas García ,alro0708@hotmail.com,Colegio carabez,Ninguna,Ninguna,Alma Rosa Vargas Garcia,Madre,2225647550.0,Joanna Rodríguez Mandujano,2212131641.0,M,,Primaria,Elemental,Pagada,,Clase - 2020,No,,0.0,[],[]
+18,Rodrigo Velazquez Manning,soundfanatik@hotmail.com,Home,Ninguna,Ninguna,Oscar Esteban Velazquez,Padre,5585476926.0,Anaí Manning,5534210522.0,H,,Primaria,Elemental,Pagada,,Clase - 2020,No,,0.0,[],[]
+19,Elías Velazquez Manning,soundfanatik@hotmail.com,Home,Ninguna,Ninguna,Oscar Esteban Velazquez,Padre,5585476926.0,Anaí Manning,5534210522.0,H,,Primaria,Elemental,Pagada,,Clase - 2020,No,,0.0,[],[]
+20,Ian Santiago Lobato Diaz,arielgl85@hotmail.com,Fundadores de Puebla,Ninguna,Ninguna,Ariel Lobato Guerrero,Padre,2227273231.0,Andrea Ivonne Diaz Juarez,2227781945.0,H,,Preescolar,Elemental,Pagada,,Clase - 2020,No,,0.0,[],[]
+21,Naomi America Aguirre Lopez,blaifepily@icloud.com,Colegio Americano,Ninguna,Ninguna,Blanca Pilar Lopez Hernandez,Madre,2223629230.0,Ariel Giovanni Aguirre Loaiza,2212184576.0,M,,Primaria,Elemental,Pagada,,Clase - 2020,No,,0.0,[],[]
+22,Renata Angeles Mirón,leryam_mv@hotmail.com,Colegio José Vasconcelos,Trimetroprima sulfametazol,😂,Mayrel Mirón Villegas,Mamá,2221833830.0,Jovani Angeles Mirón,2224252329.0,M,,Primaria,Elemental,Pagada,,Clase - 2020,No,,0.0,[],[]
+23,Jonathan,,,,,,,,,,H,,Primaria,Elemental,Pagada,,Clase - 2020,No,,0.0,[],[]
+24,Paula Vargas Salgado,coordinaciondefiestas@hotmail.com,Montesori,Ninguna,Ninguna,Alina Salgado Perez,Madre,4423328430.0,Ricardo Vargas,4422846795.0,M,,Primaria,Elemental,Pagada,,Clase - 2020,No,,0.0,[],[]
+25,Emilia Vargas Salgado,coordinaciondefiestas@hotmail.com,Montesori,Ninguna,Ninguna,Alina Salgado Perez,Madre,4423328430.0,Ricardo Vargas,4422846795.0,M,,Primaria,Elemental,Pagada,,Clase - 2020,No,,0.0,[],[]
+26,Pablo Andrade Salomón,famandradsa@gmail.com,MATI TALENT INTITUTE,POLVO Y PELO DE GATO,ninguna,SAUL ANDRADE CAMACHO,PAPA,4421690498.0,SDAINE ZORAYA SALOMÓN FERNÁNDEZ,2228672500.0,H,,Primaria,Elemental,Pagada,,Clase - 2020,No,,0.0,[],[]
+27,Mateo Andrade Salomón,famandradsa@gmail.com,MATI TALENT INSTITUTE,NINGUNA,NINGUNA,SAUL ANDRADE CAMACHO,PAPÁ,4421690498.0,SDAINE ZORAYA SALOMÓN FERNÁNDEZ,2228672500.0,H,,Primaria,Elemental,Pagada,,Clase - 2020,No,,0.0,[],[]
+28,Derek Matías Zapata Landa ,iranzapata@hotmail.com,Colegio la salle de puebla ,Ninguna ,Ninguna ,Jhony Irán zapata Sosa ,Padre,2228120017.0,Nayeli landa aleman ,2821007245.0,H,,Primaria,Elemental,Pagada,,Clase - 2020,No,,0.0,[],[]
+29,Iker Zapata Landa,,,,,,,,,,H,,Preescolar,Preescolar,Pagada,,Clase - 2021,No,,0.0,[],[]
+30,Nico,,,,,,,,,,H,,Primaria,Elemental,Pagada,,Clase - 2021,No,,0.0,[],[]
+31,Viktoria,,,,Autismo,,,,,,M,,Preescolar,Preescolar,Pagada,,Clase - 2021,No,,0.0,[],[]
+32,Santiago Ocampo Zamora,,,,,,,,,,H,,Primaria,Elemental,Pagada,,Clase - 2021,No,,0.0,[],[]
+33,Raul Eduardo Rojas Ramirez,,,,,,,,,,H,,Bachillerato,Elemental,Pagada,,Clase - 2021,No,,0.0,[],[]
+34,Axel,,,,,,,,,,H,,Primaria,Elemental,Pagada,,Clase - 2021,No,,0.0,[],[]
+35,Maximiliano Hernández López,xochitl_hc91@hotmail.com,Homeschooling,Ninguno,Ninguna,Alberto Hernández Castillo,Padre,2222804021.0,Xóchitl Hernández Castillo,2225791037.0,H,,Primaria,Elemental,Pagada,,Clase - 2021,No,,0.0,[],[]
+36,Emma Gagnon,evelyn_s81@hotmail.com,Homeschool,Ninguna ,Ninguna ,Evelyn Solorio ,Mama,2212372958.0,David Gagnon,2214056623.0,M,,Primaria,Elemental,Pagada,,Verano - 2021,No,,0.0,[],[]
+37,Santiago Gagnon,evelyn_s81@hotmail.com,Homeschool,Ninguna,Ninguna,Evelyn Solorio ,Mama,2212372958.0,David Gagnon,2214056623.0,H,,Primaria,Elemental,Pagada,,Verano -2021,No,,0.0,[],[]
+38,Héctor Ezequiel Jiménez Arriaga,lil.arriaga@gmail.com,Lúminos,A la nuez y al pelo de conejo,Ninguna,Liliana Isaura Arriaga Gutiérrez,Mamá,2221132763.0,Héctor Alejandro Jiménez Ortega,2225225944.0,H,,Primaria,Elemental,Pagada,,Verano -2021,No,,0.0,[],[]
+39,Alexa Montañez Fernández ,mccoy1416@gmail.com,Homeschool ,Ninguna,Ninguna ,Andrea Fernandez McCoy ,Mamá,2225052819.0,Patricia Ann McCoy ,2225689340.0,M,,Primaria,Elemental,Pagada,,Verano -2021,No,,0.0,[],[]
+40,Christopher Montañez Fernández ,mccoy1416@gmail.com,Homeschool ,No,Ninguna ,Andrea Fernandez McCoy ,Mamá,2225052810.0,Patricia Ann McCoy ,2225689340.0,H,,Primaria,Elemental,Pagada,,Verano -2021,No,,0.0,[],[]
+41,Alexia Parrilla Reyes,arely.reyes@correo.buap.mx,Colegio San Ángel campus Puebla,Ninguna,No,Arely Reyes Núñez,Mamá,2221816510.0,Alexéi Parrilla Efiménkova,2223233944.0,M,,Primaria,Elemental,Pagada,,Verano -2021,No,,0.0,[],[]
+42,Alexander Parrilla Reyes,arely.reyes@correo.buap.mx,Colegio San Ángel campus Puebla,No,"Diagnosticado con arritmia cardiaca, sin mayor complicación",Arely Reyes Núñez,Mamá,2221816510.0,Alexéi Parrilla Efiménkova,2223233944.0,H,,Primaria,Elemental,Pagada,,Verano -2021,No,,0.0,[],[]
+43,Alessio Caltagirone Valencia,edith.valencia@live.com.mx,Centro Educativo Camino Real,Ninguna,Ninguna,Alma Edith Valencia Hernández,Mamá,2221562730.0,Gianluca Caltagirone,2221622609.0,H,,Primaria,Elemental,Pagada,,Clase - 2021,No,,0.0,[],[]
+44,Diego Michel Verhaar Carrasco ,verhaarmm@yahoo.com,Luminos,No,No,Mark Michiel Verhaar ,Luz Carrasco Medrano ,2226614856.0,Luz Carrasco Medrano ,2228138453.0,H,,Primaria,Elemental,Pagada,,Verano -2021,No,,0.0,[],[]
+45,Melisa,,,,,,,,,,M,,Primaria,Elemental,Pagada,,Verano -2021,No,,0.0,[],[]
+46,Alexander,,,,,,,,,,H,,Primaria,Elemental,Pagada,,Verano -2021,No,,0.0,[],[]
+47,Sebastian Barredo Peregrina,myriampc@gmail.com,Roots & wings,Tomate verde,—,Myriam Peregrina Cabrera,Madre,2223516946.0,Santiago BARREDO barberena ,2227084766.0,H,,Primaria,Elemental,Pagada,,Clase - 2021,Si,,0.0,[],[]
+48,Alec Lópezsainz Arnal ,deborah.arnal@gmail.com,Tribu,Ninguna ,Ninguna ,Deborah Arnal Luna ,Madre,2222608244.0,Rodrigo Lópezsainz Velasco ,2222382690.0,H,,Primaria,Elemental,Pagada,,Clase - 2021,No,,0.0,[],[]
+49,Jose Manuel Leal Dominguez,lealmierfernando@gmail.com,Colegio Americano,Papaya y soya ,Ninguna ,Fernando Leal Mier,Padre,2222380550.0,Janet Dominguez Lozano,2228647045.0,H,,Preescolar,Preescolar,Pagada,,Clase - 2021,No,,0.0,[],[]
+50,Mateo Sánchez Blanco,blancodurandiana@gmail.com,Aún no asiste a la escuela. ,A LOS LÁCTEOS,Ninguna,Diana Blanco Durán ,Mamá,2227822807.0,Emmanuel Sánchez Carreón  (papá),2224025408.0,H,,Preescolar,Preescolar,Pagada,,Clase - 2022,No,,0.0,[],[]
+51,Bruno Saldívar Michel,globaloxs@gmail.com,Col. Humanista,No,Sin observaciones,Oswaldo Saldívar Pérez,Padre,2221730715.0,Paola Michel,2225508802.0,H,,Primaria,Elemental,Pagada,,Clase - 2022,No,,0.0,[],[]
+52,Emilio Castro Bernardi,rbernardir@gmail.com,Instituto Damicis,Al polvo y ácaros ,Tiene Dermatitis atópica,Raquel Bernardi Reyes ,Mamá,5531733473.0,Victor Manuel Castro Morales,5531733331.0,H,,Primaria,Elemental,Pagada,,Clase - 2022,No,,0.0,[],[]
+53,Oscar Darío Martínez Miranda Campero ,infocryamexico@gmail.com,Montessori Quetzalli ,Ninguna ,. ,Ana Paola Miranda ,Madre ,7471629913.0,Oscar Martinez Dolejal ,7471621440.0,H,,Primaria,Elemental,Pagada,,Clase - 2022,Si,,0.0,[],[]
+54,Pablo,,,,,,,,,,H,,Primaria,Elemental,Pagada,,Clase - 2022,No,,0.0,[],[]
+55,Leone Arek Re Garibay,titanpyc@gmail.com,Goleman,Ninguna,Ninguna,Felice Re Bo,Papá,9381522691.0,Patricia Athenea Garibay de la Tejera,9381529939.0,H,,Preescolar,Preescolar,Pagada,,Clase - 2022,No,,0.0,[],[]
+56,Fahra Saldívar Michel,,,,,,,,,,M,,Preescolar,Elemental,Condonada,,Clase - 2022,No,,0.0,[],[]
+57,Mateo Corona Justo ,vtepa96@icloud.com,Colegio la Merced ,Ninguna ,Ninguna ,Raquel Corona Justo,Madre ,2225500363.0,Porfirio Corona Justo ,2271093488.0,H,,Primaria,Elemental,Condonada,,Clase - 2022,No,,0.0,[],[]
+58,Iván,,,,,,,,,,H,,-,Elemental,Condonada,,Clase - 2022,No,,0.0,[],[]
+59,Stephan Sproll Arenaa,virginiaarenasp@gmail.com,Humboldt,Ninguna conocida ,Ninguna,Virginia Arenas Palau,Mamá ,2221231587.0,Stephan Sproll ,2225057285.0,H,,Preescolar,Preescolar,Pagada,,Clase - 2022,No,,0.0,[],[]
+60,Nobu Ryan Kano Cheng,shuothegreat@gmail.com,Inbloquet Camino Real,Ninguna,Ninguna,Shuo Cheng,Madre,522227000000.0,Alejandro Kano Cheng,2221133214.0,H,,Primaria,Elemental,Pagada,,Clase - 2022,No,,0.0,[],[]
+61,Diego Garcia Cabrera,danska_garcia@hotmail.com,Concrete Primary ,Ninguna,Ninguna,Daniel Garcia,Papá ,528642000000.0,Adelaida Perez ,2227074223.0,H,,Primaria,Elemental,Condonada,,Clase - 2022,No,,0.0,[],[]
+62,Emiliano de la Vega cona ,tcona@hotmail.com,Luminos ,No,Ninguna ,Tiziana cona morales,Madre ,2222581033.0,Víctor de la Vega Alonso ,2222387524.0,H,,Primaria,Elemental,Pagada,,Clase - 2022,No,,0.0,[],[]
+63,Emilio Nocedal Díaz ,giovanna.diazs@gmail.com,Luminos,No,A veces le da miedo entrar solo a clase ,Giovanna Díaz,Mamá ,2226800452.0,Alma Delia Sifuentes ,2228655743.0,H,,Primaria,Elemental,Pagada,,Clase - 2022,Si,,0.0,[],[]
+64,Regina Nocedal Díaz ,giovanna.diazs@gmail.com,Luminos ,No,Le cuesta trabajo quedarse sola ,Giovanna Diaz Sifuentes,Mamá ,2226800452.0,Alma Delia Sifuentes ,2228655746.0,M,,Primaria,Elemental,Pagada,,Clase - 2022,Si,,0.0,[],[]
+65,Patrick Lee Osorio,vicky_osorio@hotmail.com,AEC,No,Ninguno ,Virginia Osorio,Madre,2222936362.0,Mauricio Osorio ,2221920540.0,H,,Preescolar,Preescolar,Pagada,,Clase - 2022,No,,0.0,[],[]
+66,Enrique Emiliano Nañez Oliva,psnenp@hotmail.com,AEC,Ninguna ,Ninguna,Noé Enrique Nañez Pon,Padre,2221570057.0,Anahí Oliva Ruiz,2224245423.0,H,,Preescolar,Preescolar,Pagada,,Clase - 2022,No,,0.0,[],[]
+67,Angel Genchi Toledo ,lilitoledoa@yahoo.com.mx,Hikma,Ninguna ,-,Ana Lilia Toledo Aguilar,Madre,2226622999.0,Roberto Genchi Recinos,22221766041.0,H,,Primaria,Elemental,Pagada,,Clase - 2022,No,,0.0,[],[]
+68,Ethan Rojas Reyes ,carc63@hotmail.com,Escuela primaria Federal Benito Juárez ,Ninguna ,Estornuda si siente frio,Claudia Aurora Reyes Cordero ,Madre,2228640196.0,Alicia Cordero Valera ,2225768232.0,H,,Primaria,Elemental,Pagada,,Clase - 2022,no,,0.0,[],[]
+69,Israel Briones Cano,danielacano26@gmail.com,Ho,Ninguna,Ninguna,Daniela Cano,Madre,14233208494.0,Israel Briones,14244881690.0,H,,Preescolar,Preescolar,Pagada,,Clase - 2022,No,,0.0,[],[]
+70,Ivannia marmolejo marina,karelia98@hotmail.com,colegio intercanadiense,no,.,karelia marmolejo marina,mama,2211200384.0,marina marina trujillo,7351940652.0,M,,Preescolar,Preescolar,Pagada,,Clase - 2023,No,,0.0,[],[]
+71,Sebastián Fernández Pérez ,ferpt@hotmail.com,Montessori Cholloyan ,Polvo ,—-,Maria Fernanda Pérez trespalacios ,Mamá ,5554155903.0,Ivan Fernández fabris ,5543401965.0,H,,Primaria,Elemental,Pagada,,Clase - 2023,No,,0.0,[],[]
+72,Matías Emilio Luqueño Martínez,gerardo.luqueno@gmail.com,Instituto Iñigo,A la humedad y el polvo,,Gerardo Luqueño Cortés,Padre,2225882818.0,Monserrat Martínez García,2212657409.0,H,,Primaria,Elemental,Pagada,,Clase - 2023,No,,0.0,[],[]
+73,Renata García ,denis_sh@hotmail.com,Dam,Alergia estacional ,Es muy inteligente ,Denisse Sánchez ,Mamá ,5532684745.0,Sony Sánchez ,5544415689.0,M,,Preescolar,Elemental,Pagada,,Clase - 2023,No,,0.0,[],[]
+74,Iker Garces Jimenez ,activacionfed@hotmail.com,Eduardo Arroyo Cruz,Ninguna ,.,Joel Garcés Huerta ,Papá ,2227089613.0,Dulce Lucia Jiménez Fernández ,2221141506.0,H,,Primaria,Elemental,Pagada,,Clase - 2023,Si,,0.0,[],[]
+75,Matías Chiguil Jiménez ,marinera22@aoutkook.es,Le Bret,"Polvo, humedad, animales y ácaros.",Padece alergia renitis con frecuencia por lo regularmente lo verán agripado.,Alma Yanet Jiménez Córdova ,Mamá ,9381811519.0,Estela Rensol,7821963465.0,H,,Primaria,Elemental,Pagada,,Clase - 2023,No,,0.0,[],[]
+76,Valeria Loranca Montiel ,Janfrey250507@gmail.com,Margarita Masa de Juárez ,Ninguna ,Ninguna ,Janet Montiel Hernández ,Mamá ,2221566144.0,Rafael Loranca Tepanecatl ,2221471659.0,M,,Primaria,Elemental,Pagada,,Clase - 2023,No,,0.0,[],[]
+77,Josué Santiago Hernández Salgado ,jovs2201@gmail.com,Motolinia,Ninguna ,Ninguna ,Anay Salgado Lopez ,Madre,2211674746.0,Ana Lidia turrent,2222368103.0,H,,Primaria,Elemental,Pagada,,Clase - 2023,No,,0.0,[],[]
+78,Sebastián Salinas Martínez ,macmc_88@hotmail.com,Celap,Ninguna ,Tiene problemas de lenguaje y se le complica la lecto escritura,Mary Carmen Martínez Cruz ,Mamá ,2212605702.0,Carmen Cruz ,2224600229.0,H,,Primaria,Elemental,Pagada,,Clase - 2023,No,,0.0,[],[]
+79,Sofía Salinas Martínez ,macmc_88@hotmail.com,Celap,Ninguna ,Es un poco tímida y le da pena enseñar sus manos,Mary CarmenMartínez Cruz ,Mamá ,2212605702.0,Carmen Cruz ,2224600229.0,M,,Primaria,Elemental,Pagada,,Clase - 2023,No,,0.0,[],[]
+80,Valentino Díaz Aldrete ,alednz10@yahoo.com,Montessori ,Ninguna ,Ninguna ,Alejandra Aldrete Mercado ,Madre,2224858365.0,Mariano Díaz Cadena,9621083681.0,H,,Preescolar,Preescolar,Pagada,,Clase - 2023,No,,0.0,[],[]
+81,Emilio Cortés Bustos,lioscatpetshop@gmail.com,Home scholling,Ninguna ,Ninguna ,Magda Mirielle Cortés Bustos,Madre,2211462006.0,Manuel Alejandro Cortez Bustos,2211462008.0,H,,Preescolar,Elemental,Pagada,,Clase - 2023,No,,0.0,[],[]
+82,Matthias Woyke Alonso ,tete26_@hotmail.com,Instituto Oriente ,Ninguna,Ninguna,María Esther Alonso Rivera ,Madre,2221154053.0,Norman Woyke ,2471044651.0,H,,Primaria,Elemental,Pagada,,Clase - 2023,No,,0.0,[],[]
+83,Santiago Morales Castañeda,gabii-juarez@hotmail.com,Instituto Damicis,Leche,En caso de ronchitas hablar,Gabriela Castañeda juárez ,Madre,5534294404.0,Alfredo Morales Reyes,2215787062.0,H,,Primaria,Elemental,Condonada,,Clase - 2023,Si,,0.0,[],[]
+84,Santiago Agüero López ,jocelynlopezg@yahoo.com,Montessori Xaltepec ,Al polvo ,Sati es alérgico al polvo y a al humo ,Jocelyn  López González ,Madre,9515482950.0,Javier Agüero Carranza ,9515080414.0,H,,Primaria,Elemental,Pagada,,Clase - 2023,No,,0.0,[],[]
+85,Dante Sebastian Canseco Porras ,luiscansecoart@gmail.com,Colegio intercanadiense ,"No, hasta el momento ",Es muy listo y creativo pero se distrae mucho ,Luis Canseco Soto ,Padre ,9515690487.0,Daniela Porras Pérez Guerrero ,9511501378.0,H,,Secundaria,Elemental,Pagada,,Clase - 2023,No,,0.0,[],[]
+86,Alejandro Barrios Alcázar,alejandro.ba@gmail.com,CEA Cuautlancingo,"Pelusa perro, gato, acaros, soya",TDAH,Alejandro Barrios Morfín,Padre,2211724255.0,Liliana Alcázar Gazca,2227695633.0,H,,Primaria ,Elemental,Pagada,,Clase - 2023,No,,0.0,[],[]
+87,Itzae,,,,,,,,,,H,,,Elemental,Condonada ,,Clase - 2023,no,,0.0,[],[]
+88,Tamara,,,,,,,,,,M,,Preescolar,Preescolar,Condonada,,Clase - 2023,no,,0.0,[],[]
+89,Paulet,,,,,,,,,,M,,Primaria,Elemental,Condonada,,Clase - 2023,No,,0.0,[],[]
+90,Emiliano moreno tejeda ,elidethtejeda@gmail.com,kukaramakara ,no,no,Greise Moreno Tejeda ,mamá ,2227169253.0,Fernanda Cordero ,9671516891.0,H,,Preescolar,Preescolar,Pagada,,Clase - 2023,No,,0.0,[],[]
+91,Paulo Peredo,peredo.pa@gmail.com,Playland Academy ,Medio ambiente ,Está en tratamiento de asma y bronquios ,Paula Peredo,Madre,2211615797.0,Alberto Robredo ,5637136484.0,H,,Preescolar,Preescolar,Pagada,,Clase - 2023,No,,0.0,[],[]
+92,Santiago Sosa Zarate,sosaoliverluisalfredo@gmail.com,Centro de Eduación Integral Teocalli,Alergia a las sulfas,,Luis Alfredo Sosa Oliver,Papá,2213081338.0,Alma Patricia Zarate Buentello,2215924768.0,H,,Primaria,Elemental,Condonada,,Clase - 2023,No,,0.0,[],[]
+93,Eiza Sosa Zarate,sosaoliverluisalfredo@gmail.com,Centro de Eduación Integral Teocalli,,,Luis Alfredo Sosa Oliver,Papá,2213081338.0,Alma Patricia Zarate Buentello,2215924768.0,M,,Primaria,Elemental,Condonada,,Clase - 2023,No,,0.0,[],[]
+94,Minerva Pérez Moran,Moran.monserrath@gmail.com,Instituto Damicis ,No tiene,Le encanta aprender cosas nuevas ,Monserrath Moran Pineda ,Mamá ,5525410403.0,Marco Antonio Pérez de la Rosa,5523141218.0,M,,Preescolar,Preescolar,Condonada,,Clase - 2024,Si,,0.0,[],[]
+95,Sebastian montes de oca cruz y corro,morrmex@gmail.com,Damicis,Ninguna,"Gusto por la programacion , quisiera aprender ingenieria",Maria Guadalupe Cruz y Corro García ,Mama,2224818536.0,Raul montes de oca rojas,2228125254.0,H,,Primaria,Elemental,Pagada,,Clase -2024,no,,0.0,[],[]
+96,Daniel Forcelledo García ,soonniiaa@hotmail.com,Colegio Americano ,Ninguna,Le encanta armar legos !,Sonia Garcia Sacre,Mamá ,2227646759.0,Daniel Forcelledo Salmeron ,2222605912.0,H,,Primaria,Elemental,Pagada,,Clase - 2024,No,,0.0,[],[]
+97,Romina lemus lima,romilemuslima.11@gmail.com,montessori 5o sol,no,no,jose roberto lemus nava,padre,2221170882.0,viridiana lima morales ,2226765428.0,M,,Primaria,Elemental,Condonada,,Clase - 2024,Si,,0.0,[],[]
+98,Niña Nueva,,,,,,,,,,M,,Preescolar,Preescolar,Condonada,,Clase - 2024,No,,0.0,[],[]
+99,Julian Romero Romero,ariadnabinepue@gmail.com,Casa del Nonno ,Ninguna ,Ninguna ,Juan Manuel Romero Osorio ,Padre,2222934078.0,Ariadna Romero Ceballos ,2211739979.0,H,,Preescolar,Preescolar,Condonada,,Clase - 2024,Si,,0.0,[],[]
+100,Sara Lerma Tejero,Auroritapedrero@hotmail.com,Humboldt,Ninguna,Necesitan orden y disciplina que yo no les doy :) poner atenciona lo que hacen,Aurora Tejero,Madre,2222173010.0,Lourdes Lerma,2223108937.0,M,,Preescolar,Elemental,Condonada,,Clase - 2024,No,,0.0,[],[]
+101,Elisa Lerma Tejero,,,,,,,,,,M,,Preescolar,Elemental,Condonada,,Clase - 2024,No,,0.0,[],[]
+102,Daniel Ceballos,,,,,,,,,,H,,Preescolar,Preescolar,Pagada,,Clase - 2024,Si,,0.0,[],[]
+103,Prueba 01,prueba@gmail.com,Prueba 01,Ninguna Prueba ,Ninguna,Prueba 01,Prueba 01,12345678/9,,,H,11/04/2025,Secundaria 3,Elemental,Condonada,06/04/2010,Clase - 2025,No,12/04/2025,,"[{'fecha': '11/04/2025', 'monto': 350.0, 'metodo': 'Efectivo'}, {'fecha': '11/04/2025', 'monto': 100.0, 'metodo': 'Efectivo'}, {'fecha': '13/04/2025', 'monto': 50.0, 'metodo': 'Efectivo'}]","[{'fecha': '12/04/2025', 'estado': 'Programada', 'comentario': ''}, {'fecha': '19/04/2025', 'estado': 'Programada', 'comentario': ''}, {'fecha': '26/04/2025', 'estado': 'Programada', 'comentario': ''}, {'fecha': '03/05/2025', 'estado': 'Programada', 'comentario': ''}]"
+105,P,P,P,Ninguna,Ninguna,P,P,P,,,H,13/04/2025,Preescolar,Elemental,Pagada,02/04/2025,Clase - 2025,No,13/04/2025,,"[{'fecha': '13/04/2025', 'monto': 250.5, 'metodo': 'Transferencia'}, {'fecha': '13/04/2025', 'monto': 200.0, 'metodo': 'Efectivo'}]","[{'fecha': '14/04/2025', 'estado': 'Programada', 'comentario': ''}, {'fecha': '21/04/2025', 'estado': 'Programada', 'comentario': ''}, {'fecha': '28/04/2025', 'estado': 'Programada', 'comentario': ''}, {'fecha': '05/05/2025', 'estado': 'Programada', 'comentario': ''}]"
+108,Z,Z,Z,Ninguna,Ninguna,Z,Z,Z,Z,Z,H,13/04/2025,Primaria 1,,Pagada,01/04/2025,Clase - 2025,Si,13/04/2025,,"[{'fecha': '13/04/2025', 'monto': 500.0, 'metodo': 'Efectivo'}]",[]

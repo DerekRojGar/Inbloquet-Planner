@@ -1,3 +1,4 @@
+#formularios_view.py
 import streamlit as st
 from models.actividades_model import ESCUELAS, GRUPOS_POR_ESCUELA, DIAS_ESPAÑOL
 from datetime import datetime
