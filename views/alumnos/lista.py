@@ -16,7 +16,8 @@ def render_lista_alumnos(alumnos, busqueda):
     """
     # Filtro de ordenamiento
     col_sort, _ = st.columns([2, 2])
-    criterio = col_sort.selectbox("📋 Ordenar alumnos por:", ["A-Z", "Estado de pago", "ID"], key="ordenamiento")
+    # Por defecto, selecciona "ID"
+    criterio = col_sort.selectbox("📋 Ordenar alumnos por:", ["A-Z", "Estado de pago", "ID"], key="ordenamiento", index=2)
 
     if criterio == "A-Z":
         alumnos = sorted(alumnos, key=lambda x: x.get("Nombre", "").lower())
@@ -37,36 +38,49 @@ def render_lista_alumnos(alumnos, busqueda):
             matricula = alumno.get("Matricula", "")
             # Se crean 7 columnas:
             # [0]: ID, [1]: Nombre, [2]: Estado de pago, [3]: Ver detalles, [4]: Editar, [5]: Eliminar, [6]: Exportar individual
-            cols = st.columns([1, 3, 2, 2, 1, 1, 1])
+            cols = st.columns([1, 3, 2, 2, 1, 1, 1, 1])
             cols[0].markdown(f"**{matricula}**")
             cols[1].markdown(f"**{alumno.get('Nombre', '')}**")
             
             # Estado de inscripción (status de pago) con indicador de color
             estado_insc = alumno.get("Inscripción", "Pagada")
-            color_insc = "#4BB1E0" if estado_insc == "Pagada" else "#FF4B4B"
+            if estado_insc == "Pagada":
+                color_insc = "#4BB1E0"
+            elif estado_insc == "Condonada":
+                color_insc = "#FFD700"
+            elif estado_insc == "Pendiente":
+                color_insc = "#FF4B4B"
+            else:
+                color_insc = "#4BB1E0"
             cols[2].markdown(f"<span style='color: {color_insc};'>●</span> {estado_insc}",
                               unsafe_allow_html=True)
 
+            # Estado activo/inactivo
+            vigente = alumno.get("Vigente", "activo")
+            color_vigente = "#4BB543" if vigente == "activo" else "#FF4B4B"
+            cols[3].markdown(f"<span style='color: {color_vigente};'>●</span> {vigente.capitalize()}", unsafe_allow_html=True)
+
             # Botón para ver detalles (si se pulsa, guarda el alumno en sesión)
-            if cols[3].button("👁️", key=f"ver_{matricula}"):
+            if cols[4].button("👁️", key=f"ver_{matricula}"):
                 st.session_state.alumno_detalle = alumno
                 st.session_state.modo_edicion = None
 
             # Botón para editar (pone en modo edición)
-            if cols[4].button("✏️", key=f"editar_{matricula}"):
+            if cols[5].button("✏️", key=f"editar_{matricula}"):
                 st.session_state.modo_edicion = "editar"
                 st.session_state.alumno_editando = alumno
                 st.session_state.alumno_detalle = None
+                st.rerun()
 
             # Botón para eliminar el alumno (se elimina de la lista y se recarga la app)
-            if cols[5].button("🗑️", key=f"eliminar_{matricula}"):
+            if cols[6].button("🗑️", key=f"eliminar_{matricula}"):
                 nuevos_alumnos = [a for a in st.session_state.alumnos if a.get("Matricula") != matricula]
                 st.session_state.alumnos = nuevos_alumnos
                 st.success(f"Alumno {matricula} eliminado.")
                 st.rerun()
 
             # Botón para exportar individualmente la ficha del alumno a Excel
-            if cols[6].button("📤 Exportar", key=f"exportar_{matricula}"):
+            if cols[7].button("📤 Exportar", key=f"exportar_{matricula}"):
                 filename = f"Ficha_{matricula}.xlsx"
                 exportar_alumno_inbloquet(alumno, filename)
                 with open(filename, "rb") as f:

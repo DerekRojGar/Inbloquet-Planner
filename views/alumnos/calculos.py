@@ -23,25 +23,17 @@ def calcular_clases_restantes(fecha_inicio):
 
     return clases_restantes
 
-def generar_calendario_clases(fecha_inicio):
-    """Genera 4 clases semanales a partir de la fecha de inicio omitiendo domingos"""
+def generar_calendario_clases(fecha_inicio, cantidad=4):
+    """
+    Genera una lista de dicts de clases a partir de una fecha de inicio.
+    Cada clase es semanal (cada 7 días).
+    """
     clases = []
-    current_date = fecha_inicio
-    clases_generadas = 0
-
-    while clases_generadas < 4:
-        # Saltar domingos
-        if current_date.weekday() == 6:
-            current_date += timedelta(days=1)
-            continue
-
-        clases.append({
-            'fecha': current_date.strftime("%d/%m/%Y"),
+    for i in range(cantidad):
+        clase = {
+            'fecha': (fecha_inicio + timedelta(days=7 * i)).strftime("%d/%m/%Y"),
             'estado': 'Programada',
             'comentario': ''
-        })
-
-        current_date += timedelta(days=7)
-        clases_generadas += 1
-
+        }
+        clases.append(clase)
     return clases

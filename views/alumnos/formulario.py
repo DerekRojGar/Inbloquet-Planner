@@ -3,15 +3,14 @@ from datetime import datetime, date
 import pandas as pd
 from models.alumnos_model import guardar_alumnos, obtener_proxima_matricula
 
-# Actualización en las opciones de grado (se incluyen dos nuevas opciones para Inbloquet)
+# Opciones de grado general simplificadas
 OPCIONES_GRADO = [
-    'Preescolar', 'Primaria 1', 'Primaria 2', 'Primaria 3',
-    'Secundaria 1', 'Secundaria 2', 'Secundaria 3',
-    'Bachillerato 1', 'Bachillerato 2', 'Bachillerato 3',
-    'Inbloquet: Elemental', 'Inbloquet: Preescolar'
+    'Preescolar', 'Primaria', 'Secundaria', 'Bachillerato', 'Universidad'
 ]
-OPCIONES_TIPO_CURSO = ["Clase", "Verano", "Intensivo"]
-METODOS_PAGO = ['Efectivo', 'Transferencia', 'Tarjeta']
+# Cambiar "Intensivo" por "Taller"
+OPCIONES_TIPO_CURSO = ["Clase", "Verano", "Taller"]
+# Agregar "Pendiente" a métodos de pago
+METODOS_PAGO = ['Efectivo', 'Transferencia', 'Tarjeta', 'Pendiente']
 COSTO_PAQUETE = 500.0
 OPCIONES_GRADO_INBLOQUET = [
     'Inbloquet: Elemental',
@@ -32,15 +31,17 @@ def render_formulario_alumno():
         # Generar matrícula automática si es creación, o usar la existente en edición
         if st.session_state.modo_edicion == 'crear':
             matricula = obtener_proxima_matricula()
+            matricula_disabled = True
         else:
             matricula = alumno.get('Matricula', '')
+            matricula_disabled = True  # Siempre inhabilitado
         
         # Sección 1: Información Básica
         st.subheader("📝 Información Básica")
         col1, col2 = st.columns(2)
         
         with col1:
-            st.text_input("Matrícula*", value=matricula, disabled=True)
+            st.text_input("Matrícula*", value=matricula, disabled=matricula_disabled)
             nombre = st.text_input("Nombre completo*", value=alumno.get('Nombre', ''))
             sexo = st.selectbox(
                 "Sexo*", 
@@ -106,22 +107,34 @@ def render_formulario_alumno():
                 ['activo', 'inactivo'], 
                 index=0 if alumno.get('Vigente', 'activo') == 'activo' else 1
             )
+            # Agregar "Pendiente" a estado de inscripción
             estado_inscripcion = st.selectbox(
                 "Estado Inscripción*",
-                ["Pagada", "Condonada"],
-                index=0 if alumno.get('Inscripción', 'Pagada') == 'Pagada' else 1
+                ["Pagada", "Condonada", "Pendiente"],
+                index=["Pagada", "Condonada", "Pendiente"].index(alumno.get('Inscripción', 'Pagada')) if alumno.get('Inscripción', 'Pagada') in ["Pagada", "Condonada", "Pendiente"] else 0
             )
 
         # Sección 3: Fechas Importantes
         st.subheader("📅 Fechas Importantes")
         col_fechas = st.columns(3)
         with col_fechas[0]:
-            fecha_inscripcion = st.date_input(
-                "Fecha de Inscripción*",
-                value=pd.to_datetime(alumno.get('Fecha Inscripción'), dayfirst=True).date() if alumno.get('Fecha Inscripción') else date.today(),
-                min_value=date(1900, 1, 1),
-                max_value=date(2100, 12, 31)
-            )
+            # Inhabilitar edición de fecha de inscripción si es edición
+            if st.session_state.modo_edicion == 'editar':
+                fecha_inscripcion = pd.to_datetime(alumno.get('Fecha Inscripción'), dayfirst=True).date() if alumno.get('Fecha Inscripción') else date.today()
+                st.date_input(
+                    "Fecha de Inscripción*",
+                    value=fecha_inscripcion,
+                    min_value=date(1900, 1, 1),
+                    max_value=date(2100, 12, 31),
+                    disabled=True
+                )
+            else:
+                fecha_inscripcion = st.date_input(
+                    "Fecha de Inscripción*",
+                    value=pd.to_datetime(alumno.get('Fecha Inscripción'), dayfirst=True).date() if alumno.get('Fecha Inscripción') else date.today(),
+                    min_value=date(1900, 1, 1),
+                    max_value=date(2100, 12, 31)
+                )
         with col_fechas[1]:
             fecha_inicio_clases = st.date_input(
                 "Fecha Inicio Clases*",
@@ -197,14 +210,7 @@ def render_formulario_alumno():
                 'Tipo de Curso': tipo_curso,
                 'Año del Curso': año_curso,
                 'Nombre Familiar': nombre_familiar,
-                'Parentesco': parentesco,
-                'Teléfono Familiar': tel_familiar
             }
-            faltantes = [k for k, v in campos_requeridos.items() if not v]
-            if faltantes:
-                st.error(f"❌ Campos obligatorios faltantes: {', '.join(faltantes)}")
-                return
-
             # Construir registro del alumno
             nuevo_alumno = {
                 'Matricula': matricula,
@@ -212,44 +218,44 @@ def render_formulario_alumno():
                 'Sexo': sexo,
                 'Grado': id_grado,
                 'Grado Inbloquet': grado_inbloquet,
-                #'Nivel': 'Elemental',
                 'Escuela de provinencia': escuela_procedencia,
-                'Alergias': alergias,
-                'Observaciones': observaciones,
+                'Tipo de Curso': curso_completo,
+                'Vigente': estado_matricula,
+                'Inscripción': estado_inscripcion,
+                'Fecha Inscripción': fecha_inscripcion,
+                'Fecha Inicio Clases': fecha_inicio_clases,
+                'Cumpleaños': fecha_nacimiento,
+                'Dirección de correo electrónico': email,
                 'Nombre Completo del Familiar': nombre_familiar,
                 'Parentesco': parentesco,
                 'Número de teléfono del familiar': tel_familiar,
                 'Nombre completo de contacto de emergencia': contacto_emergencia,
                 'Número de teléfono de contacto de emergencia': tel_emergencia,
-                'Fecha Inscripción': fecha_inscripcion.strftime("%d/%m/%Y"),
-                'Fecha Inicio Clases': fecha_inicio_clases.strftime("%d/%m/%Y"),
-                'Cumpleaños': fecha_nacimiento.strftime("%d/%m/%Y") if fecha_nacimiento else '',
-                'Inscripción': estado_inscripcion,
-                'Tipo de Curso': curso_completo,
-                'Vigente': 'Si' if estado_matricula == 'activo' else 'No',
-                'pagos': alumno.get('pagos', []) + ([{
-                    'fecha': datetime.today().strftime("%d/%m/%Y"),
-                    'monto': monto_abonado,
-                    'metodo': metodo_pago
-                }] if monto_abonado > 0 else []),
-                'clases': alumno.get('clases', []),
-                'Dirección de correo electrónico': email
+                'Alergias': alergias,
+                'Observaciones': observaciones,
+                'pagos': alumno.get('pagos', []) + [{'monto': monto_abonado, 'metodo': metodo_pago}] if monto_abonado > 0 else alumno.get('pagos', [])
             }
 
             # Guardar cambios según si es creación o edición
             if st.session_state.modo_edicion == 'crear':
+                if 'alumnos' not in st.session_state:
+                    st.session_state.alumnos = []
                 st.session_state.alumnos.append(nuevo_alumno)
             else:
-                index = next(i for i, a in enumerate(st.session_state.alumnos)
-                             if a['Matricula'] == alumno['Matricula'])
-                st.session_state.alumnos[index] = nuevo_alumno
+                # Buscar el índice del alumno a editar
+                index = next((i for i, a in enumerate(st.session_state.alumnos)
+                              if a['Matricula'] == alumno['Matricula']), None)
+                if index is not None:
+                    st.session_state.alumnos[index] = nuevo_alumno
 
             guardar_alumnos(st.session_state.alumnos)
             st.session_state.modo_edicion = None
             st.session_state.alumno_editando = None
+            st.session_state.alumno_detalle = None
             st.rerun()
 
         if cancelled:
             st.session_state.modo_edicion = None
             st.session_state.alumno_editando = None
+            st.session_state.alumno_detalle = None
             st.rerun()

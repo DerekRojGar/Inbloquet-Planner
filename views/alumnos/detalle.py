@@ -18,6 +18,7 @@ def render_detalle_alumno(alumno):
             st.markdown(f"**Sexo:** {alumno.get('Sexo', '').upper()}")
             st.markdown(f"**Fecha Nacimiento:** {alumno.get('Cumpleaños', '')}")
             st.markdown(f"**Estado Inscripción:** {alumno.get('Inscripción', '')}")
+            st.markdown(f"**Estado Matrícula:** {alumno.get('Vigente', 'activo').capitalize()}")  # Mostrar activo/inactivo
             st.markdown(f"**Escuela Procedencia:** {alumno.get('Escuela de provinencia', '')}")
         
         # Datos Académicos
@@ -55,7 +56,10 @@ def render_detalle_alumno(alumno):
         
         st.markdown("##### Información Financiera")
         COSTO_PAQUETE = 500.0
-        total_pagado = sum(p['monto'] for p in alumno.get('pagos', []))
+        # --- Asegurar que pagos y clases sean listas ---
+        pagos = alumno.get('pagos') or []
+        clases = alumno.get('clases') or []
+        total_pagado = sum(p.get('monto', 0.0) for p in pagos)
         saldo_pendiente = COSTO_PAQUETE - total_pagado
         
         cols_fin = st.columns(2)
@@ -66,21 +70,74 @@ def render_detalle_alumno(alumno):
         st.markdown("###### Historial de Pagos")
         if alumno.get('pagos'):
             for pago in alumno['pagos']:
-                st.write(f"{pago['fecha']}: ${pago['monto']:.2f} MXN ({pago['metodo']})")
+                # Usar .get para evitar KeyError si falta 'fecha'
+                fecha = pago.get('fecha', '-')
+                monto = pago.get('monto', 0.0)
+                metodo = pago.get('metodo', '-')
+                st.write(f"{fecha}: ${monto:.2f} MXN ({metodo})")
         else:
             st.info("No hay registros de pago")
         
         st.markdown("###### Seguimiento de Clases")
-        if 'clases' not in alumno:
-            alumno['clases'] = []
-        
-        # Generar clases si no existen
-        if not alumno['clases'] and alumno.get('Fecha Inicio Clases'):
+        if not clases and alumno.get('Fecha Inicio Clases'):
             fecha_inicio = pd.to_datetime(alumno['Fecha Inicio Clases'], dayfirst=True).date()
-            alumno['clases'] = generar_calendario_clases(fecha_inicio)
+            clases = generar_calendario_clases(fecha_inicio)
+            alumno['clases'] = clases
         
+        # --- ADVERTENCIAS DE CLASES Y PAGOS ---
+        clases = alumno.get('clases', [])
+        clases_restantes = len([c for c in clases if c.get('estado', 'Programada') in ['Programada']])
+        clases_tomadas = len([c for c in clases if c.get('estado', 'Programada') not in ['Programada']])
+        # Si no hay clases, intentar generarlas
+        if not clases and alumno.get('Fecha Inicio Clases'):
+            fecha_inicio = pd.to_datetime(alumno['Fecha Inicio Clases'], dayfirst=True).date()
+            clases = generar_calendario_clases(fecha_inicio)
+            alumno['clases'] = clases
+
+        # --- Nueva tanda de clases si las últimas 4 son Tomada/Vista ---
+        if len(clases) >= 4:
+            ultimas_4 = clases[-4:]
+            if all(c.get('estado') in ['Tomada', 'Vista'] for c in ultimas_4):
+                # Solo agregar si no se ha agregado ya la siguiente tanda
+                if not any(c.get('estado') == 'Programada' for c in clases[-4:]):
+                    # Generar nuevas 4 clases a partir de la última fecha
+                    ultima_fecha = pd.to_datetime(clases[-1]['fecha'], dayfirst=True).date()
+                    nuevas_clases = generar_calendario_clases(ultima_fecha, cantidad=4)
+                    # Evitar duplicados
+                    for nc in nuevas_clases:
+                        if nc['fecha'] not in [c['fecha'] for c in clases]:
+                            clases.append(nc)
+                    alumno['clases'] = clases
+
+        # --- Advertencias de pago y clases ---
+        clases_programadas = [c for c in clases if c.get('estado', 'Programada') == 'Programada']
+        clases_restantes = len(clases_programadas)
+        if clases_restantes == 3:
+            if saldo_pendiente > 0:
+                st.warning("⚠️ Quedan 3 clases programadas. Realiza el pago pronto para evitar interrupciones.")
+            else:
+                st.info("ℹ️ Quedan 3 clases. Pronto terminarán sus clases, considera realizar el siguiente pago.")
+        elif clases_restantes == 1:
+            if saldo_pendiente > 0:
+                st.error("🚨 ¡Última clase! Es urgente realizar el pago para continuar el siguiente ciclo.")
+            else:
+                st.warning("⚠️ Última clase. Se requiere pago para continuar después de esta clase.")
+        elif clases_restantes == 0 and all(c.get('estado') in ['Tomada', 'Vista'] for c in clases):
+            if saldo_pendiente <= 0:
+                st.success("✅ Paquete finalizado. El contador de abonos se reinicia, pero el historial de pagos se conserva.")
+
+        # --- Reinicio de abonos y saldo cuando termina el paquete ---
+        if saldo_pendiente <= 0 and all(c.get('estado') in ['Tomada', 'Vista'] for c in clases):
+            # Guardar historial de pagos si no existe
+            if 'pagos_historial' not in alumno:
+                alumno['pagos_historial'] = []
+            alumno['pagos_historial'].extend(pagos)
+            alumno['pagos'] = []
+            saldo_pendiente = COSTO_PAQUETE  # Reinicia saldo pendiente para el siguiente ciclo
+            st.info("ℹ️ Paquete finalizado. El contador de abonos se reinicia, pero el historial de pagos se conserva.")
+
         # Renderización de cada clase con claves únicas usando el índice o matrícula
-        for i, clase in enumerate(alumno['clases']):
+        for i, clase in enumerate(alumno['clases'] or []):
             cols_clase = st.columns([2, 2, 3, 1])
             fecha = cols_clase[0].date_input(
                 "Fecha", 
@@ -100,7 +157,7 @@ def render_detalle_alumno(alumno):
             )
             if cols_clase[3].button("✖️", key=f"eliminar_clase_{alumno.get('Matricula','')}_{i}"):
                 del alumno['clases'][i]
-                st.experimental_rerun()
+                st.rerun()
             
             # Actualizar valores
             alumno['clases'][i] = {
@@ -116,4 +173,4 @@ def render_detalle_alumno(alumno):
                 'estado': 'Programada',
                 'comentario': ''
             })
-            st.experimental_rerun()
+            st.rerun()
