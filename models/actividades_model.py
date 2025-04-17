@@ -2,18 +2,66 @@ import os
 import pandas as pd
 from datetime import datetime, timedelta
 
-# Constantes para la aplicación
-DIAS_ESPAÑOL = ["Lunes", "Martes", "Miércoles", "Jueves", "Viernes", "Sábado"]
-ESCUELAS = ["INBLOQUET", "AEC", "RW Core", "RW Plus", "AB"]
-GRUPOS_POR_ESCUELA = {
-    "INBLOQUET": ["Dario", "Emi/Regi", "Roro Mine", "Santi", "Dani", "Romi", "Iker", "Hermanos"],
-    "AEC": ["Taller 1", "Taller 2"],
-    "RW Core": ["LOBOS", "RINOS", "PANDAS/BUFALOS", "PUMAS/DELFINES"],
-    "RW Plus": ["S DUPLO", "S NORMAL", "M", "L"],
-    "AB": ["PRESCO", "PA", "PB"]
-}
-
+# Nuevos archivos para escuelas y grupos
+ESCUELAS_PATH = os.path.join("data", "escuelas.csv")
+GRUPOS_PATH = os.path.join("data", "grupos.csv")
+MATRICULA_PATH = os.path.join("data", "matricula_final.csv")
 DATA_PATH = os.path.join("data", "actividades.csv")
+
+DIAS_ESPAÑOL = ["Lunes", "Martes", "Miércoles", "Jueves", "Viernes", "Sábado"]
+
+def cargar_escuelas():
+    if os.path.exists(ESCUELAS_PATH):
+        df = pd.read_csv(ESCUELAS_PATH)
+        return df["Escuela"].tolist()
+    # Valor por defecto si no existe el archivo
+    return ["INBLOQUET", "AEC", "RW", "AB"]
+
+def agregar_escuela(nombre):
+    escuelas = cargar_escuelas()
+    if nombre not in escuelas:
+        escuelas.append(nombre)
+        pd.DataFrame({"Escuela": escuelas}).to_csv(ESCUELAS_PATH, index=False)
+
+def cargar_grupos():
+    if os.path.exists(GRUPOS_PATH):
+        df = pd.read_csv(GRUPOS_PATH)
+        grupos = {}
+        for _, row in df.iterrows():
+            escuela = row["Escuela"]
+            grupo = row["Grupo"]
+            if escuela not in grupos:
+                grupos[escuela] = []
+            grupos[escuela].append(grupo)
+        return grupos
+    # Estructura por defecto
+    return {
+        "INBLOQUET": ["Dario", "Emi/Regi", "Roro Mine", "Santi", "Dani", "Romi", "Iker", "Hermanos"],
+        "AEC": ["Taller 1", "Taller 2"],
+        "RW": ["LOBOS", "RINOS", "PANDAS", "BUFALOS", "PUMAS", "DELFINES"],
+        "AB": ["DUPLO ALPHA", "DUPLO BETA", "DUPLO GAMA", "DUPLO OMEGA", "ELEMENTAL ALPHA", "ELEMENTAL BETA", "ELEMENTAL GAMA", "ELEMENTAL OMEGA"]
+    }
+
+def agregar_grupo(escuela, grupo):
+    grupos = cargar_grupos()
+    if escuela not in grupos:
+        grupos[escuela] = []
+    if grupo not in grupos[escuela]:
+        grupos[escuela].append(grupo)
+        # Guardar en CSV
+        rows = []
+        for esc, gs in grupos.items():
+            for g in gs:
+                rows.append({"Escuela": esc, "Grupo": g})
+        pd.DataFrame(rows).to_csv(GRUPOS_PATH, index=False)
+
+def cargar_alumnos_activos():
+    if os.path.exists(MATRICULA_PATH):
+        df = pd.read_csv(MATRICULA_PATH)
+        # Suponiendo que hay una columna 'Activo' y 'Nombre'
+        activos = df[df["Activo"] == 1]["Nombre"].tolist()
+        return activos
+    return []
 
 def generar_semana(año, semana):
     fecha_inicio = datetime(año, 1, 4)

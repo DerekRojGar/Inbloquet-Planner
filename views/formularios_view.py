@@ -1,6 +1,10 @@
 #formularios_view.py
 import streamlit as st
-from models.actividades_model import ESCUELAS, GRUPOS_POR_ESCUELA, DIAS_ESPAÑOL
+from models.actividades_model import (
+    cargar_escuelas, agregar_escuela,
+    cargar_grupos, agregar_grupo,
+    cargar_alumnos_activos, DIAS_ESPAÑOL
+)
 from datetime import datetime
 from openpyxl.styles import Font, Alignment
 from openpyxl.drawing.image import Image
@@ -25,63 +29,105 @@ def render_new_activity_form():
             'notas': ''
         }
 
-    # 2. Formulario con estado persistente
+    escuelas = cargar_escuelas()
+    grupos_por_escuela = cargar_grupos()
+    alumnos_activos = cargar_alumnos_activos()
+
+    # --- ESCUELAS: Agregar fuera del form ---
+    nueva_escuela = st.text_input("Agregar nueva escuela:", "", key="nueva_escuela")
+    if st.button("➕ Agregar Escuela"):
+        if nueva_escuela and nueva_escuela not in escuelas:
+            agregar_escuela(nueva_escuela)
+            escuelas = cargar_escuelas()
+            st.success(f"Escuela '{nueva_escuela}' agregada.")
+            st.rerun()
+
+    # --- GRUPOS: Agregar fuera del form ---
+    escuela_para_grupo = st.selectbox("Selecciona escuela para agregar grupo:", escuelas, key="escuela_para_grupo")
+    nuevo_grupo = st.text_input("Agregar nuevo grupo/taller:", "", key="nuevo_grupo")
+    if st.button("➕ Agregar Grupo"):
+        if nuevo_grupo:
+            agregar_grupo(escuela_para_grupo, nuevo_grupo)
+            st.success(f"Grupo '{nuevo_grupo}' agregado a '{escuela_para_grupo}'.")
+            st.rerun()
+
     with st.form(key='form_nueva_actividad'):
         cols = st.columns(2)
         with cols[0]:
             dia_seleccionado = st.selectbox("Día:", DIAS_ESPAÑOL)
             dia_index = DIAS_ESPAÑOL.index(dia_seleccionado)
-            
-            # Campos con valores desde session_state
-            horario = st.text_input("Horario:", 
+
+            horario = st.text_input("Horario:",
                                    value=st.session_state.form_data['horario'],
                                    placeholder="Ej: 8:00 a.m. - 2:00 p.m.")
-            
-            alumnos = st.text_input("Alumnos:", 
-                                   value=st.session_state.form_data['alumnos'],
-                                   placeholder="Ej: Dereck, Alberto, Emma")
-            
+
             escuelas_seleccionadas = st.multiselect(
-                "Escuelas:", 
-                ESCUELAS,
-                default=st.session_state.form_data['escuelas']
+                "Escuelas:",
+                escuelas,
+                default=st.session_state.form_data['escuelas'],
+                key="escuelas_multiselect"
             )
 
-            # Botón de búsqueda
-            if st.form_submit_button("🔍 Buscar grupos"):
-                grupos_disponibles = set()
-                for escuela in escuelas_seleccionadas:
-                    grupos_disponibles.update(GRUPOS_POR_ESCUELA.get(escuela, []))
-                
-                st.session_state.grupos_disponibles = sorted(grupos_disponibles)
-                st.session_state.form_data.update({
-                    'horario': horario,
-                    'alumnos': alumnos,
-                    'escuelas': escuelas_seleccionadas
-                })
+            # --- BUSCAR GRUPOS ---
+            buscar_grupos = st.form_submit_button("🔍 Buscar grupos")
+            if buscar_grupos:
+                grupos_disponibles = []
+                for esc in escuelas_seleccionadas:
+                    grupos_disponibles.extend(grupos_por_escuela.get(esc, []))
+                grupos_disponibles = sorted(set(grupos_disponibles))
+                # Limpiar grupos seleccionados si ya no pertenecen
+                grupos_seleccionados_validos = [
+                    g for g in st.session_state.form_data['grupos'] if g in grupos_disponibles
+                ]
+                st.session_state.form_data['grupos'] = grupos_seleccionados_validos
+                st.session_state.grupos_disponibles = grupos_disponibles
                 st.rerun()
+            else:
+                grupos_disponibles = st.session_state.get('grupos_disponibles', [])
+                if not grupos_disponibles:
+                    for esc in escuelas_seleccionadas:
+                        grupos_disponibles.extend(grupos_por_escuela.get(esc, []))
+                    grupos_disponibles = sorted(set(grupos_disponibles))
 
             grupos_seleccionados = st.multiselect(
-                "Grupos:", 
-                st.session_state.grupos_disponibles,
-                default=st.session_state.form_data['grupos']
+                "Grupos:",
+                grupos_disponibles,
+                default=st.session_state.form_data['grupos'],
+                key="grupos_multiselect"
             )
+            st.session_state.form_data['grupos'] = grupos_seleccionados
+
+            # --- ALUMNOS ---
+            if "INBLOQUET" in escuelas_seleccionadas and alumnos_activos:
+                alumnos = st.multiselect(
+                    "Alumnos (solo activos INBLOQUET):",
+                    alumnos_activos,
+                    default=st.session_state.form_data['alumnos'].split(", ") if st.session_state.form_data['alumnos'] else [],
+                    key="alumnos_multiselect"
+                )
+                alumnos_str = ", ".join(alumnos)
+            else:
+                alumnos_str = st.text_input(
+                    "Alumnos:",
+                    value=st.session_state.form_data['alumnos'],
+                    placeholder="Ej: Dereck, Alberto, Emma"
+                )
 
         with cols[1]:
-            encargado = st.text_input("Encargado:", 
+            encargado = st.text_input("Encargado:",
                                      value=st.session_state.form_data['encargado'],
                                      placeholder="Ej: Ivan, Gus, Caleb")
-            
-            tema = st.text_area("Descripción:", 
+
+            tema = st.text_area("Descripción:",
                               value=st.session_state.form_data['tema'],
-                              placeholder="Ej: Taller de programación con robots", 
+                              placeholder="Ej: Taller de programación con robots",
                               height=100)
-            
-            maestro = st.text_input("Maestro:", 
+
+            maestro = st.text_input("Maestro:",
                                   value=st.session_state.form_data['maestro'],
                                   placeholder="Ej: Joss, Angie, Kevin")
-            
-            notas = st.text_area("Notas:", 
+
+            notas = st.text_area("Notas:",
                                value=st.session_state.form_data['notas'],
                                placeholder="Ej: Materiales especiales requeridos")
 
@@ -90,7 +136,7 @@ def render_new_activity_form():
             if escuelas_seleccionadas:
                 new_activity = {
                     "Horario": horario or "-",
-                    "Alumnos": alumnos or "-",
+                    "Alumnos": alumnos_str or "-",
                     "Escuelas": ", ".join(escuelas_seleccionadas),
                     "Grupos": ", ".join(grupos_seleccionados) if grupos_seleccionados else "-",
                     "Maestro": maestro or "-",
@@ -128,10 +174,12 @@ def render_new_activity_form():
     return new_activity
 
 def render_edit_activity_form():
-    from models.actividades_model import guardar_datos
+    from models.actividades_model import guardar_datos, cargar_escuelas, cargar_grupos
     
     st.markdown("---")
     st.subheader("✏️ Editor de Actividad")
+    ESCUELAS = cargar_escuelas()
+    GRUPOS_POR_ESCUELA = cargar_grupos()
     
     if "editando" not in st.session_state:
         st.error("⚠️ No hay actividad seleccionada para editar")
