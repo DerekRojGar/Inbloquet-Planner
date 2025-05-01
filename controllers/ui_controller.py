@@ -50,9 +50,11 @@ def run_app():
     # Cabecera principal
     logo_base64 = get_base64_image("Inbloquet.png")
     st.markdown(f"""
-    <div class="header-container">
+    <div class="header-container" style="display: flex; align-items: center; justify-content: space-between;">
         <h1 class="main-title">Planificación Semanal</h1>
-        <img src="data:image/png;base64,{logo_base64}" class="inbloquet-logo" alt="Logo Inbloquet" />
+        <div style="flex:1"></div>
+        <img src="data:image/png;base64,{logo_base64}" class="inbloquet-logo" alt="Logo Inbloquet"
+             style="height: 180px; width: auto; object-fit: contain; margin-left: auto; display: block;" />
     </div>
     """, unsafe_allow_html=True)
     

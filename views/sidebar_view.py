@@ -15,7 +15,7 @@ def render_sidebar(frase_actual):
     rocket_base64 = get_base64_image("rocket-face.png")
     
     with st.sidebar:
-        # Logo más grande (120px) con borde circular
+        # Logo más grande (160px) con borde circular
         st.markdown(
             f"""
             <div style="
@@ -25,7 +25,7 @@ def render_sidebar(frase_actual):
                 padding: 15px;
             ">
                 <img src="data:image/png;base64,{rocket_base64}" 
-                     width="120" 
+                     width="160" 
                      style="border-radius: 50%; 
                             border: 3px solid #4BB1E0;
                             box-shadow: 0 2px 4px rgba(0,0,0,0.1);">

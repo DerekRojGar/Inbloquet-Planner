@@ -34,13 +34,25 @@ def render_lista_alumnos(alumnos, busqueda):
     ]
 
     with st.expander("📋 Listado de Alumnos", expanded=True):
+        # Encabezado de la tabla
+        header_cols = st.columns([1, 3, 2, 2, 1, 1, 1, 1])
+        header_cols[0].markdown("**ID**")
+        header_cols[1].markdown("**Nombre**")
+        header_cols[2].markdown("**Estado de pago**")
+        header_cols[3].markdown("**Estado matrícula**")
+        header_cols[4].markdown("**Ver**")
+        header_cols[5].markdown("**Editar**")
+        header_cols[6].markdown("**Eliminar**")
+        header_cols[7].markdown("**Exportar**")
+
         for alumno in alumnos_filtrados:
             matricula = alumno.get("Matricula", "")
             # Se crean 7 columnas:
             # [0]: ID, [1]: Nombre, [2]: Estado de pago, [3]: Ver detalles, [4]: Editar, [5]: Eliminar, [6]: Exportar individual
             cols = st.columns([1, 3, 2, 2, 1, 1, 1, 1])
-            cols[0].markdown(f"**{matricula}**")
-            cols[1].markdown(f"**{alumno.get('Nombre', '')}**")
+            # Mostrar sin negritas para evitar los **
+            cols[0].markdown(f"{matricula}")
+            cols[1].markdown(f"{alumno.get('Nombre', '')}")
             
             # Estado de inscripción (status de pago) con indicador de color
             estado_insc = alumno.get("Inscripción", "Pagada")

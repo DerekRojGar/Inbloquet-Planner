@@ -18,7 +18,13 @@ def render_detalle_alumno(alumno):
             st.markdown(f"**Sexo:** {alumno.get('Sexo', '').upper()}")
             st.markdown(f"**Fecha Nacimiento:** {alumno.get('Cumpleaños', '')}")
             st.markdown(f"**Estado Inscripción:** {alumno.get('Inscripción', '')}")
-            st.markdown(f"**Estado Matrícula:** {alumno.get('Vigente', 'activo').capitalize()}")  # Mostrar activo/inactivo
+            # Mostrar estado activo/inactivo con color
+            vigente = alumno.get("Vigente", "activo")
+            color_vigente = "#4BB543" if vigente == "activo" else "#FF4B4B"
+            st.markdown(
+                f"**Estado Matrícula:** <span style='color: {color_vigente};'>●</span> {vigente.capitalize()}",
+                unsafe_allow_html=True
+            )
             st.markdown(f"**Escuela Procedencia:** {alumno.get('Escuela de provinencia', '')}")
         
         # Datos Académicos
