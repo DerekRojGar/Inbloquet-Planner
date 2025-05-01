@@ -44,15 +44,20 @@ def render_sidebar(frase_actual):
                 "Número de Semana", 
                 min_value=1, 
                 max_value=53, 
-                value=datetime.today().isocalendar()[1]
+                value=st.session_state.get("num_semana", datetime.today().isocalendar()[1]),
+                key="sidebar_semana"
             )
         with col2:
             año = st.number_input(
                 "Año", 
                 min_value=2023, 
                 max_value=2030, 
-                value=datetime.today().year
+                value=st.session_state.get("num_año", datetime.today().year),
+                key="sidebar_año"
             )
+        # Actualizar session_state global para que los formularios usen estos valores
+        st.session_state.num_semana = semana
+        st.session_state.num_año = año
         
         st.markdown("---")
         

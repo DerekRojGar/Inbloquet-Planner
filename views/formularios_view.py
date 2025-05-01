@@ -98,7 +98,8 @@ def render_new_activity_form():
             st.session_state.form_data['grupos'] = grupos_seleccionados
 
             # --- ALUMNOS ---
-            if "INBLOQUET" in escuelas_seleccionadas and alumnos_activos:
+            # Si solo INBLOQUET está seleccionada, mostrar alumnos activos de INBLOQUET
+            if "INBLOQUET" in escuelas_seleccionadas and len(escuelas_seleccionadas) == 1 and alumnos_activos:
                 alumnos = st.multiselect(
                     "Alumnos (solo activos INBLOQUET):",
                     alumnos_activos,
@@ -174,12 +175,13 @@ def render_new_activity_form():
     return new_activity
 
 def render_edit_activity_form():
-    from models.actividades_model import guardar_datos, cargar_escuelas, cargar_grupos
+    from models.actividades_model import guardar_datos, cargar_escuelas, cargar_grupos, cargar_alumnos_activos
     
     st.markdown("---")
     st.subheader("✏️ Editor de Actividad")
     ESCUELAS = cargar_escuelas()
     GRUPOS_POR_ESCUELA = cargar_grupos()
+    ALUMNOS_ACTIVOS = cargar_alumnos_activos()
     
     if "editando" not in st.session_state:
         st.error("⚠️ No hay actividad seleccionada para editar")
@@ -245,11 +247,25 @@ def render_edit_activity_form():
                 key="edit_grupos"
             )
             
-            alumnos_edit = st.text_input(
-                "Alumnos:", 
-                value=str(actividad.get("Alumnos", "-")).replace("-", "").strip(),
-                key="edit_alumnos"
-            )
+            # --- ALUMNOS ---
+            # Si solo INBLOQUET está seleccionada, mostrar alumnos activos de INBLOQUET
+            if "INBLOQUET" in escuelas_edit and len(escuelas_edit) == 1 and ALUMNOS_ACTIVOS:
+                alumnos_edit_list = [a.strip() for a in str(actividad.get("Alumnos", "-")).replace("-", "").strip().split(", ")]
+                # Filtrar solo los que están en ALUMNOS_ACTIVOS para evitar error de Streamlit
+                alumnos_edit_list = [a for a in alumnos_edit_list if a in ALUMNOS_ACTIVOS]
+                alumnos_edit = st.multiselect(
+                    "Alumnos (solo activos INBLOQUET):",
+                    ALUMNOS_ACTIVOS,
+                    default=alumnos_edit_list,
+                    key="edit_alumnos_multiselect"
+                )
+                alumnos_edit_str = ", ".join(alumnos_edit)
+            else:
+                alumnos_edit_str = st.text_input(
+                    "Alumnos:",
+                    value=str(actividad.get("Alumnos", "-")).replace("-", "").strip(),
+                    key="edit_alumnos"
+                )
 
         with cols[1]:
             encargado_edit = st.text_input(
@@ -290,7 +306,7 @@ def render_edit_activity_form():
                     "Horario": horario.strip() or "-",
                     "Escuelas": ", ".join(escuelas_edit),
                     "Grupos": ", ".join(grupos_edit) if grupos_edit else "-",
-                    "Alumnos": alumnos_edit.strip() or "-",
+                    "Alumnos": alumnos_edit_str.strip() or "-",
                     "Encargado": encargado_edit.strip() or "-",
                     "Maestro": maestro_edit.strip() or "-",
                     "Tema": tema_edit.strip() or "-",

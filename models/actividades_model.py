@@ -5,10 +5,19 @@ from datetime import datetime, timedelta
 # Nuevos archivos para escuelas y grupos
 ESCUELAS_PATH = os.path.join("data", "escuelas.csv")
 GRUPOS_PATH = os.path.join("data", "grupos.csv")
-MATRICULA_PATH = os.path.join("data", "matricula_final.csv")
 DATA_PATH = os.path.join("data", "actividades.csv")
 
 DIAS_ESPAÑOL = ["Lunes", "Martes", "Miércoles", "Jueves", "Viernes", "Sábado"]
+
+# Asegura que el path sea correcto y el nombre del archivo sea insensible a mayúsculas
+def _buscar_matricula_path():
+    data_dir = "data"
+    for fname in os.listdir(data_dir):
+        if fname.lower() == "matriculafinal.csv":
+            return os.path.join(data_dir, fname)
+    return os.path.join(data_dir, "matricula_final.csv")
+
+MATRICULA_PATH = _buscar_matricula_path()
 
 def cargar_escuelas():
     if os.path.exists(ESCUELAS_PATH):
@@ -58,9 +67,26 @@ def agregar_grupo(escuela, grupo):
 def cargar_alumnos_activos():
     if os.path.exists(MATRICULA_PATH):
         df = pd.read_csv(MATRICULA_PATH)
-        # Suponiendo que hay una columna 'Activo' y 'Nombre'
-        activos = df[df["Activo"] == 1]["Nombre"].tolist()
-        return activos
+        # Buscar columna de estado de alumno
+        col_estado = None
+        for col in df.columns:
+            if col.strip().lower() in ["vigente", "activo"]:
+                col_estado = col
+                break
+        col_nombre = None
+        for col in df.columns:
+            if col.strip().lower() in ["nombre", "nombre completo", "nombre completo del alumno"]:
+                col_nombre = col
+                break
+        if not col_nombre:
+            col_nombre = "Nombre"
+        if col_estado:
+            # Considera como activo: "Si", "sí", "SI", "si", "1", "activo", True
+            activos = df[df[col_estado].astype(str).str.strip().str.lower().isin(["si", "sí", "1", "activo", "true"])]
+            return activos[col_nombre].dropna().astype(str).tolist()
+        else:
+            # Si no hay columna de estado, retorna todos los nombres
+            return df[col_nombre].dropna().astype(str).tolist()
     return []
 
 def generar_semana(año, semana):

@@ -1,97 +1,101 @@
-﻿Semana,Año,Fecha,Horario,Alumnos,Escuelas,Grupos,Maestro,Tema,Encargado,Notas
-9,2025,24/02,-,-,AEC,-,-,Salud mental,-,-
-9,2025,24/02,-,"Remy, Dario, Emy",INBLOQUET,-,-,-,-,-
-9,2025,25/02,-,-,AB,PB,-,Oruga,-,Se necesita una estrategia de actividad con Max...
-9,2025,25/02,-,-,INBLOQUET,RINOS,-,Secuencia de pasos,-,-
-9,2025,26/02,-,,"INBLOQUET, RW Core","PANDAS/BUFALOS, PUMAS/DELFINES",-,Secuencia de pasos,-,se nece..
-10,2025,03/03,-,-,AEC,-,-,Super Kahoot,-,-
-10,2025,03/03,-,"Emy, Regi",INBLOQUET,-,-,Programación con Bloques de palabras,-,-
-10,2025,03/03,-,Dario,INBLOQUET,-,-,Sumo,-,-
-10,2025,04/03,-,-,RW,RINOS,-,Programacion con base lunar,-,Armar circuito
-10,2025,04/03,-,-,AB,PRESCO,-,Reciclaje de basura (ACTIVIDAD STEAM),-,Coding Express
-10,2025,04/03,-,-,AB,PB,-,Estacion de policias (Actividad STEAM),-,"Coche, Alarma, Puerta Automaticas, Radar: SPYKE PRIME"
-10,2025,05/03,-,-,AB,PA,-,Motor de Aire (Actividad STEAM),-,"FALTA: Estructura del motor de aire. MATERIALES: EV3 y/o MSM, Botellas, Mangueras, Jeringas"
-10,2025,05/03,-,-,RW,"PANDAS/BUFALOS, PUMAS/DELFINES",-,Programación Base Lunar,-,"Tambien para 1ro y 2do, y su actividad de conexión."
-10,2025,05/03,-,Daniel,INBLOQUET,-,-,Reciclaje,-,-
-10,2025,05/03,-,Romi,INBLOQUET,-,-,"Introducción al 1D, 2D y 3D",-,"Plumas 3D, Hojas, Magnetic"
-10,2025,06/03,-,-,RW,LOBOS,-,Programación,-,-
-10,2025,06/03,-,-,"INBLOQUET, RW",S DUPLO,-,Reciclaje... (por definir),-,-
-10,2025,06/03,-,-,"INBLOQUET, RW",S NORMAL,-,Vehiculos. Tren (por definir),-,-
-10,2025,06/03,-,-,"INBLOQUET, RW",M,-,PLUMAS 3D,-,-
-10,2025,06/03,8:00 a.m. - 9:00 a.m.,-,"INBLOQUET, RW",L,-,Introducción a Python,-,-
-10,2025,07/03,-,Hermanos,INBLOQUET,-,-,BASICO 1,-,-
-10,2025,07/03,-,Dario,INBLOQUET,-,-,"Variables, Condicionales",-,-
-10,2025,08/03,-,Iker,INBLOQUET,-,-,Nanotrones,-,-
-12,2025,17/03,-,-,INBLOQUET,-,-,Suspensión,-,-
-12,2025,18/03,1:30 - 2:25 p.m.,-,RW Core,RINOS,Gustavo,Terminar juego de la viborita,Gustavo,-
-12,2025,18/03,1:30 p.m.,-,AB,PRESCO,Caleb,Feria Steam,Caleb,-
-12,2025,18/03,2:30 p.m.,,AB,-,Caleb,Detalles finales,Caleb,
-12,2025,19/03,12:10 - 1:05 p.m.,,RW Core,PANDAS/BUFALOS,Gustavo,Terminar juego de la viborita,Gustavo,
-12,2025,19/03,1:30 - 2:25 p.m.,-,RW Core,PUMAS/DELFINES,Gustavo,Terminar juego de la viborita,Gustavo,-
-12,2025,19/03,2:30 p.m.,-,AB,PA,Caleb,Presentación STEAM,Ivan,-
-12,2025,20/03,10:00 a.m.,-,RW Core,LOBOS,Gustavo,Terminar juego de la viborita,Gustavo,-
-12,2025,20/03,2:30 p.m.,,RW Plus,S DUPLO,Joseline,Restas con bloques,Maestra Rosio,
-12,2025,20/03,2:30 p.m.,,RW Plus,S NORMAL,Caleb,Coche de carreras,Caleb,
-12,2025,20/03,2:30 p.m.,,RW Plus,M,Kevin,Maquinas y construcción,Gustavo,
-12,2025,20/03,2:30 p.m.,,RW Plus,L,Dereck,Pendiente...,Ivan,
-12,2025,20/03,4:30 p.m.,,INBLOQUET,Santi,Gustavo,Maquinas Buldocer,Gustavo,
-12,2025,21/03,3:30 p.m.,,INBLOQUET,Dario,Gustavo,EV3,Gustavo,
-11,2025,10/03,9:00 a.m. - 2:00 p.m.,-,AEC,"Taller 1, Taller 2",Gustavo,Mario Day,Gustavo,-
-11,2025,10/03,3:00 p.m. -,-,INBLOQUET,Emi/Regi,Caleb,Programación con bloque de palabra,Caleb,-
-11,2025,10/03,3:30 p.m. ,-,INBLOQUET,Dario,Gustavo,Piskel con Mario Bros,Gustavo,-
-11,2025,11/03,1:30 p.m. - 2:25 p.m.,-,RW Core,RINOS,Gustavo,Viborita,Gustavo,-
-11,2025,11/03,1:30 p.m.,-,AB,PRESCO,Caleb,Reciclaje de basura (actividad STEAM),Caleb,-
-11,2025,11/03,2:30 p.m.,-,AB,PB,Caleb,Policía con IA,Caleb,-
-11,2025,12/03,12:10 p.m. - 1:05 p.m.,-,RW Core,PANDAS/BUFALOS,Gustavo,Viborita,Gustavo,-
-11,2025,12/03,1:30 p.m. - 2:25 p.m.,,RW Core,PUMAS/DELFINES,Gustavo,Viborita,Gustavo,
-11,2025,12/03,2:30 p.m.,-,AB,PA,Dereck,Motor de aire (actividad (STEAM),Ivan,-
-11,2025,12/03,-,-,INBLOQUET,Dani,Caleb,Instrumentos,Caleb,1 clase vista
-11,2025,12/03,-,-,INBLOQUET,Romi,Kevin,Introducción EV3,Gustavo,-
-11,2025,13/03,-,-,RW Core,LOBOS,Gustavo,Viborita,Gustavo,-
-11,2025,13/03,-,-,RW Plus,S DUPLO,Joseline,Reciclaje,Maestra Rosio,-
-11,2025,13/03,-,-,RW Plus,S NORMAL,Caleb,Helicóptero,Caleb,-
-11,2025,13/03,-,-,RW Plus,M,Kevin,Pluma 3D,Ivan,-
-11,2025,13/03,-,-,RW Plus,L,Dereck,Condicionales,Ivan,-
-11,2025,13/03,-,-,INBLOQUET,Santi,Gustavo,-,Gustavo,No vino 
-11,2025,14/03,-,-,INBLOQUET,Dario,Gustavo,Programación Spike,Gustavo,-
+﻿Semana,Año,Fecha,Horario,Alumnos,Escuelas,Grupos,Maestro,Tema,Encargado,Notas,dia_index,Día
+9,2025,24/02,-,-,AEC,-,-,Salud mental,-,-,,
+9,2025,24/02,-,"Remy, Dario, Emy",INBLOQUET,-,-,-,-,-,,
+9,2025,25/02,-,-,AB,PB,-,Oruga,-,Se necesita una estrategia de actividad con Max...,,
+9,2025,25/02,-,-,INBLOQUET,RINOS,-,Secuencia de pasos,-,-,,
+9,2025,26/02,-,,"INBLOQUET, RW Core","PANDAS/BUFALOS, PUMAS/DELFINES",-,Secuencia de pasos,-,se nece..,,
+10,2025,03/03,-,-,AEC,-,-,Super Kahoot,-,-,,
+10,2025,03/03,-,"Emy, Regi",INBLOQUET,-,-,Programación con Bloques de palabras,-,-,,
+10,2025,03/03,-,Dario,INBLOQUET,-,-,Sumo,-,-,,
+10,2025,04/03,-,-,RW,RINOS,-,Programacion con base lunar,-,Armar circuito,,
+10,2025,04/03,-,-,AB,PRESCO,-,Reciclaje de basura (ACTIVIDAD STEAM),-,Coding Express,,
+10,2025,04/03,-,-,AB,PB,-,Estacion de policias (Actividad STEAM),-,"Coche, Alarma, Puerta Automaticas, Radar: SPYKE PRIME",,
+10,2025,05/03,-,-,AB,PA,-,Motor de Aire (Actividad STEAM),-,"FALTA: Estructura del motor de aire. MATERIALES: EV3 y/o MSM, Botellas, Mangueras, Jeringas",,
+10,2025,05/03,-,-,RW,"PANDAS/BUFALOS, PUMAS/DELFINES",-,Programación Base Lunar,-,"Tambien para 1ro y 2do, y su actividad de conexión.",,
+10,2025,05/03,-,Daniel,INBLOQUET,-,-,Reciclaje,-,-,,
+10,2025,05/03,-,Romi,INBLOQUET,-,-,"Introducción al 1D, 2D y 3D",-,"Plumas 3D, Hojas, Magnetic",,
+10,2025,06/03,-,-,RW,LOBOS,-,Programación,-,-,,
+10,2025,06/03,-,-,"INBLOQUET, RW",S DUPLO,-,Reciclaje... (por definir),-,-,,
+10,2025,06/03,-,-,"INBLOQUET, RW",S NORMAL,-,Vehiculos. Tren (por definir),-,-,,
+10,2025,06/03,-,-,"INBLOQUET, RW",M,-,PLUMAS 3D,-,-,,
+10,2025,06/03,8:00 a.m. - 9:00 a.m.,-,"INBLOQUET, RW",L,-,Introducción a Python,-,-,,
+10,2025,07/03,-,Hermanos,INBLOQUET,-,-,BASICO 1,-,-,,
+10,2025,07/03,-,Dario,INBLOQUET,-,-,"Variables, Condicionales",-,-,,
+10,2025,08/03,-,Iker,INBLOQUET,-,-,Nanotrones,-,-,,
+12,2025,17/03,-,-,INBLOQUET,-,-,Suspensión,-,-,,
+12,2025,18/03,1:30 - 2:25 p.m.,-,RW Core,RINOS,Gustavo,Terminar juego de la viborita,Gustavo,-,,
+12,2025,18/03,1:30 p.m.,-,AB,PRESCO,Caleb,Feria Steam,Caleb,-,,
+12,2025,18/03,2:30 p.m.,,AB,-,Caleb,Detalles finales,Caleb,,,
+12,2025,19/03,12:10 - 1:05 p.m.,,RW Core,PANDAS/BUFALOS,Gustavo,Terminar juego de la viborita,Gustavo,,,
+12,2025,19/03,1:30 - 2:25 p.m.,-,RW Core,PUMAS/DELFINES,Gustavo,Terminar juego de la viborita,Gustavo,-,,
+12,2025,19/03,2:30 p.m.,-,AB,PA,Caleb,Presentación STEAM,Ivan,-,,
+12,2025,20/03,10:00 a.m.,-,RW Core,LOBOS,Gustavo,Terminar juego de la viborita,Gustavo,-,,
+12,2025,20/03,2:30 p.m.,,RW Plus,S DUPLO,Joseline,Restas con bloques,Maestra Rosio,,,
+12,2025,20/03,2:30 p.m.,,RW Plus,S NORMAL,Caleb,Coche de carreras,Caleb,,,
+12,2025,20/03,2:30 p.m.,,RW Plus,M,Kevin,Maquinas y construcción,Gustavo,,,
+12,2025,20/03,2:30 p.m.,,RW Plus,L,Dereck,Pendiente...,Ivan,,,
+12,2025,20/03,4:30 p.m.,,INBLOQUET,Santi,Gustavo,Maquinas Buldocer,Gustavo,,,
+12,2025,21/03,3:30 p.m.,,INBLOQUET,Dario,Gustavo,EV3,Gustavo,,,
+11,2025,10/03,9:00 a.m. - 2:00 p.m.,-,AEC,"Taller 1, Taller 2",Gustavo,Mario Day,Gustavo,-,,
+11,2025,10/03,3:00 p.m. -,-,INBLOQUET,Emi/Regi,Caleb,Programación con bloque de palabra,Caleb,-,,
+11,2025,10/03,3:30 p.m. ,-,INBLOQUET,Dario,Gustavo,Piskel con Mario Bros,Gustavo,-,,
+11,2025,11/03,1:30 p.m. - 2:25 p.m.,-,RW Core,RINOS,Gustavo,Viborita,Gustavo,-,,
+11,2025,11/03,1:30 p.m.,-,AB,PRESCO,Caleb,Reciclaje de basura (actividad STEAM),Caleb,-,,
+11,2025,11/03,2:30 p.m.,-,AB,PB,Caleb,Policía con IA,Caleb,-,,
+11,2025,12/03,12:10 p.m. - 1:05 p.m.,-,RW Core,PANDAS/BUFALOS,Gustavo,Viborita,Gustavo,-,,
+11,2025,12/03,1:30 p.m. - 2:25 p.m.,,RW Core,PUMAS/DELFINES,Gustavo,Viborita,Gustavo,,,
+11,2025,12/03,2:30 p.m.,-,AB,PA,Dereck,Motor de aire (actividad (STEAM),Ivan,-,,
+11,2025,12/03,-,-,INBLOQUET,Dani,Caleb,Instrumentos,Caleb,1 clase vista,,
+11,2025,12/03,-,-,INBLOQUET,Romi,Kevin,Introducción EV3,Gustavo,-,,
+11,2025,13/03,-,-,RW Core,LOBOS,Gustavo,Viborita,Gustavo,-,,
+11,2025,13/03,-,-,RW Plus,S DUPLO,Joseline,Reciclaje,Maestra Rosio,-,,
+11,2025,13/03,-,-,RW Plus,S NORMAL,Caleb,Helicóptero,Caleb,-,,
+11,2025,13/03,-,-,RW Plus,M,Kevin,Pluma 3D,Ivan,-,,
+11,2025,13/03,-,-,RW Plus,L,Dereck,Condicionales,Ivan,-,,
+11,2025,13/03,-,-,INBLOQUET,Santi,Gustavo,-,Gustavo,No vino ,,
+11,2025,14/03,-,-,INBLOQUET,Dario,Gustavo,Programación Spike,Gustavo,-,,
 11,2025,14/03,-,,INBLOQUET,Hermanos,Ivan,Básico 1,Ivan,"Faltaron
- Hermanos: Emi y Mati"
-13,2025,24/03,9:00,,AEC,"Taller 1, Taller 2",Ivan,Mario Day,Ivan,
-13,2025,24/03,3:00 p.m.,,INBLOQUET,Emi/Regi,Caleb,Condicionales con Bloques de Palabras,Caleb,
-13,2025,24/03,3:30 p.m.,,INBLOQUET,Dario,Gustavo,100 Mexicanos dijeron,Gustavo,
-13,2025,25/03,1:30 - 2:25 p.m.,,RW Core,RINOS,Gustavo,Terminar juego de la viborita,Gustavo,
-13,2025,25/03,1:30 p.m.,,AB,PRESCO,Caleb,"Temática: Animales, Tema: Cadena alimenticia",Caleb,
-13,2025,25/03,2:30 p.m.,,AB,PB,Caleb,Nueva temática (pendiente)...,Caleb,
-13,2025,26/03,2:30 p.m.,,AB,PA,Caleb,Nueva temática (pendiente)...,Caleb,
-13,2025,26/03,12:10 - 1:05 p.m.,,RW Core,PANDAS/BUFALOS,Gustavo,Terminar juego de la viborita,Gustavo,
-13,2025,26/03,1:30 - 2:25 p.m.,,RW Core,PUMAS/DELFINES,Gustavo,Terminar juego de la viborita,Gustavo,
-13,2025,26/03,3:00 p.m.,,INBLOQUET,Dani,Caleb,Sumas con bloques,Caleb,
-13,2025,26/03,4:30,,INBLOQUET,Romi,Gustavo,Tiburón EV3,Gustavo,
-13,2025,27/03,10:00 - 10:53 a.m.,,RW Core,LOBOS,Gustavo,Terminal juego de la viborita,Gustavo,
-13,2025,27/03,2:30 p.m.,,RW Plus,S DUPLO,Joseline,Pendiente,Maestra Rosi,
-13,2025,27/03,2:30 p.m.,,RW Plus,S NORMAL,Caleb,Barco o moto,Caleb,
-13,2025,27/03,2:30 p.m.,,RW Plus,M,-,Inducción a la impresora 3D,Ivan,
-13,2025,27/03,2:30 p.m.,,RW Plus,L,Gustavo,Buldozer,Gustavo,
-13,2025,28/03,3:30 p.m.,,INBLOQUET,Dario,Gustavo,Papa caliente,Gustavo,
-13,2025,28/03,-,,INBLOQUET,Hermanos,-,Básico 1,Ivan,Pendiente
-14,2025,31/03,9:00,,AEC,"Taller 1, Taller 2",Ivan,,Ivan,
-14,2025,31/03,3:00 p.m.,,INBLOQUET,Emi/Regi,Caleb,Programación con python,Caleb,
-14,2025,31/03,3:30 p.m.,,INBLOQUET,Dario,Gustavo,Pluma 3D,Gustavo,
-14,2025,01/04,1:30 - 2:25 p.m.,,RW Core,RINOS,Todos,,Todos,
-14,2025,01/04,1:30 p.m.,,AB,PRESCO,Caleb,"Temática: Animales, Tema: Cadena alimenticia",Caleb,
-14,2025,01/04,2:30 p.m.,,AB,PB,Caleb,Prototipo con SET WEDO,Caleb,
-14,2025,02/04,2:30 p.m.,,AB,PA,Caleb,Prototipo con SET SPIKE,Caleb,
-14,2025,02/04,12:10 - 1:05 p.m.,,RW Core,PANDAS/BUFALOS,Todos,,Todos,
-14,2025,02/04,1:30 - 2:25 p.m.,,RW Core,PUMAS/DELFINES,Todos,Por definir...,Todos,
-14,2025,02/04,3:00 p.m,,INBLOQUET,Dani,Caleb,"Temática: Animales, Tema: Cadena alimenticia",Caleb,
-14,2025,02/04,4:30 p.m.,,INBLOQUET,Romi,Gustavo,Piraña con SPIKE,Gustavo,
-14,2025,03/04,10:00 - 10:53 a.m.,,RW Core,LOBOS,Todos,,Todos,
-14,2025,03/04,2:30 p.m.,,RW Plus,S DUPLO,Caleb,Pendiente,Caleb,
-14,2025,03/04,2:30 p.m.,,RW Plus,S NORMAL,Caleb,Barredora,Caleb,
-14,2025,03/04,2:30 p.m.,,RW Plus,M,Ivan,,Ivan,
-14,2025,03/04,2:30 p.m.,,RW Plus,L,Gustavo,Bola demoledora con EV3,Gustavo,
-14,2025,04/04,3:30 p.m.,-,INBLOQUET,Dario,Gustavo,Plumas 3D,Gustavo,-
-14,2025,04/04,12:10 p.m.,-,INBLOQUET,Hermanos,Ivan,-,Ivan,-
-1,2024,01/01,8:00  10:00,Ejemplo Derek6,"AEC, INBLOQUET, RW Core, RW Plus, AB","Dani, Dario, Emi/Regi, Hermanos, Iker, LOBOS, M, L, PA, PANDAS/BUFALOS, PRESCO, PUMAS/DELFINES, RINOS, Romi, Roro Mine, PB, S DUPLO, S NORMAL, Santi, Taller 1, Taller 2",derek6,Prueba 06,Derek6,Prueba 06
-1,2024,05/01,12:00 a 13:00,Derek 03,"RW Core, RW Plus",-,derek 02,Prueba de descripcion detallada 02,derek 02,Notas adicionales.... 02
-1,2024,06/01,MARTES,MARTES,AB,"PB, PA",MARTES,MARTES,MARTES,MARTES
+ Hermanos: Emi y Mati",,
+13,2025,24/03,9:00,,AEC,"Taller 1, Taller 2",Ivan,Mario Day,Ivan,,,
+13,2025,24/03,3:00 p.m.,,INBLOQUET,Emi/Regi,Caleb,Condicionales con Bloques de Palabras,Caleb,,,
+13,2025,24/03,3:30 p.m.,,INBLOQUET,Dario,Gustavo,100 Mexicanos dijeron,Gustavo,,,
+13,2025,25/03,1:30 - 2:25 p.m.,,RW Core,RINOS,Gustavo,Terminar juego de la viborita,Gustavo,,,
+13,2025,25/03,1:30 p.m.,,AB,PRESCO,Caleb,"Temática: Animales, Tema: Cadena alimenticia",Caleb,,,
+13,2025,25/03,2:30 p.m.,,AB,PB,Caleb,Nueva temática (pendiente)...,Caleb,,,
+13,2025,26/03,2:30 p.m.,,AB,PA,Caleb,Nueva temática (pendiente)...,Caleb,,,
+13,2025,26/03,12:10 - 1:05 p.m.,,RW Core,PANDAS/BUFALOS,Gustavo,Terminar juego de la viborita,Gustavo,,,
+13,2025,26/03,1:30 - 2:25 p.m.,,RW Core,PUMAS/DELFINES,Gustavo,Terminar juego de la viborita,Gustavo,,,
+13,2025,26/03,3:00 p.m.,,INBLOQUET,Dani,Caleb,Sumas con bloques,Caleb,,,
+13,2025,26/03,4:30,,INBLOQUET,Romi,Gustavo,Tiburón EV3,Gustavo,,,
+13,2025,27/03,10:00 - 10:53 a.m.,,RW Core,LOBOS,Gustavo,Terminal juego de la viborita,Gustavo,,,
+13,2025,27/03,2:30 p.m.,,RW Plus,S DUPLO,Joseline,Pendiente,Maestra Rosi,,,
+13,2025,27/03,2:30 p.m.,,RW Plus,S NORMAL,Caleb,Barco o moto,Caleb,,,
+13,2025,27/03,2:30 p.m.,,RW Plus,M,-,Inducción a la impresora 3D,Ivan,,,
+13,2025,27/03,2:30 p.m.,,RW Plus,L,Gustavo,Buldozer,Gustavo,,,
+13,2025,28/03,3:30 p.m.,,INBLOQUET,Dario,Gustavo,Papa caliente,Gustavo,,,
+13,2025,28/03,-,,INBLOQUET,Hermanos,-,Básico 1,Ivan,Pendiente,,
+14,2025,31/03,9:00,,AEC,"Taller 1, Taller 2",Ivan,,Ivan,,,
+14,2025,31/03,3:00 p.m.,,INBLOQUET,Emi/Regi,Caleb,Programación con python,Caleb,,,
+14,2025,31/03,3:30 p.m.,,INBLOQUET,Dario,Gustavo,Pluma 3D,Gustavo,,,
+14,2025,01/04,1:30 - 2:25 p.m.,,RW Core,RINOS,Todos,,Todos,,,
+14,2025,01/04,1:30 p.m.,,AB,PRESCO,Caleb,"Temática: Animales, Tema: Cadena alimenticia",Caleb,,,
+14,2025,01/04,2:30 p.m.,,AB,PB,Caleb,Prototipo con SET WEDO,Caleb,,,
+14,2025,02/04,2:30 p.m.,,AB,PA,Caleb,Prototipo con SET SPIKE,Caleb,,,
+14,2025,02/04,12:10 - 1:05 p.m.,,RW Core,PANDAS/BUFALOS,Todos,,Todos,,,
+14,2025,02/04,1:30 - 2:25 p.m.,,RW Core,PUMAS/DELFINES,Todos,Por definir...,Todos,,,
+14,2025,02/04,3:00 p.m,,INBLOQUET,Dani,Caleb,"Temática: Animales, Tema: Cadena alimenticia",Caleb,,,
+14,2025,02/04,4:30 p.m.,,INBLOQUET,Romi,Gustavo,Piraña con SPIKE,Gustavo,,,
+14,2025,03/04,10:00 - 10:53 a.m.,,RW Core,LOBOS,Todos,,Todos,,,
+14,2025,03/04,2:30 p.m.,,RW Plus,S DUPLO,Caleb,Pendiente,Caleb,,,
+14,2025,03/04,2:30 p.m.,,RW Plus,S NORMAL,Caleb,Barredora,Caleb,,,
+14,2025,03/04,2:30 p.m.,,RW Plus,M,Ivan,,Ivan,,,
+14,2025,03/04,2:30 p.m.,,RW Plus,L,Gustavo,Bola demoledora con EV3,Gustavo,,,
+14,2025,04/04,3:30 p.m.,-,INBLOQUET,Dario,Gustavo,Plumas 3D,Gustavo,-,,
+14,2025,04/04,12:10 p.m.,-,INBLOQUET,Hermanos,Ivan,-,Ivan,-,,
+1,2024,01/01,8:00  10:00,Ejemplo Derek6,"AEC, INBLOQUET, RW Core, RW Plus, AB","Dani, Dario, Emi/Regi, Hermanos, Iker, LOBOS, M, L, PA, PANDAS/BUFALOS, PRESCO, PUMAS/DELFINES, RINOS, Romi, Roro Mine, PB, S DUPLO, S NORMAL, Santi, Taller 1, Taller 2",derek6,Prueba 06,Derek6,Prueba 06,,
+1,2024,03/01,pm10,Iker Garces Jimenez ,INBLOQUET,Roro Mine,pm10,pm10,pm10,pm10,2.0,
+1,2024,05/01,12:00 a 13:00,Derek 03,"RW Core, RW Plus",-,derek 02,Prueba de descripcion detallada 02,derek 02,Notas adicionales.... 02,,
+1,2024,06/01,MARTES,MARTES,AB,"PB, PA",MARTES,MARTES,MARTES,MARTES,,
+18,2025,30/04,PM7,Julian Romero Romero,INBLOQUET,Roro Mine,PM7,PM7,PM7,PM7,,
+18,2025,30/04,pm9,"Emilio Nocedal Díaz , Regina Nocedal Díaz ",INBLOQUET,Emi/Regi,pm9,pm9,pm9,pm9,,
+18,2025,30/04,pm9,"Oscar Darío Martínez Miranda Campero , Emilio Nocedal Díaz , Iker Garces Jimenez",INBLOQUET,"Emi/Regi, Dario, Hermanos",pm9,pm9,pm9,pm9,,Miércoles
